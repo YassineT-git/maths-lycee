@@ -1,0 +1,265 @@
+[
+  {
+    "id": "p02",
+    "level": "premiere",
+    "title": "Suites : construire, représenter et conjecturer",
+    "domain": "Algèbre",
+    "description": "Passer d’un phénomène discret à une suite, étudier ses variations et explorer son comportement.",
+    "prerequisites": [
+      "Calcul littéral",
+      "Fonctions et graphiques",
+      "Boucles simples"
+    ],
+    "objectives": [
+      "Calculer des termes explicites ou récurrents",
+      "Modéliser une construction discrète",
+      "Étudier les variations",
+      "Distinguer conjecture et preuve",
+      "Programmer une recherche de seuil"
+    ],
+    "slides": [
+      {
+        "title": "Une population suivie chaque année",
+        "body": "Une réserve compte $200$ animaux au début de l’année $0$. Un modèle prévoit $20$ animaux supplémentaires par an. On note $u_n$ l’effectif prévu au début de l’année $n$. Alors $u_0=200$, $u_1=220$, $u_2=240$. Une suite associe ici un nombre à chaque date entière."
+      },
+      {
+        "title": "Définition et vocabulaire",
+        "body": "Une suite réelle est une fonction définie sur les entiers naturels, ou à partir d’un certain rang. On écrit $u_n$ ou $u(n)$ pour le terme de rang $n$, et $(u_n)$ pour la suite entière. Si le premier rang est $0$, le troisième terme est $u_2$. Le rang n’est pas la valeur du terme."
+      },
+      {
+        "title": "Une formule explicite",
+        "body": "La formule $u_n=3n^2-1$ permet de calculer directement n’importe quel terme. Par exemple $u_0=-1$, $u_2=11$ et $u_{10}=299$. Pour obtenir $u_{n+1}$, remplacer chaque $n$ par $n+1$ : $u_{n+1}=3(n+1)^2-1$, et non $3n^2$."
+      },
+      {
+        "title": "Une définition par récurrence",
+        "body": "La suite définie par $u_0=2$ et $u_{n+1}=2u_n+1$ se calcule de proche en proche : $u_1=5$, $u_2=11$, $u_3=23$. La valeur initiale et la règle sont toutes deux indispensables. La même règle avec $u_0=0$ donnerait $1$, puis $3$, puis $7$."
+      },
+      {
+        "title": "Formule explicite ou récurrence ?",
+        "body": "La formule $u_n=2^{n+1}-1$ donne les mêmes premiers termes que la récurrence précédente. Vérification : $u_0=1$ ici, donc \\textbf{ce n’est pas la même suite}. La bonne formule est $u_n=3\\times2^n-1$ : elle donne $u_0=2$ et $u_{n+1}=2u_n+1$. Vérifier aussi l’initialisation évite une erreur fréquente."
+      },
+      {
+        "title": "Une construction géométrique",
+        "body": "On aligne $n$ carrés côte à côte avec des allumettes, pour $n\\ge1$. Un carré utilise $4$ allumettes ; chaque carré supplémentaire partage un côté et ajoute $3$ allumettes. Ainsi $v_1=4$, $v_{n+1}=v_n+3$ et $v_n=3n+1$. Le dessin fournit à la fois une règle de récurrence et une formule explicite."
+      },
+      {
+        "title": "Une suite définie par un algorithme",
+        "body": "Partir de $u=1$. Répéter $n$ fois l’instruction : remplacer $u$ par $u+2$. La valeur finale est $u_n=1+2n$. Une boucle appliquée zéro fois conserve la valeur initiale. Pour obtenir $u_4$, il faut quatre mises à jour, pas cinq."
+      },
+      {
+        "title": "Représenter une suite",
+        "body": "On représente $(u_n)$ par les points de coordonnées $(n,u_n)$. Les abscisses sont entières : on ne relie pas nécessairement les points. Pour $u_n=n^2-1$, les points $(0,-1)$, $(1,0)$, $(2,3)$, $(3,8)$ appartiennent à la parabole $y=x^2-1$, mais la suite ne contient que les valeurs aux rangs entiers."
+      },
+      {
+        "title": "Lire un nuage de points",
+        "body": "\\begin{center}\\begin{tikzpicture}[scale=.65]\\draw[->] (-.3,0)--(5,0) node[right]{$n$};\\draw[->] (0,-.5)--(0,5) node[above]{$u_n$};\\foreach \\x/\\y in {0/1,1/2,2/3,3/4,4/4.5}{\\fill[blue] (\\x,\\y) circle(3pt);}\\end{tikzpicture}\\end{center} Les points suggèrent une croissance. Un dessin limité à quelques rangs ne prouve pas la croissance pour tous les entiers."
+      },
+      {
+        "title": "Suites croissantes et décroissantes",
+        "body": "Une suite est croissante si $u_{n+1}\\ge u_n$ pour tout rang de son domaine ; elle est strictement croissante si $u_{n+1}>u_n$. Pour une suite décroissante, les inégalités sont inversées. Une suite constante est à la fois croissante et décroissante au sens large."
+      },
+      {
+        "title": "Méthode par différence",
+        "body": "Pour $u_n=n^2-3n$, calculons \\[u_{n+1}-u_n=(n+1)^2-3(n+1)-(n^2-3n)=2n-2.\\] La différence est négative en $n=0$, nulle en $n=1$, puis positive pour $n\\ge2$. La suite décroît d’abord, présente deux termes égaux, puis croît : elle n’est pas monotone sur tout $\\mathbb N$."
+      },
+      {
+        "title": "Méthode par quotient",
+        "body": "Si tous les termes sont \\textbf{strictement positifs}, comparer $u_{n+1}/u_n$ à $1$ permet de comparer les termes. Pour $u_n=3\\times(1,2)^n$, le quotient vaut $1,2>1$ : la suite est strictement croissante. Sans positivité, cette méthode n’est pas valable telle quelle."
+      },
+      {
+        "title": "Utiliser une fonction",
+        "body": "Si $u_n=f(n)$ et si $f$ est croissante sur $[0,+\\infty[$, alors $(u_n)$ est croissante : $n+1>n$ entraîne $f(n+1)\\ge f(n)$. Exemple : $u_n=\\sqrt{n+1}$ est strictement croissante. Cette méthode donne une condition suffisante ; elle ne remplace pas l’étude du domaine."
+      },
+      {
+        "title": "Une suite non monotone",
+        "body": "Pour $u_n=(-1)^n$, les termes sont $1,-1,1,-1,\\ldots$. Ils alternent : la suite n’est ni croissante ni décroissante. Une succession de valeurs positives et négatives n’interdit pas toute limite en général : $(-1)^n/(n+1)$ oscille aussi, mais ses valeurs se rapprochent de $0$."
+      },
+      {
+        "title": "Se rapprocher d’une valeur",
+        "body": "La suite $u_n=2+1/(n+1)$ donne $3$, $2,5$, $2,333\\ldots$. Le terme $1/(n+1)$ devient aussi petit que souhaité quand $n$ augmente. Les termes se rapprochent de $2$ : on dit intuitivement que la limite vaut $2$. Aucun terme n’a besoin d’être exactement égal à la limite."
+      },
+      {
+        "title": "Croître sans borne ou osciller",
+        "body": "Pour $v_n=n^2$, les termes dépassent tout seuil fixé si $n$ est assez grand : la limite est $+\\infty$. Pour $w_n=(-1)^n$, les termes restent entre $-1$ et $1$ mais ne se rapprochent pas d’une valeur unique : pas de limite. Être bornée ne suffit donc pas à converger."
+      },
+      {
+        "title": "Recherche d’un seuil",
+        "body": "Pour $u_n=2^n$, cherchons le premier rang tel que $u_n>1000$. Partir de $n=0$, $u=1$. Tant que $u\\le1000$, remplacer $u$ par $2u$ et $n$ par $n+1$. On trouve $n=10$ : $2^9=512\\le1000<1024=2^{10}$. Le rang précédent contrôle la minimalité."
+      },
+      {
+        "title": "Construire et parcourir une liste",
+        "body": "En Python, une liste peut contenir les premiers termes : \\texttt{[n*n for n in range(5)]} produit $[0,1,4,9,16]$. Pour une récurrence, partir d’une liste contenant $u_0$, puis ajouter chaque nouveau terme calculé. Attention : l’indice Python $0$ désigne le premier élément, même si la suite mathématique commence au rang $1$."
+      },
+      {
+        "title": "Bilan et activité",
+        "body": "Une suite peut venir d’une formule, d’une récurrence, d’un motif ou d’un algorithme. Pour $u_0=10$, $u_{n+1}=0,5u_n+2$, calculer trois nouveaux termes : $7$, $5,5$, $4,75$. On conjecture une décroissance vers $4$. Ces calculs suggèrent un comportement ; une preuve doit traiter tous les rangs."
+      },
+      {
+        "title": "Un indice n’est pas une valeur",
+        "body": "Pour $u_n=2n+5$, le terme d’indice $3$ est $u_3=11$. Le troisième terme est $u_2=9$ si la suite commence en $u_0$.\\medskip\\par Toujours préciser le premier indice. Une liste qui contient $u_0,\\ldots,u_{10}$ comporte onze valeurs, car on compte aussi l’indice zéro."
+      },
+      {
+        "title": "Une récurrence calculée pas à pas",
+        "body": "$u_0=2$ et $u_{n+1}=3u_n-1$.\\[\\begin{aligned}u_1&=3\\times2-1=5,\\\\u_2&=3\\times5-1=14,\\\\u_3&=3\\times14-1=41.\\end{aligned}\\] Pour calculer $u_3$, on utilise $u_2$, pas $n=3$ dans l’expression $3u_n-1$."
+      },
+      {
+        "title": "Des valeurs ne prouvent pas une variation",
+        "body": "Pour $u_n=-n^2+10n$, on trouve $u_0=0$, $u_1=9$, $u_2=16$. Pourtant\\[u_{n+1}-u_n=9-2n.\\] La différence est positive jusqu’à $n=4$, puis négative dès $n=5$. La suite monte jusqu’à $u_5=25$, puis descend. Trois valeurs ne démontrent pas une propriété pour tous les indices."
+      },
+      {
+        "title": "Rédiger une étude de variation",
+        "body": "Pour $u_n=n/(n+1)$, $n\\ge0$,\\[u_{n+1}-u_n=\\frac{n+1}{n+2}-\\frac n{n+1}=\\frac1{(n+1)(n+2)}>0.\\] Les deux facteurs du dénominateur sont positifs. La suite est donc strictement croissante. On a justifié le signe pour tout entier admissible, pas seulement sur quelques exemples."
+      }
+    ],
+    "exercises": [
+      {
+        "title": "Rangs et valeurs",
+        "difficulty": "Application",
+        "statement": "On définit $u_n=2n^2-3$ pour $n\\ge0$. Calculer $u_0,u_1,u_4$, écrire $u_{n+1}$ et dire quel est le quatrième terme.",
+        "correction": "On remplace $n$ par chaque rang : $u_0=-3$, $u_1=-1$, $u_4=29$. On a $u_{n+1}=2(n+1)^2-3=2n^2+4n-1$. Le premier terme étant $u_0$, le quatrième est $u_3=15$."
+      },
+      {
+        "title": "Calcul de proche en proche",
+        "difficulty": "Application",
+        "statement": "$u_0=3$ et $u_{n+1}=u_n^2-2$. Calculer $u_1,u_2,u_3$. Pourquoi ne peut-on pas remplacer directement $u_n$ par $n$ ?",
+        "correction": "$u_1=3^2-2=7$, puis $u_2=7^2-2=47$, puis $u_3=47^2-2=2207$. La lettre $u_n$ désigne la valeur précédente, alors que $n$ désigne son rang. La formule $n^2-2$ définirait une autre suite, explicite."
+      },
+      {
+        "title": "Une frise de triangles",
+        "difficulty": "Entraînement",
+        "statement": "Une frise de $n\\ge1$ triangles utilise trois allumettes pour le premier triangle et deux de plus pour chaque triangle supplémentaire. Donner une récurrence puis une formule explicite pour le nombre $a_n$ d’allumettes. Calculer $a_{50}$.",
+        "correction": "On a $a_1=3$ et $a_{n+1}=a_n+2$. Entre le premier et le $n$-ième triangle, on ajoute $n-1$ triangles, donc $a_n=3+2(n-1)=2n+1$. Ainsi $a_{50}=101$. Le test $n=1$ redonne bien $3$."
+      },
+      {
+        "title": "Étudier les variations",
+        "difficulty": "Entraînement",
+        "statement": "Étudier les variations de $u_n=n^2-5n$ pour $n\\ge0$. Préciser les éventuels termes consécutifs égaux.",
+        "correction": "$u_{n+1}-u_n=(n+1)^2-5(n+1)-n^2+5n=2n-4$. Cette différence est négative pour $n=0,1$, nulle pour $n=2$, positive pour $n\\ge3$. Donc $u_0>u_1>u_2=u_3<u_4<u_5<\\cdots$. Les termes égaux sont $u_2=u_3=-6$."
+      },
+      {
+        "title": "Le piège du quotient",
+        "difficulty": "Entraînement",
+        "statement": "Pour $u_n=-2^n$, calculer $u_{n+1}/u_n$, puis $u_{n+1}-u_n$. La suite est-elle croissante ?",
+        "correction": "Le quotient vaut $2>1$. Pourtant les termes sont négatifs, donc le critère réservé aux suites positives ne s’applique pas. La différence est $-2^{n+1}+2^n=-2^n<0$. La suite est strictement décroissante : $-1,-2,-4,-8,\\ldots$."
+      },
+      {
+        "title": "Conjectures de limites",
+        "difficulty": "Entraînement",
+        "statement": "Conjecturer et expliquer le comportement de $a_n=5-1/(n+1)$, $b_n=3n+2$, $c_n=(-1)^n$ et $d_n=(-1)^n/(n+1)$.",
+        "correction": "Le terme $1/(n+1)$ se rapproche de $0$, donc $a_n$ se rapproche de $5$ par valeurs inférieures. $b_n$ augmente sans borne : limite $+\\infty$. $c_n$ alterne entre $1$ et $-1$ et n’a pas de limite. Enfin $|d_n|=1/(n+1)$ se rapproche de $0$ : malgré l’alternance, $d_n$ se rapproche de $0$."
+      },
+      {
+        "title": "Seuil de production",
+        "difficulty": "Entraînement",
+        "statement": "Une machine produit $u_n=40+15n$ pièces au jour de rang $n\\ge0$. Écrire un algorithme donnant le premier rang pour lequel $u_n\\ge200$, puis le déterminer.",
+        "correction": "Initialiser $n=0$, $u=40$. Tant que $u<200$, ajouter $1$ à $n$ et $15$ à $u$. À la sortie, le rang convient. Algébriquement, $40+15n\\ge200$ équivaut à $n\\ge160/15=10,666\\ldots$. Le premier rang entier est $11$. Vérification : $u_{10}=190<200$ et $u_{11}=205\\ge200$."
+      },
+      {
+        "title": "Vérifier une formule proposée",
+        "difficulty": "Approfondissement",
+        "statement": "On propose $u_n=4\\times3^n-2$ pour la suite $u_0=2$, $u_{n+1}=3u_n+4$. Vérifier l’initialisation et la règle. Calculer alors $u_6$.",
+        "correction": "Au rang $0$, la formule donne $4-2=2$. Ensuite $3u_n+4=3(4\\times3^n-2)+4=4\\times3^{n+1}-2=u_{n+1}$. La formule fournit donc exactement la suite construite par cette valeur initiale et cette règle. Enfin $u_6=4\\times729-2=2914$. Cette vérification évite six calculs successifs."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Si la suite commence à $u_0$, son cinquième terme est :",
+        "choices": [
+          "$u_4$",
+          "$u_5$",
+          "$u_6$",
+          "$u_0+5$"
+        ],
+        "answer": 0,
+        "explanation": "On compte $u_0,u_1,u_2,u_3,u_4$."
+      },
+      {
+        "question": "Pour $u_n=n^2+1$, $u_{n+1}$ vaut :",
+        "choices": [
+          "$n^2+2$",
+          "$(n+1)^2+1$",
+          "$n^2+n+1$",
+          "$u_n+1$"
+        ],
+        "answer": 1,
+        "explanation": "Il faut remplacer chaque occurrence de $n$ par $n+1$."
+      },
+      {
+        "question": "$u_0=2$ et $u_{n+1}=3u_n-1$. Que vaut $u_2$ ?",
+        "choices": [
+          "$5$",
+          "$6$",
+          "$14$",
+          "$17$"
+        ],
+        "answer": 2,
+        "explanation": "$u_1=5$, puis $u_2=3\\times5-1=14$."
+      },
+      {
+        "question": "Si $u_{n+1}-u_n<0$ pour tout $n$, la suite est :",
+        "choices": [
+          "Positive",
+          "Constante",
+          "Croissante",
+          "Strictement décroissante"
+        ],
+        "answer": 3,
+        "explanation": "Chaque terme est strictement inférieur au précédent."
+      },
+      {
+        "question": "Pour utiliser le quotient comparé à $1$ sans inverser le sens, on suppose :",
+        "choices": [
+          "Tous les termes strictement positifs",
+          "Tous les rangs positifs",
+          "Une formule explicite",
+          "Une suite bornée"
+        ],
+        "answer": 0,
+        "explanation": "La multiplication par $u_n>0$ conserve le sens des inégalités."
+      },
+      {
+        "question": "La suite $(-1)^n$ :",
+        "choices": [
+          "Converge vers $0$",
+          "N’a pas de limite",
+          "Converge vers $1$",
+          "Tend vers $+\\infty$"
+        ],
+        "answer": 1,
+        "explanation": "Les termes alternent entre deux valeurs distinctes."
+      },
+      {
+        "question": "Le premier rang tel que $2^n>30$ est :",
+        "choices": [
+          "$3$",
+          "$4$",
+          "$5$",
+          "$6$"
+        ],
+        "answer": 2,
+        "explanation": "$2^4=16\\le30$ et $2^5=32>30$."
+      },
+      {
+        "question": "Une suite semble croissante sur ses dix premiers termes. On peut conclure :",
+        "choices": [
+          "Elle est croissante partout",
+          "Elle converge",
+          "Elle diverge",
+          "Cela ne prouve pas la croissance globale"
+        ],
+        "answer": 3,
+        "explanation": "La définition exige une comparaison à tous les rangs, pas seulement aux premiers."
+      }
+    ],
+    "coverage": [
+      "Modes de génération",
+      "Rangs et indices",
+      "Suites explicites et récurrentes",
+      "Motifs géométriques",
+      "Variations",
+      "Limites intuitives",
+      "Listes Python",
+      "Recherche de seuil"
+    ]
+  }
+]

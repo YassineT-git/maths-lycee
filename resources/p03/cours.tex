@@ -1,0 +1,128 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\input{theme-slides.tex}
+\title{Suites arithmétiques et géométriques}
+\subtitle{Première spécialité}
+\renewcommand{\chapternumber}{03}\author{Maths Lycée}
+\date{Année scolaire 2026--2027}
+\begin{document}\begin{frame}\titlepage\end{frame}
+\begin{frame}{Objectifs du chapitre}\begin{itemize}
+\item Distinguer ajout et multiplication constants
+\item Calculer les termes et les sommes
+\item Démontrer les formules de somme
+\item Modéliser des évolutions discrètes
+\end{itemize}\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Deux économies différentes}
+Ana dépose $30$ euros chaque mois sur un compte sans intérêt. Bilal place $500$ euros qui augmentent de $2\,\%$ par an. Ana ajoute toujours la même quantité ; Bilal multiplie toujours par $1,02$. Ces deux mécanismes conduisent à deux familles de suites.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Suite arithmétique}
+Une suite est arithmétique de raison $r$ si $u_{n+1}=u_n+r$ pour chaque rang. Ainsi $u_{n+1}-u_n=r$ est constant. Exemple : $7,10,13,16,\ldots$ a pour raison $3$. Calculer plusieurs différences est utile pour conjecturer ; une preuve doit établir la relation pour tout $n$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Terme général arithmétique}
+À partir de $u_0$, on ajoute $r$ exactement $n$ fois pour atteindre $u_n$. Donc \[u_n=u_0+nr.\] Plus généralement, pour deux rangs $p,n$, $u_n=u_p+(n-p)r$. Si $u_1=5$ et $r=2$, alors $u_{10}=5+9\times2=23$.
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Justification de la formule}
+Pour $n>p$, additionnons les égalités $u_{p+1}-u_p=r$, $u_{p+2}-u_{p+1}=r$, jusqu’à $u_n-u_{n-1}=r$. Les termes intermédiaires se simplifient. Il reste $u_n-u_p=(n-p)r$. Ce calcul explique pourquoi on compte les écarts entre rangs, et non le nombre de termes.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Variations et représentation}
+Comme $u_{n+1}-u_n=r$, une suite arithmétique est strictement croissante si $r>0$, constante si $r=0$, strictement décroissante si $r<0$. Les points $(n,u_n)$ sont alignés sur la droite $y=u_0+rx$. Attention : seules les abscisses entières correspondent à la suite.
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Somme des entiers : preuve}
+Posons $S=1+2+\cdots+n$. En écrivant la somme dans l’ordre inverse et en additionnant colonne à colonne, chaque paire vaut $n+1$. Il y a $n$ paires, donc $2S=n(n+1)$. Ainsi \[1+2+\cdots+n=\frac{n(n+1)}2.\] Pour $n=100$, on obtient $5050$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Somme arithmétique}
+Pour $p\le n$, il y a $n-p+1$ termes entre $u_p$ et $u_n$, bornes incluses. Les termes symétriques ont pour somme $u_p+u_n$. Donc \[u_p+\cdots+u_n=(n-p+1)\frac{u_p+u_n}{2}.\] Exemple : $4+7+10+13+16=5\times(4+16)/2=50$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Suite géométrique}
+Une suite est géométrique de raison $q$ si $v_{n+1}=qv_n$. Exemple : $3,6,12,24,\ldots$ a pour raison $2$. Quand les termes sont non nuls, le quotient $v_{n+1}/v_n$ est constant. Une suite nulle est géométrique pour toute raison : le quotient n’est alors pas défini.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Terme général géométrique}
+Pour $q\ne0$, de $v_p$ à $v_n$ avec $n\ge p$, on multiplie $n-p$ fois par $q$, donc $v_n=v_pq^{n-p}$. En particulier $v_n=v_0q^n$. Si $q=0$, tous les termes après le premier valent $0$ ; on traite directement ce cas pour éviter une écriture ambiguë de $0^0$.
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Pourquoi la formule convient}
+Pour $q\ne0$, posons $w_n=v_0q^n$. On a $w_0=v_0$ et $w_{n+1}=v_0q^{n+1}=qw_n$. La formule respecte donc la valeur de départ et la règle de multiplication. Exemple : $v_0=5$, $q=3$ donnent $v_4=5\times81=405$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Taux constant et multiplicateur}
+Une hausse de $t\,\%$ multiplie par $1+t/100$. Une baisse de $t\,\%$ multiplie par $1-t/100$. Pour un capital de $800$ euros augmentant de $3\,\%$ par an, $C_n=800(1,03)^n$. Deux hausses de $3\,\%$ donnent un coefficient $(1,03)^2=1,0609$, soit $6,09\,\%$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Variations : attention au signe}
+On utilise $v_{n+1}-v_n=v_n(q-1)$. Si $v_0>0$ et $q>0$, la suite croît pour $q>1$ et décroît pour $0<q<1$. Si $v_0<0$, ces sens s’inversent. Si $q<0$ et $v_0\ne0$, les signes alternent : la suite n’est pas monotone. Pour $q=1$, elle est constante.
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Somme géométrique : preuve}
+Posons $S=1+q+\cdots+q^n$. Alors $qS=q+q^2+\cdots+q^{n+1}$. En soustrayant, $(1-q)S=1-q^{n+1}$. Si $q\ne1$, \[S=\frac{1-q^{n+1}}{1-q}.\] Si $q=1$, chacun des $n+1$ termes vaut $1$, donc $S=n+1$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Somme de termes consécutifs}
+Pour une suite géométrique et $p\le n$, factoriser le premier terme donne, si $q\ne1$, \[v_p+\cdots+v_n=v_p\frac{1-q^{n-p+1}}{1-q}.\] Exemple : $3+6+12+24=3(1-2^4)/(1-2)=45$. L’exposant compte les termes : ici quatre.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Un cumul d’économies}
+Ana met de côté $20$ euros le premier mois, puis $5$ euros de plus chaque mois. Son versement du mois $n\ge1$ vaut $a_n=20+5(n-1)$. Au douzième mois, $a_{12}=75$. Le total versé est $12(20+75)/2=570$ euros. Le versement du dernier mois et le cumul sont deux quantités différentes.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une décroissance en contexte}
+Une quantité fictive diminue de $20\,\%$ à chaque étape. Avec $Q_0=100$, on obtient $Q_n=100(0,8)^n$. Les premiers termes sont $100,80,64,51,2$. La suite est positive et décroissante. Les valeurs semblent se rapprocher de $0$ sans devenir négatives : l’étude formelle des limites viendra plus tard.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Un seuil avec une boucle}
+Quand $100(0,8)^n<30$ pour la première fois ? Partir de $n=0$, $Q=100$. Tant que $Q\ge30$, multiplier $Q$ par $0,8$ et ajouter $1$ à $n$. On trouve $n=6$ : $Q_5=32,768$ et $Q_6=26,2144$. Contrôler les deux rangs garantit que le seuil est le premier.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Cumul dans un algorithme}
+Pour sommer $v_0$ à $v_n$, initialiser $v=v_0$ et $S=0$. Répéter $n+1$ fois : ajouter $v$ à $S$, puis remplacer $v$ par $qv$. L’ordre est essentiel : si on multiplie avant d’additionner, on commence à $v_1$. Comparer la boucle à la formule de somme permet de vérifier les indices.
+\end{frame}
+\renewcommand{\slidekind}{À RETENIR}
+\begin{frame}[t,fragile]{Bilan de reconnaissance}
+\begin{itemize}\item Accroissement constant : suite arithmétique.\item Coefficient multiplicateur constant : suite géométrique.\item Dans une somme, compter les termes avant d’appliquer la formule.\item Distinguer valeur initiale, rang initial et raison.\end{itemize} Une formule explicite se vérifie avec le premier terme et la relation de récurrence.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Ne pas confondre valeur et cumul}
+On verse $50$ euros le premier mois, puis $10$ euros de plus chaque mois. Le versement du douzième mois vaut $50+11\times10=160$ euros.\medskip\par Le total versé est une autre quantité :\[S=12\times\frac{50+160}{2}=1260\ \text{euros}.\] Une question sur le total appelle une somme, pas un seul terme.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Compter les termes correctement}
+De $u_3$ à $u_{12}$ inclus, il y a $12-3+1=10$ termes. Pour une suite arithmétique,\[u_3+\cdots+u_{12}=10\frac{u_3+u_{12}}2.\] Pour une suite géométrique de raison $q\ne1$, cette somme vaut $u_3(1-q^{10})/(1-q)$. Le même nombre de termes apparaît dans les deux formules.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une baisse suivie d’une hausse}
+Un prix de $100$ euros baisse de $20\,\%$, puis augmente de $20\,\%$.\[100\times0,8\times1,2=96.\] Les évolutions successives se multiplient. Les pourcentages ne s’annulent pas, car la seconde variation porte sur $80$ euros. Le taux global vaut $0,96-1=-4\,\%$.
+\end{frame}
+\renewcommand{\slidekind}{À RETENIR}
+\begin{frame}[t,fragile]{Un seuil à vérifier des deux côtés}
+$u_n=100\times1,1^n$. On cherche le premier indice tel que $u_n>150$.\medskip\par $u_4=146,41$ et $u_5=161,051$. La suite est croissante car $u_0>0$ et $q>1$. Donc le premier indice est $5$. Vérifier le terme précédent et la croissance permet de justifier le mot « premier ».
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Deux modèles, deux graphiques}
+\begin{columns}[c,onlytextwidth]\begin{column}{.60\textwidth}\centering\begin{adjustbox}{max width=\linewidth,max height=3.7cm}\begin{tikzpicture}\begin{axis}[width=9cm,height=4.4cm,xmin=0,xmax=5,ymin=0,ymax=16,axis lines=left,xlabel=$n$,ylabel=$u_n$,legend style={font=\tiny,at={(0.02,.98)},anchor=north west}]\addplot[Blue,only marks,mark=*] coordinates {(0,2)(1,4)(2,6)(3,8)(4,10)(5,12)};\addlegendentry{$2+2n$}\addplot[Ink,only marks,mark=square*] coordinates {(0,2)(1,3)(2,4.5)(3,6.75)(4,10.125)(5,15.1875)};\addlegendentry{$2(1,5)^n$}\end{axis}\end{tikzpicture}\end{adjustbox}\end{column}\begin{column}{.36\textwidth} Une suite arithmétique donne des points alignés. Pour la suite géométrique, les écarts successifs grandissent ici. Les indices sont entiers : on trace des points.\end{column}\end{columns}
+\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 1}
+Combien de termes contient $u_3+\cdots+u_{10}$ ?\begin{enumerate}
+\item $7$
+\item $8$
+\item $10$
+\item $11$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 1 : résolution}
+\begin{block}{Réponse 2}$8$\end{block}\medskip Les deux bornes sont incluses : $10-3+1=8$.\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 2}
+Deux hausses successives de $10\,\%$ donnent :\begin{enumerate}
+\item $10\,\%$
+\item $20\,\%$
+\item $100\,\%$
+\item $21\,\%$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 2 : résolution}
+\begin{block}{Réponse 4}$21\,\%$\end{block}\medskip $1,1\times1,1=1,21$, soit une hausse totale de $21\,\%$.\end{frame}
+\end{document}

@@ -1,0 +1,154 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\input{theme-slides.tex}
+\title{Simulation et échantillonnage}
+\subtitle{Première spécialité}
+\renewcommand{\chapternumber}{13}\author{Maths Lycée}
+\date{Année scolaire 2026--2027}
+\begin{document}\begin{frame}\titlepage\end{frame}
+\begin{frame}{Objectifs du chapitre}\begin{itemize}
+\item Simuler une expérience aléatoire
+\item Construire des échantillons indépendants
+\item Comparer fréquence et probabilité
+\item Comparer moyenne et espérance
+\item Observer les écarts à l’échelle de sigma sur racine de n
+\end{itemize}\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une pièce ne donne pas toujours moitié-moitié}
+Une pièce équilibrée donne pile avec probabilité $1/2$. Cela ne signifie pas que chaque série de dix lancers contient cinq piles.\medskip\par Une simulation permet d’observer la diversité des résultats et leur évolution avec la taille de l’échantillon.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Modèle et expérience}
+Le modèle fixe les probabilités. L’expérience fournit une réalisation aléatoire.\medskip\par Pour un dé équilibré, $P(6)=1/6$ est une valeur théorique. Si l’on obtient $14$ six en $60$ lancers, la fréquence observée est $14/60\approx0,233$. La différence n’est pas automatiquement une erreur du modèle.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une expérience de Bernoulli}
+Une variable de Bernoulli vaut $1$ en cas de succès et $0$ sinon. Son espérance vaut $p$.\medskip\par Pour simuler un succès de probabilité $p$, on tire un nombre uniforme dans $[0,1[$ et on regarde s’il est inférieur à $p$. La portion $[0,p[$ représente une fraction $p$ de l’intervalle.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Un premier code Python}
+\begin{codepython}
+from random import random
+
+def succes(p):
+    return int(random() < p)
+\end{codepython}
+La comparaison produit un booléen. La conversion par \texttt{int} donne $1$ ou $0$. Le paramètre doit vérifier $0\le p\le1$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Simuler un dé}
+\begin{codepython}
+from random import randint
+
+def de():
+    return randint(1, 6)
+\end{codepython}
+Les deux bornes sont incluses dans \texttt{randint}. Chaque entier de $1$ à $6$ est tiré avec la même probabilité. Utiliser \texttt{randint(0, 6)} créerait sept issues.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Simuler une loi finie}
+Pour une loi $P(X=0)=0,2$, $P(X=5)=0,5$, $P(X=10)=0,3$, on partage $[0,1[$ en trois intervalles :\[ [0\,;\,0,2[\ ;\quad[0,2\,;\,0,7[\ ;\quad[0,7\,;\,1[.\] Les longueurs sont les probabilités. Un tirage dans ces intervalles renvoie respectivement $0$, $5$ ou $10$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une loi finie en Python}
+\begin{codepython}
+from random import random
+
+def gain():
+    u = random()
+    if u < 0.2:
+        return 0
+    elif u < 0.7:
+        return 5
+    return 10
+\end{codepython}
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Pourquoi conserver le même tirage ?}
+Un seul nombre $u$ décide de l’issue. Si le premier test échoue, on sait déjà que $u\ge0,2$. Le test suivant $u<0,7$ sélectionne donc exactement $[0,2\,;\,0,7[$, de longueur $0,5$.\medskip\par Tirer un nouveau nombre à chaque condition changerait ces probabilités. Les seuils doivent être cumulés et appliqués au même tirage.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Un échantillon}
+Un échantillon de taille $n$ est une liste de $n$ réalisations indépendantes d’une même expérience. Les probabilités restent les mêmes à chaque répétition.\medskip\par Un tirage sans remise dans une petite urne ne correspond généralement pas à ce modèle : la composition de l’urne change.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Construire une liste}
+\begin{codepython}
+def echantillon(n):
+    valeurs = []
+    for i in range(n):
+        valeurs.append(de())
+    return valeurs
+\end{codepython}
+La boucle appelle réellement \texttt{de()} à chaque passage. Répéter $n$ fois une seule valeur tirée auparavant ne produirait pas $n$ tirages indépendants.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Fréquence de succès}
+\begin{codepython}
+def frequence(n, p):
+    total = 0
+    for i in range(n):
+        total += succes(p)
+    return total / n
+\end{codepython}
+Il faut $n>0$. Le numérateur compte les succès et le dénominateur compte tous les essais. Une nouvelle exécution donne souvent une fréquence différente.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Moyenne d’un échantillon}
+Pour les valeurs $x_1,\ldots,x_n$, la moyenne est\[\overline x=\frac{x_1+\cdots+x_n}{n}.\] En Python : \texttt{sum(valeurs) / len(valeurs)}. Pour un dé équilibré, l’espérance vaut $3,5$, mais une moyenne observée n’est pas nécessairement exactement $3,5$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Plusieurs échantillons de même taille}
+\begin{codepython}
+frequences = []
+for repetition in range(1000):
+    frequences.append(frequence(100, 0.5))
+\end{codepython}
+Chaque valeur résume une nouvelle série de $100$ essais. On peut alors tracer un histogramme des $1000$ fréquences pour observer leur dispersion autour de $0,5$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{La taille influence la dispersion}
+Comparer des fréquences obtenues pour $n=20$, $n=100$ et $n=1000$. Les grandes tailles produisent généralement des valeurs plus concentrées autour de $p$.\medskip\par Cela ne signifie pas que chaque nouvelle fréquence est plus proche de $p$ que la précédente. Une observation favorable n’est pas une garantie.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{L’échelle de référence}
+Pour une variable d’espérance $\mu$ et d’écart-type $\sigma>0$, on compare expérimentalement $\overline x$ à $\mu$ à l’échelle\[\frac{\sigma}{\sqrt n}.\] Multiplier la taille par $4$ divise cette échelle par $2$. Le cours de première observe ce comportement sans établir un théorème général de convergence.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Écart normalisé}
+On peut calculer\[z=\frac{\overline x-\mu}{\sigma/\sqrt n}.\] Pour une Bernoulli de paramètre $1/2$, $\sigma=1/2$. Avec $n=100$ et une fréquence $0,57$, $z=(0,57-0,5)/0,05=1,4$. L’écart observé représente $1,4$ fois l’échelle de référence.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Compter les écarts observés}
+Pour chaque échantillon, tester $|\overline x-\mu|\le2\sigma/\sqrt n$. Puis calculer la proportion d’échantillons qui vérifient ce test.\medskip\par La proportion obtenue est expérimentale. Elle n’est pas automatiquement égale à $95\,\%$ et ne constitue pas une garantie universelle pour toute loi et toute taille.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une simulation reproductible}
+\begin{codepython}
+from random import seed
+seed(2026)
+\end{codepython}
+Une graine fixe permet de reproduire une suite pseudo-aléatoire lors d’un travail commun. Elle est utile pour vérifier un programme. Réinitialiser la même graine avant chaque tirage ferait répéter la même valeur.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Lire les résultats avec prudence}
+Une simulation teste un modèle déjà choisi. Elle ne prouve ni l’indépendance d’expériences réelles, ni l’équilibre d’un dé réel.\medskip\par Dans un compte rendu, préciser la loi, la taille, le nombre de répétitions, les résultats observés et les limites de la conclusion. Distinguer « on observe » de « on démontre ».
+\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 1}
+Pour simuler une Bernoulli de paramètre $0,2$, on teste :\begin{enumerate}
+\item $u>0,2$
+\item $u<0,2$
+\item $u=0,2$
+\item $u<2$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 1 : résolution}
+\begin{block}{Réponse 2}$u<0,2$\end{block}\medskip La longueur de $[0,0,2[$ vaut $0,2$.\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 2}
+Une graine fixe sert à :\begin{enumerate}
+\item Garantir un dé équilibré
+\item Obtenir la moyenne exacte
+\item Rendre les événements incompatibles
+\item Reproduire une suite pseudo-aléatoire
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 2 : résolution}
+\begin{block}{Réponse 4}Reproduire une suite pseudo-aléatoire\end{block}\medskip Elle permet de retrouver les mêmes tirages pour vérifier un programme.\end{frame}
+\end{document}

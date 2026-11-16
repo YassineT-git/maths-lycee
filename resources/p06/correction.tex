@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Corrigé détaillé}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries Variations, extrema et optimisation}\par{\large Corrigé détaillé}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Une parabole}
+{\small\color{Muted}\textbf{Énoncé.} Étudier $f(x)=x^2-6x+5$ sur $[0,5]$ et donner ses extrema.}
+\par\medskip
+\textbf{Résolution.}\par
+$f\prime=2x-6$ est négative avant $3$, positive après. Ainsi $f$ décroît de $f(0)=5$ à $f(3)=-4$, puis croît jusqu’à $f(5)=0$. Minimum $-4$ en $3$, maximum $5$ en $0$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Un cube}
+{\small\color{Muted}\textbf{Énoncé.} Étudier les variations de $x^3+2x$ sur $\R$.}
+\par\medskip
+\textbf{Résolution.}\par
+La dérivée $3x^2+2$ est strictement positive pour tout réel. La fonction est strictement croissante sur $\R$. Il n’y a pas d’extremum local.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Entraînement}{Deux intervalles}
+{\small\color{Muted}\textbf{Énoncé.} Étudier $1/x$ sur son domaine. Peut-on dire qu’elle est décroissante sur tout son domaine ?}
+\par\medskip
+\textbf{Résolution.}\par
+La dérivée est $-1/x^2<0$. La fonction décroît sur chacun des intervalles $]-\infty,0[$ et $]0,+\infty[$. Elle ne décroît pas sur leur réunion : $-1<1$ mais $f(-1)=-1<f(1)=1$. Le théorème exige un intervalle.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Rectangle}
+{\small\color{Muted}\textbf{Énoncé.} Un rectangle a un périmètre de $20$ m. Quelle aire maximale peut-il avoir ?}
+\par\medskip
+\textbf{Résolution.}\par
+Pour une largeur $x\in]0,10[$, la longueur est $10-x$. L’aire vaut $A=10x-x^2$, donc $A\prime=10-2x$. Elle est maximale en $x=5$, avec $A(5)=25$ m$^2$. Le rectangle optimal est un carré.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Application}{Parité}
+{\small\color{Muted}\textbf{Énoncé.} Étudier la parité de $x^4-3x^2$, $x^3+x$ et $x^2+x+1$.}
+\par\medskip
+\textbf{Résolution.}\par
+Les domaines sont symétriques. Remplacer $x$ par $-x$ laisse la première expression inchangée : elle est paire. La deuxième devient son opposée : elle est impaire. Pour la troisième, $f(1)=3$, $f(-1)=1$ : elle n’est ni paire ni impaire.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Entraînement}{Une inégalité}
+{\small\color{Muted}\textbf{Énoncé.} Montrer que $x+1/x\ge2$ pour $x>0$ par une étude de variations.}
+\par\medskip
+\textbf{Résolution.}\par
+Poser $f=x+1/x$. Sa dérivée est $(x^2-1)/x^2$. Le dénominateur est positif et le numérateur change de signe en $1$. Le minimum vaut $f(1)=2$. L’égalité a lieu seulement en $1$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Approfondissement}{Production entière}
+{\small\color{Muted}\textbf{Énoncé.} Un bénéfice fictif est $B(n)=-2n^2+14n-5$ pour un entier $0\le n\le8$. Chercher le maximum.}
+\par\medskip
+\textbf{Résolution.}\par
+La fonction continue associée a une dérivée $-4x+14$, nulle en $3,5$. Elle croît puis décroît. On compare $B(3)=19$ et $B(4)=19$, qui sont les deux maxima entiers. Arrondir sans comparer aurait fait perdre une solution.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Contre-exemple}
+{\small\color{Muted}\textbf{Énoncé.} Expliquer pourquoi $f\prime(a)=0$ n’implique pas un extremum. Donner un exemple où un maximum existe au bord avec une dérivée non nulle.}
+\par\medskip
+\textbf{Résolution.}\par
+Pour $x^3$ en zéro, la dérivée est nulle mais la fonction croît avant et après. Pour $f(x)=x$ sur $[0,1]$, le maximum vaut $1$ au bord $x=1$, alors que la dérivée vaut $1$. La condition de dérivée nulle concerne les extrema intérieurs d’une fonction dérivable.
+\end{minipage}\par
+\end{document}

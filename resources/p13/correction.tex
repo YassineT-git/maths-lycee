@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Corrigé détaillé}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries Simulation et échantillonnage}\par{\large Corrigé détaillé}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Fréquence}
+{\small\color{Muted}\textbf{Énoncé.} Une simulation donne $37$ succès en $80$ essais. Calculer la fréquence et expliquer pourquoi elle peut différer de $p=0,4$.}
+\par\medskip
+\textbf{Résolution.}\par
+La fréquence vaut $37/80=0,4625$. Le paramètre $p$ décrit le modèle et la fréquence décrit un échantillon. La fluctuation aléatoire explique une différence possible sans contradiction.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Une loi simulée}
+{\small\color{Muted}\textbf{Énoncé.} Un programme renvoie $1$ si $u<0,3$, et $0$ sinon, où $u$ est uniforme sur $[0,1[$. Donner la loi et l’espérance.}
+\par\medskip
+\textbf{Résolution.}\par
+La portion $[0,0,3[$ a une longueur $0,3$. Donc $P(X=1)=0,3$ et $P(X=0)=0,7$. L’espérance vaut $1\times0,3+0\times0,7=0,3$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Application}{Moyenne}
+{\small\color{Muted}\textbf{Énoncé.} Pour l’échantillon $(2,6,3,1,4,5)$, calculer la moyenne et la fréquence de la valeur $6$.}
+\par\medskip
+\textbf{Résolution.}\par
+La somme vaut $21$, la taille vaut $6$, donc la moyenne vaut $21/6=3,5$. Un seul élément vaut $6$, donc sa fréquence est $1/6$. Ces deux statistiques ne mesurent pas la même chose.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Déboguer}
+{\small\color{Muted}\textbf{Énoncé.} Un élève tire une fois un dé puis remplit une liste de cent copies de ce résultat. Pourquoi son échantillon est-il incorrect ?}
+\par\medskip
+\textbf{Résolution.}\par
+Les cent valeurs sont parfaitement dépendantes puisqu’elles sont identiques par construction. Il faut appeler la fonction de tirage à chaque passage dans la boucle. Avoir une liste de longueur cent ne garantit pas cent expériences indépendantes.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Entraînement}{Échelle}
+{\small\color{Muted}\textbf{Énoncé.} Pour $\sigma=3$, calculer $\sigma/\sqrt n$ pour $n=100$ et $n=400$. Interpréter.}
+\par\medskip
+\textbf{Résolution.}\par
+On obtient $3/10=0,3$, puis $3/20=0,15$. Quadrupler la taille divise l’échelle par deux. Cela décrit une dispersion de référence, pas une borne certaine sur chaque moyenne observée.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Entraînement}{Écart normalisé}
+{\small\color{Muted}\textbf{Énoncé.} Une variable a $\mu=10$, $\sigma=2$. Pour $n=64$, on observe $\overline x=10,5$. Calculer l’écart normalisé.}
+\par\medskip
+\textbf{Résolution.}\par
+L’échelle vaut $2/8=0,25$. L’écart à la moyenne théorique vaut $0,5$. Donc $z=0,5/0,25=2$. La moyenne observée est au-dessus de l’espérance de deux échelles de référence.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Entraînement}{Seuils cumulés}
+{\small\color{Muted}\textbf{Énoncé.} Proposer les seuils d’une simulation d’une variable prenant $-2$, $1$ et $4$ avec probabilités $0,25$, $0,35$, $0,40$. Calculer son espérance.}
+\par\medskip
+\textbf{Résolution.}\par
+Les seuils cumulés sont $0,25$ et $0,60$. Renvoyer $-2$ si $u<0,25$, $1$ si $0,25\le u<0,60$, et $4$ sinon. L’espérance vaut $-2(0,25)+1(0,35)+4(0,40)=1,45$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Conclusion expérimentale}
+{\small\color{Muted}\textbf{Énoncé.} Une expérience montre $946$ moyennes dans une bande donnée parmi $1000$ échantillons. Peut-on affirmer que la probabilité théorique est exactement $0,946$ ?}
+\par\medskip
+\textbf{Résolution.}\par
+Non : $946/1000=0,946$ est la fréquence observée pour cette expérience. Elle varie avec les échantillons. Elle fournit une estimation expérimentale sous le modèle simulé, mais ni une égalité exacte ni une garantie pour des modèles différents.
+\end{minipage}\par
+\end{document}

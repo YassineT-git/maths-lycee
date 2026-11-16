@@ -1,0 +1,125 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\input{theme-slides.tex}
+\title{Nombre dérivé, tangente et approximation}
+\subtitle{Première spécialité}
+\renewcommand{\chapternumber}{04}\author{Maths Lycée}
+\date{Année scolaire 2026--2027}
+\begin{document}\begin{frame}\titlepage\end{frame}
+\begin{frame}{Objectifs du chapitre}\begin{itemize}
+\item Calculer un taux de variation
+\item Déterminer un nombre dérivé
+\item Construire et calculer une tangente
+\item Utiliser une approximation linéaire
+\item Reconnaître des non-dérivabilités
+\end{itemize}\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une vitesse à un instant}
+Un mobile parcourt une distance modélisée par $d(t)=t^2$ mètres, pour $t\ge0$ en secondes. Entre $t=2$ et $t=3$, sa vitesse moyenne vaut $(9-4)/(3-2)=5$ m/s. Entre $2$ et $2,1$, elle vaut $4,1$ m/s. Quelle valeur décrit la vitesse exactement à l’instant $2$ ?
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Taux de variation}
+Pour $a\ne b$ dans le domaine de $f$, le taux de variation entre $a$ et $b$ est \[\frac{f(b)-f(a)}{b-a}.\] C’est la variation de la sortie divisée par celle de l’entrée. Exemple : pour $f(x)=3x^2$, entre $1$ et $2$, le taux vaut $(12-3)/(2-1)=9$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{La pente d’une sécante}
+La droite passant par $A(a,f(a))$ et $B(b,f(b))$ est une sécante. Son coefficient directeur vaut $(f(b)-f(a))/(b-a)$. Pour $f(x)=x^2$, $a=1$, $b=3$, on obtient une pente $4$. Ce nombre dépend des deux points choisis, pas seulement de $A$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Se rapprocher du point}
+On écrit $b=a+h$, avec $h\ne0$. Le taux devient \[\tau(h)=\frac{f(a+h)-f(a)}h.\] Pour $f(x)=x^2$, $a=2$, on trouve $\tau(h)=[(2+h)^2-4]/h=4+h$. Lorsque $h$ se rapproche de $0$, ce taux se rapproche de $4$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Nombre dérivé}
+Lorsque le taux de variation tend vers un même nombre réel fini lorsque $h$ tend vers $0$, la fonction est dérivable en $a$. Ce nombre est noté \[f\prime(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}h.\] En première, cette limite est comprise intuitivement. Dans l’exemple $f(x)=x^2$, $f\prime(2)=4$.
+\end{frame}
+\renewcommand{\slidekind}{À RETENIR}
+\begin{frame}[t,fragile]{Deux côtés à contrôler}
+Pour une fonction définie autour de $a$, on approche $h=0$ par valeurs positives et négatives. Avec $4+h$, les deux approches donnent $4$. Une seule suite de valeurs numériques ne suffit pas à prouver une dérivabilité. Une simplification exacte du quotient apporte une justification.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Dérivée de la fonction carré}
+Pour un réel $a$ et $h\ne0$, \[\frac{(a+h)^2-a^2}{h}=\frac{2ah+h^2}{h}=2a+h.\] Ce quotient tend vers $2a$. Donc la fonction carré est dérivable en tout réel $a$ et $f\prime(a)=2a$. La simplification par $h$ est permise avant le passage à la limite, car $h\ne0$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Dérivée de la fonction inverse}
+Pour $a\ne0$ et $h$ assez petit avec $a+h\ne0$, \[\frac{1/(a+h)-1/a}{h}=\frac{-h}{a(a+h)h}=-\frac1{a(a+h)}.\] Quand $h$ tend vers $0$, on obtient $f\prime(a)=-1/a^2$. La fonction inverse n’est pas définie en $0$, donc on n’y cherche pas de dérivée.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{La tangente}
+Lorsque $f$ est dérivable en $a$, la tangente en $A(a,f(a))$ est la droite passant par $A$ et de pente $f\prime(a)$. Elle décrit la direction locale de la courbe. Elle peut traverser la courbe : une tangente n’est pas définie comme une droite qui ne touche la courbe qu’une fois.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Équation : démonstration}
+Une droite de pente $m$ passant par $A(a,f(a))$ s’écrit $y=mx+p$, avec $f(a)=ma+p$. Donc $p=f(a)-ma$. En prenant $m=f\prime(a)$, on obtient \[y=f(a)+f\prime(a)(x-a).\] Il faut connaître la valeur de la fonction et sa dérivée au même point.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Un exemple de tangente}
+Pour $f(x)=x^2$ au point d’abscisse $3$, $f(3)=9$ et $f\prime(3)=6$. La tangente est $y=9+6(x-3)=6x-9$. Contrôle : en $x=3$, elle donne $9$, et sa pente vaut bien $6$. L’équation $y=6x$ oublierait le point de passage.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Visualiser courbe et tangente}
+\begin{columns}[c,onlytextwidth]\begin{column}{.60\textwidth}\centering\begin{adjustbox}{max width=\linewidth,max height=3.7cm}\begin{tikzpicture}[scale=.7]\draw[->] (-.3,0)--(3.4,0) node[right]{$x$};\draw[->] (0,-1.3)--(0,5) node[above]{$y$};\draw[blue,domain=0:2.2,samples=40] plot (\x,{\x*\x});\draw[orange,thick] (0,-1)--(3,5);\fill (1,1) circle(2pt) node[left]{$A(1,1)$};\node at (2.5,1){$y=2x-1$};\end{tikzpicture}\end{adjustbox}\end{column}\begin{column}{.36\textwidth} En $a=1$, la parabole $y=x^2$ et la droite ont même point et même pente.\end{column}\end{columns}
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Lire un nombre dérivé}
+Une tangente en $A(2,5)$ passe aussi par $B(4,1)$. Sa pente vaut $(1-5)/(4-2)=-2$ : donc $f\prime(2)=-2$. Le point $B$ doit appartenir à la \textbf{tangente}, pas nécessairement à la courbe. Sur un graphique, tenir compte des unités de chaque axe.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Approximation linéaire}
+Près de $a$, la tangente fournit \[f(a+h)\approx f(a)+f\prime(a)h.\] Pour $f(x)=x^2$ près de $a=3$, $(3+h)^2\approx9+6h$. Avec $h=0,02$, on obtient $3,02^2\approx9,12$. La valeur exacte est $9,1204$ : l’erreur vient ici du terme $h^2$ omis.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une approximation utile}
+Pour $f(x)=1/x$ près de $1$, on sait $f(1)=1$ et $f\prime(1)=-1$. Ainsi $1/(1+h)\approx1-h$. Pour $h=0,01$, $1/1,01\approx0,99$. L’approximation est locale : elle ne justifie pas de remplacer systématiquement $1/(1+h)$ par $1-h$ pour de grands $h$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{La valeur absolue en zéro}
+Pour $f(x)=|x|$, le taux en $0$ vaut $|h|/h$. Si $h>0$, il vaut $1$ ; si $h<0$, il vaut $-1$. Les limites des deux côtés diffèrent : $f$ n’est pas dérivable en $0$. Graphiquement, la courbe présente un angle.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{La racine carrée en zéro}
+Pour $h>0$, le taux en $0$ de $f(x)=\sqrt{x}$ vaut $\sqrt h/h=1/\sqrt h$. Ce quotient grandit sans borne lorsque $h$ se rapproche de $0$. Il n’a pas de limite réelle finie : $f$ n’est pas dérivable en $0$. Une pente infinie n’est pas un nombre dérivé.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Sens et unités}
+Si $d(t)$ est une distance en mètres et $t$ un temps en secondes, $d\prime(t)$ s’exprime en m/s. Si $C(q)$ est un coût, $C\prime(q)$ mesure une variation locale du coût par unité produite. Ce coût marginal approche $C(q+1)-C(q)$ lorsque l’approximation locale est pertinente.
+\end{frame}
+\renewcommand{\slidekind}{À RETENIR}
+\begin{frame}[t,fragile]{Expérience numérique et bilan}
+Pour approcher $f\prime(a)$, calculer les taux pour $h=0,1$, $0,01$, $0,001$, puis pour leurs opposés. Observer leur stabilisation. Des valeurs de $h$ extrêmement petites peuvent dégrader le calcul numérique. \textbf{Méthode :} quotient exact, simplification, limite finie, puis tangente et interprétation.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{De la sécante à la tangente : les nombres}
+Pour $f(x)=x^2$ en $a=1$, le taux vaut $2+h$.\[\begin{array}{c|rrrr}h&-0,1&-0,01&0,01&0,1\\\hline\tau(h)&1,9&1,99&2,01&2,1\end{array}\]\medskip Les valeurs s’approchent de $2$ des deux côtés. Le calcul exact $\tau(h)=2+h$ explique ce que le tableau suggère.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Trois objets à distinguer}
+Pour $f(x)=x^2$ en $a=3$ :\begin{itemize}\item $f(3)=9$ donne une ordonnée.\item $f\prime(3)=6$ donne une pente.\item $y=6x-9$ est l’équation d’une droite.\end{itemize} Le nombre dérivé n’est ni la hauteur du point ni l’équation de la tangente.
+\end{frame}
+\renewcommand{\slidekind}{À RETENIR}
+\begin{frame}[t,fragile]{Une approximation avec son erreur}
+La tangente à $x^2$ en $a$ donne $L(x)=a^2+2a(x-a)$.\[x^2-L(x)=(x-a)^2\ge0.\] L’approximation sous-estime toujours le carré. Son erreur est le carré de la distance à $a$ : diviser cette distance par $10$ divise ici l’erreur par $100$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une question de lecture graphique}
+Une tangente passe par $A(2,3)$ et $B(5,9)$. Calculer sa pente puis écrire son équation.\medskip\par La pente est $(9-3)/(5-2)=2$. La droite est $y=3+2(x-2)=2x-1$. Si $A$ est le point de tangence, alors $f(2)=3$ et $f\prime(2)=2$. Rien ne permet d’affirmer que $f(5)=9$.
+\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 1}
+Pour $f(x)=x^2$, $f\prime(3)$ vaut :\begin{enumerate}
+\item $9$
+\item $6$
+\item $3$
+\item $12$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 1 : résolution}
+\begin{block}{Réponse 2}$6$\end{block}\medskip La dérivée du carré en $a$ est $2a$, donc ici $6$.\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 2}
+Si $d(t)$ est en mètres et $t$ en secondes, $d\prime(t)$ est en :\begin{enumerate}
+\item Mètres
+\item Secondes
+\item Mètres carrés
+\item Mètres par seconde
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 2 : résolution}
+\begin{block}{Réponse 4}Mètres par seconde\end{block}\medskip Un taux divise une variation de distance par une variation de temps.\end{frame}
+\end{document}

@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Corrigé détaillé}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries Second degré : formes, équations et signes}\par{\large Corrigé détaillé}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Reconnaître et convertir}
+{\small\color{Muted}\textbf{Énoncé.} Pour $f(x)=x^2-8x+7$, déterminer les coefficients, compléter le carré et donner le sommet. En déduire le minimum.}
+\par\medskip
+\textbf{Résolution.}\par
+Les coefficients sont $a=1$, $b=-8$, $c=7$. Comme $(x-4)^2=x^2-8x+16$, on a $f(x)=(x-4)^2-9$. Le sommet est $(4,-9)$. Le carré étant positif ou nul, $f(x)\ge-9$, avec égalité pour $x=4$ : le minimum est $-9$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Trois discriminants}
+{\small\color{Muted}\textbf{Énoncé.} Résoudre dans $\mathbb R$ : $x^2-7x+10=0$ ; $4x^2+4x+1=0$ ; $x^2+2x+5=0$.}
+\par\medskip
+\textbf{Résolution.}\par
+Pour la première, $\Delta=49-40=9$, d’où $x=(7\pm3)/2$ : $2$ et $5$. Pour la deuxième, $\Delta=16-16=0$, donc $x=-4/8=-1/2$ ; on retrouve $(2x+1)^2=0$. Pour la troisième, $\Delta=4-20=-16<0$ : aucune solution réelle.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Entraînement}{Choisir la factorisation}
+{\small\color{Muted}\textbf{Énoncé.} Factoriser $9x^2-16$, $x^2+x-12$ et $3x^2-12x$. Donner leurs racines.}
+\par\medskip
+\textbf{Résolution.}\par
+Une différence de carrés donne $9x^2-16=(3x-4)(3x+4)$, racines $\pm4/3$. Les nombres $3$ et $-4$ ont pour somme $-1$ et produit $-12$, donc $x^2+x-12=(x-3)(x+4)$, racines $3$ et $-4$. Enfin $3x^2-12x=3x(x-4)$, racines $0$ et $4$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Signe et inéquations}
+{\small\color{Muted}\textbf{Énoncé.} Résoudre $2x^2-5x-3\le0$, puis $-x^2+2x+3<0$.}
+\par\medskip
+\textbf{Résolution.}\par
+Le premier discriminant vaut $25+24=49$. Les racines sont $(5-7)/4=-1/2$ et $(5+7)/4=3$. Comme $a>0$, le trinôme est négatif entre elles : solution $[-1/2,3]$. Pour le second, $-x^2+2x+3=-(x-3)(x+1)$. Son signe est négatif à l’extérieur des racines. L’inégalité est stricte : $]-\infty,-1[\cup]3,+\infty[$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Entraînement}{Une parabole imposée}
+{\small\color{Muted}\textbf{Énoncé.} Un trinôme s’annule en $2$ et $5$ et vaut $-20$ en $0$. Déterminer son expression. Calculer son extremum.}
+\par\medskip
+\textbf{Résolution.}\par
+Il s’écrit $f(x)=a(x-2)(x-5)$. En $0$, $10a=-20$, donc $a=-2$. Ainsi $f(x)=-2x^2+14x-20=-2(x-7/2)^2+9/2$. Le carré étant positif, $f(x)\le9/2$. Le maximum vaut $9/2$, atteint en $7/2$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Entraînement}{Clôturer un jardin}
+{\small\color{Muted}\textbf{Énoncé.} On dispose de $24$ m de grillage pour trois côtés d’un rectangle, le quatrième bordant un mur. Noter $x$ la longueur d’un côté perpendiculaire au mur. Exprimer l’aire et trouver les dimensions optimales.}
+\par\medskip
+\textbf{Résolution.}\par
+Les deux côtés perpendiculaires consomment $2x$ mètres ; le côté parallèle mesure $24-2x$. Les contraintes donnent $0<x<12$. L’aire vaut $A(x)=x(24-2x)=-2(x-6)^2+72$. Elle est au plus égale à $72$ m$^2$, valeur atteinte pour $x=6$. Le côté parallèle mesure alors $12$ m.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Entraînement}{Un algorithme de résolution}
+{\small\color{Muted}\textbf{Énoncé.} Décrire un algorithme qui reçoit $a,b,c$ avec $a\ne0$ et renvoie le nombre de racines réelles et leurs valeurs. L’appliquer à $a=1,b=0,c=-2$. Pourquoi traiter $\Delta=0$ séparément ?}
+\par\medskip
+\textbf{Résolution.}\par
+Calculer $d=b^2-4ac$. Si $d<0$, annoncer aucune racine réelle. Si $d=0$, renvoyer la seule valeur $-b/(2a)$. Sinon, renvoyer $(-b-\sqrt d)/(2a)$ et $(-b+\sqrt d)/(2a)$. Pour $(1,0,-2)$, $d=8$ et les racines valent $\pm\sqrt2$. Le cas nul évite de présenter deux fois la même racine. Avec des données décimales, le test exact de nullité exige de prendre en compte les erreurs d’arrondi.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Un paramètre}
+{\small\color{Muted}\textbf{Énoncé.} Pour quels réels $m$ le trinôme $x^2-2mx+4$ est-il strictement positif pour tout réel $x$ ? Étudier les cas limites.}
+\par\medskip
+\textbf{Résolution.}\par
+Le coefficient dominant est positif. La stricte positivité partout équivaut à l’absence de racine réelle, donc à $\Delta=4m^2-16<0$. On obtient $m^2<4$, soit $-2<m<2$. Pour $m=2$, le trinôme vaut $(x-2)^2$ et s’annule en $2$ ; pour $m=-2$, il vaut $(x+2)^2$ et s’annule en $-2$. Ces cas limites ne conviennent donc pas.
+\end{minipage}\par
+\end{document}

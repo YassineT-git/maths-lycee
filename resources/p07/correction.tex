@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Corrigé détaillé}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries La fonction exponentielle}\par{\large Corrigé détaillé}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Simplifier}
+{\small\color{Muted}\textbf{Énoncé.} Simplifier $e^{2x}e^{3-x}$ et $(e^{2x})^3/e^x$.}
+\par\medskip
+\textbf{Résolution.}\par
+On additionne les exposants du produit : $e^{x+3}$. Dans la seconde expression, la puissance donne $e^{6x}$ puis le quotient donne $e^{5x}$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Équation}
+{\small\color{Muted}\textbf{Énoncé.} Résoudre $e^{4x-2}=e^{x+7}$.}
+\par\medskip
+\textbf{Résolution.}\par
+La stricte croissance donne $4x-2=x+7$, soit $3x=9$, donc $x=3$. Vérification : les deux exposants valent $10$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Application}{Inéquation}
+{\small\color{Muted}\textbf{Énoncé.} Résoudre $e^{1-3x}>e^4$.}
+\par\medskip
+\textbf{Résolution.}\par
+On compare les exposants : $1-3x>4$, donc $-3x>3$. Diviser par $-3$ inverse le sens : $x<-1$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Dériver}
+{\small\color{Muted}\textbf{Énoncé.} Dériver $3e^{2x-1}$ et $(x+1)e^{-x}$.}
+\par\medskip
+\textbf{Résolution.}\par
+La première dérivée vaut $6e^{2x-1}$. Pour la seconde, le produit donne $e^{-x}-(x+1)e^{-x}=-xe^{-x}$. On a utilisé la dérivée de $e^{-x}$, qui vaut $-e^{-x}$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Entraînement}{Maximum}
+{\small\color{Muted}\textbf{Énoncé.} Étudier $f(x)=x e^{-2x}$ sur $[0,3]$.}
+\par\medskip
+\textbf{Résolution.}\par
+$f\prime=(1-2x)e^{-2x}$. Le second facteur est positif, le premier change de signe en $1/2$. La fonction croît puis décroît. Maximum $f(1/2)=1/(2e)$, et valeurs aux bornes $f(0)=0$, $f(3)=3e^{-6}$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Entraînement}{Population}
+{\small\color{Muted}\textbf{Énoncé.} Pour $N(t)=500e^{0,04t}$, donner $N(0)$, $N\prime(t)$ et la raison de $N(n)$.}
+\par\medskip
+\textbf{Résolution.}\par
+$N(0)=500$. La dérivée est $20e^{0,04t}=0,04N(t)$. Aux temps entiers, $N(n+1)/N(n)=e^{0,04}\approx1,04081$. L’augmentation par unité est donc d’environ $4,08\,\%$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Approfondissement}{Seuil numérique}
+{\small\color{Muted}\textbf{Énoncé.} Décrire un algorithme cherchant le premier entier $n$ tel que $100e^{0,1n}>200$.}
+\par\medskip
+\textbf{Résolution.}\par
+Initialiser $n=0$. Tant que $100e^{0,1n}\le200$, augmenter $n$ de un. On obtient $n=7$ : $100e^{0,6}\approx182,21$ et $100e^{0,7}\approx201,38$. La croissance garantit qu’il s’agit du premier entier.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Une fausse propriété}
+{\small\color{Muted}\textbf{Énoncé.} Un élève affirme $e^{a+b}=e^a+e^b$. Donner un contre-exemple et la propriété correcte.}
+\par\medskip
+\textbf{Résolution.}\par
+Prendre $a=b=0$. Le membre de gauche vaut $1$, celui de droite $2$ : l’affirmation est fausse. La relation correcte est $e^{a+b}=e^ae^b$. Un contre-exemple suffit à réfuter un énoncé universel.
+\end{minipage}\par
+\end{document}

@@ -1,0 +1,125 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\input{theme-slides.tex}
+\title{Suites : construire, représenter et conjecturer}
+\subtitle{Première spécialité}
+\renewcommand{\chapternumber}{02}\author{Maths Lycée}
+\date{Année scolaire 2026--2027}
+\begin{document}\begin{frame}\titlepage\end{frame}
+\begin{frame}{Objectifs du chapitre}\begin{itemize}
+\item Calculer des termes explicites ou récurrents
+\item Modéliser une construction discrète
+\item Étudier les variations
+\item Distinguer conjecture et preuve
+\item Programmer une recherche de seuil
+\end{itemize}\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une population suivie chaque année}
+Une réserve compte $200$ animaux au début de l’année $0$. Un modèle prévoit $20$ animaux supplémentaires par an. On note $u_n$ l’effectif prévu au début de l’année $n$. Alors $u_0=200$, $u_1=220$, $u_2=240$. Une suite associe ici un nombre à chaque date entière.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Définition et vocabulaire}
+Une suite réelle est une fonction définie sur les entiers naturels, ou à partir d’un certain rang. On écrit $u_n$ ou $u(n)$ pour le terme de rang $n$, et $(u_n)$ pour la suite entière. Si le premier rang est $0$, le troisième terme est $u_2$. Le rang n’est pas la valeur du terme.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une formule explicite}
+La formule $u_n=3n^2-1$ permet de calculer directement n’importe quel terme. Par exemple $u_0=-1$, $u_2=11$ et $u_{10}=299$. Pour obtenir $u_{n+1}$, remplacer chaque $n$ par $n+1$ : $u_{n+1}=3(n+1)^2-1$, et non $3n^2$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une définition par récurrence}
+La suite définie par $u_0=2$ et $u_{n+1}=2u_n+1$ se calcule de proche en proche : $u_1=5$, $u_2=11$, $u_3=23$. La valeur initiale et la règle sont toutes deux indispensables. La même règle avec $u_0=0$ donnerait $1$, puis $3$, puis $7$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Formule explicite ou récurrence ?}
+La formule $u_n=2^{n+1}-1$ donne les mêmes premiers termes que la récurrence précédente. Vérification : $u_0=1$ ici, donc \textbf{ce n’est pas la même suite}. La bonne formule est $u_n=3\times2^n-1$ : elle donne $u_0=2$ et $u_{n+1}=2u_n+1$. Vérifier aussi l’initialisation évite une erreur fréquente.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une construction géométrique}
+On aligne $n$ carrés côte à côte avec des allumettes, pour $n\ge1$. Un carré utilise $4$ allumettes ; chaque carré supplémentaire partage un côté et ajoute $3$ allumettes. Ainsi $v_1=4$, $v_{n+1}=v_n+3$ et $v_n=3n+1$. Le dessin fournit à la fois une règle de récurrence et une formule explicite.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une suite définie par un algorithme}
+Partir de $u=1$. Répéter $n$ fois l’instruction : remplacer $u$ par $u+2$. La valeur finale est $u_n=1+2n$. Une boucle appliquée zéro fois conserve la valeur initiale. Pour obtenir $u_4$, il faut quatre mises à jour, pas cinq.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Représenter une suite}
+On représente $(u_n)$ par les points de coordonnées $(n,u_n)$. Les abscisses sont entières : on ne relie pas nécessairement les points. Pour $u_n=n^2-1$, les points $(0,-1)$, $(1,0)$, $(2,3)$, $(3,8)$ appartiennent à la parabole $y=x^2-1$, mais la suite ne contient que les valeurs aux rangs entiers.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Lire un nuage de points}
+\begin{columns}[c,onlytextwidth]\begin{column}{.60\textwidth}\centering\begin{adjustbox}{max width=\linewidth,max height=3.7cm}\begin{tikzpicture}[scale=.65]\draw[->] (-.3,0)--(5,0) node[right]{$n$};\draw[->] (0,-.5)--(0,5) node[above]{$u_n$};\foreach \x/\y in {0/1,1/2,2/3,3/4,4/4.5}{\fill[blue] (\x,\y) circle(3pt);}\end{tikzpicture}\end{adjustbox}\end{column}\begin{column}{.36\textwidth} Les points suggèrent une croissance. Un dessin limité à quelques rangs ne prouve pas la croissance pour tous les entiers.\end{column}\end{columns}
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Suites croissantes et décroissantes}
+Une suite est croissante si $u_{n+1}\ge u_n$ pour tout rang de son domaine ; elle est strictement croissante si $u_{n+1}>u_n$. Pour une suite décroissante, les inégalités sont inversées. Une suite constante est à la fois croissante et décroissante au sens large.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Méthode par différence}
+Pour $u_n=n^2-3n$, calculons \[u_{n+1}-u_n=(n+1)^2-3(n+1)-(n^2-3n)=2n-2.\] La différence est négative en $n=0$, nulle en $n=1$, puis positive pour $n\ge2$. La suite décroît d’abord, présente deux termes égaux, puis croît : elle n’est pas monotone sur tout $\mathbb N$.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Méthode par quotient}
+Si tous les termes sont \textbf{strictement positifs}, comparer $u_{n+1}/u_n$ à $1$ permet de comparer les termes. Pour $u_n=3\times(1,2)^n$, le quotient vaut $1,2>1$ : la suite est strictement croissante. Sans positivité, cette méthode n’est pas valable telle quelle.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Utiliser une fonction}
+Si $u_n=f(n)$ et si $f$ est croissante sur $[0,+\infty[$, alors $(u_n)$ est croissante : $n+1>n$ entraîne $f(n+1)\ge f(n)$. Exemple : $u_n=\sqrt{n+1}$ est strictement croissante. Cette méthode donne une condition suffisante ; elle ne remplace pas l’étude du domaine.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une suite non monotone}
+Pour $u_n=(-1)^n$, les termes sont $1,-1,1,-1,\ldots$. Ils alternent : la suite n’est ni croissante ni décroissante. Une succession de valeurs positives et négatives n’interdit pas toute limite en général : $(-1)^n/(n+1)$ oscille aussi, mais ses valeurs se rapprochent de $0$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Se rapprocher d’une valeur}
+La suite $u_n=2+1/(n+1)$ donne $3$, $2,5$, $2,333\ldots$. Le terme $1/(n+1)$ devient aussi petit que souhaité quand $n$ augmente. Les termes se rapprochent de $2$ : on dit intuitivement que la limite vaut $2$. Aucun terme n’a besoin d’être exactement égal à la limite.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Croître sans borne ou osciller}
+Pour $v_n=n^2$, les termes dépassent tout seuil fixé si $n$ est assez grand : la limite est $+\infty$. Pour $w_n=(-1)^n$, les termes restent entre $-1$ et $1$ mais ne se rapprochent pas d’une valeur unique : pas de limite. Être bornée ne suffit donc pas à converger.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Recherche d’un seuil}
+Pour $u_n=2^n$, cherchons le premier rang tel que $u_n>1000$. Partir de $n=0$, $u=1$. Tant que $u\le1000$, remplacer $u$ par $2u$ et $n$ par $n+1$. On trouve $n=10$ : $2^9=512\le1000<1024=2^{10}$. Le rang précédent contrôle la minimalité.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Construire et parcourir une liste}
+En Python, une liste peut contenir les premiers termes : \texttt{[n*n for n in range(5)]} produit $[0,1,4,9,16]$. Pour une récurrence, partir d’une liste contenant $u_0$, puis ajouter chaque nouveau terme calculé. Attention : l’indice Python $0$ désigne le premier élément, même si la suite mathématique commence au rang $1$.
+\end{frame}
+\renewcommand{\slidekind}{À RETENIR}
+\begin{frame}[t,fragile]{Bilan et activité}
+Une suite peut venir d’une formule, d’une récurrence, d’un motif ou d’un algorithme. Pour $u_0=10$, $u_{n+1}=0,5u_n+2$, calculer trois nouveaux termes : $7$, $5,5$, $4,75$. On conjecture une décroissance vers $4$. Ces calculs suggèrent un comportement ; une preuve doit traiter tous les rangs.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Un indice n’est pas une valeur}
+Pour $u_n=2n+5$, le terme d’indice $3$ est $u_3=11$. Le troisième terme est $u_2=9$ si la suite commence en $u_0$.\medskip\par Toujours préciser le premier indice. Une liste qui contient $u_0,\ldots,u_{10}$ comporte onze valeurs, car on compte aussi l’indice zéro.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Une récurrence calculée pas à pas}
+$u_0=2$ et $u_{n+1}=3u_n-1$.\[\begin{aligned}u_1&=3\times2-1=5,\\u_2&=3\times5-1=14,\\u_3&=3\times14-1=41.\end{aligned}\] Pour calculer $u_3$, on utilise $u_2$, pas $n=3$ dans l’expression $3u_n-1$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Des valeurs ne prouvent pas une variation}
+Pour $u_n=-n^2+10n$, on trouve $u_0=0$, $u_1=9$, $u_2=16$. Pourtant\[u_{n+1}-u_n=9-2n.\] La différence est positive jusqu’à $n=4$, puis négative dès $n=5$. La suite monte jusqu’à $u_5=25$, puis descend. Trois valeurs ne démontrent pas une propriété pour tous les indices.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Rédiger une étude de variation}
+Pour $u_n=n/(n+1)$, $n\ge0$,\[u_{n+1}-u_n=\frac{n+1}{n+2}-\frac n{n+1}=\frac1{(n+1)(n+2)}>0.\] Les deux facteurs du dénominateur sont positifs. La suite est donc strictement croissante. On a justifié le signe pour tout entier admissible, pas seulement sur quelques exemples.
+\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 1}
+Pour $u_n=n^2+1$, $u_{n+1}$ vaut :\begin{enumerate}
+\item $n^2+2$
+\item $(n+1)^2+1$
+\item $n^2+n+1$
+\item $u_n+1$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 1 : résolution}
+\begin{block}{Réponse 2}$(n+1)^2+1$\end{block}\medskip Il faut remplacer chaque occurrence de $n$ par $n+1$.\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 2}
+Une suite semble croissante sur ses dix premiers termes. On peut conclure :\begin{enumerate}
+\item Elle est croissante partout
+\item Elle converge
+\item Elle diverge
+\item Cela ne prouve pas la croissance globale
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 2 : résolution}
+\begin{block}{Réponse 4}Cela ne prouve pas la croissance globale\end{block}\medskip La définition exige une comparaison à tous les rangs, pas seulement aux premiers.\end{frame}
+\end{document}

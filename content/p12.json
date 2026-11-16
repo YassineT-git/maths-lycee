@@ -1,0 +1,274 @@
+[
+  {
+    "id": "p12",
+    "level": "premiere",
+    "title": "Variables aléatoires et espérance",
+    "domain": "Probabilités",
+    "description": "Décrire un gain aléatoire, sa moyenne théorique et sa dispersion.",
+    "prerequisites": [
+      "Lois de probabilité sur un univers fini",
+      "Calculs de moyennes pondérées",
+      "Probabilités conditionnelles"
+    ],
+    "objectives": [
+      "Construire la loi d’une variable aléatoire finie",
+      "Calculer et interpréter son espérance",
+      "Utiliser la linéarité de l’espérance",
+      "Calculer variance et écart-type",
+      "Étudier l’équité et le risque d’un jeu"
+    ],
+    "coverage": [
+      "Variable aléatoire réelle finie",
+      "Loi de probabilité",
+      "Espérance",
+      "Linéarité de l’espérance",
+      "Variance",
+      "Formule de König-Huygens",
+      "Écart-type",
+      "Transformation affine",
+      "Comparaison de jeux"
+    ],
+    "slides": [
+      {
+        "title": "Transformer un résultat en nombre",
+        "body": "On lance un dé équilibré. Un jeu rapporte $4$ euros si l’on obtient $6$ et fait perdre $1$ euro sinon.\\medskip\\par Le résultat du dé est une issue. Le gain associé est un nombre. On note $X$ ce gain : $X=4$ sur l’issue $6$, et $X=-1$ sur les cinq autres issues. $X$ est une variable aléatoire."
+      },
+      {
+        "title": "Définition d’une variable aléatoire",
+        "body": "Une variable aléatoire réelle sur un univers fini associe un réel à chaque issue.\\medskip\\par Les événements $\\{X=x\\}$ rassemblent les issues produisant la valeur $x$.\\medskip\\par Pour construire une loi, on liste les \\textbf{valeurs distinctes} de $X$, puis on calcule la probabilité de chacune. Plusieurs issues peuvent donner la même valeur."
+      },
+      {
+        "title": "Une loi de probabilité",
+        "body": "Pour le jeu du dé :\\begin{center}\\begin{tabular}{c|cc}$x_i$&$-1$&$4$\\\\\\hline$P(X=x_i)$&$5/6$&$1/6$\\end{tabular}\\end{center}Toute loi vérifie $p_i\\ge0$ et $\\sum_i p_i=1$.\\medskip\\par Ces conditions permettent de contrôler un tableau. Les valeurs $x_i$ peuvent être négatives, mais les probabilités ne le peuvent pas."
+      },
+      {
+        "title": "Calculer une probabilité à partir de la loi",
+        "body": "Supposons que $X$ prenne $0$, $2$, $5$ avec probabilités $0,2$, $0,5$, $0,3$.\\[P(X\\ge2)=P(X=2)+P(X=5)=0,8.\\]\\[P(0<X<5)=P(X=2)=0,5.\\]On traduit d’abord l’inégalité en une liste de valeurs possibles, puis on additionne leurs probabilités."
+      },
+      {
+        "title": "Espérance : moyenne théorique",
+        "body": "Pour une loi finie $(x_i,p_i)$,\\[\\boxed{E(X)=\\sum_i x_i p_i}.\\]L’espérance est une moyenne pondérée des valeurs possibles. Elle possède la même unité que $X$.\\medskip\\par Elle décrit le gain moyen attendu sur un grand nombre de répétitions dans les mêmes conditions, sans prédire le résultat d’une expérience isolée."
+      },
+      {
+        "title": "Espérance d’un jeu",
+        "body": "Pour le jeu du dé,\\[E(X)=(-1)\\frac56+4\\frac16=-\\frac16.\\]Le joueur perd en moyenne environ $0,17$ euro par partie sur une longue série.\\medskip\\par L’espérance $-1/6$ n’est pas une valeur possible du gain. Il ne faut donc pas l’interpréter comme un résultat certain ou comme le résultat le plus probable."
+      },
+      {
+        "title": "Jeu équitable et prix d’entrée",
+        "body": "Un jeu est dit équitable pour le joueur si son \\textbf{gain net} a une espérance nulle.\\medskip\\par Si un lot brut $L$ est gagné et si la participation coûte $c$, le gain net est $G=L-c$. Alors\\[E(G)=E(L)-c.\\]Le prix équitable est donc $c=E(L)$. Il faut déduire la mise avant de juger l’équité."
+      },
+      {
+        "title": "Linéarité de l’espérance",
+        "body": "Pour des variables finies $X,Y$ et des réels $a,b$,\\[\\boxed{E(aX+bY)=aE(X)+bE(Y)}.\\]En particulier, $E(X+c)=E(X)+c$.\\medskip\\par Cette propriété ne demande \\textbf{pas} l’indépendance. Elle permet de calculer une moyenne totale sans construire toute la loi du total."
+      },
+      {
+        "title": "Pourquoi l’espérance est linéaire",
+        "body": "En sommant sur toutes les issues $\\omega$,\\[E(X+Y)=\\sum_{\\omega}(X(\\omega)+Y(\\omega))P(\\{\\omega\\}).\\]La distributivité sépare cette somme en\\[\\sum_{\\omega}X(\\omega)P(\\{\\omega\\})+\\sum_{\\omega}Y(\\omega)P(\\{\\omega\\}).\\]On obtient $E(X+Y)=E(X)+E(Y)$. Le même calcul traite les coefficients réels."
+      },
+      {
+        "title": "Compter des succès par indicatrices",
+        "body": "Une variable indicatrice $I$ vaut $1$ si un événement $A$ se produit et $0$ sinon.\\[E(I)=1P(A)+0P(\\overline A)=P(A).\\]Si $N=I_1+I_2+I_3$ compte trois succès de probabilité $p$, alors $E(N)=3p$. Cette conclusion utilise seulement la linéarité, même si les indicatrices ne sont pas indépendantes."
+      },
+      {
+        "title": "La moyenne ne décrit pas le risque",
+        "body": "Le jeu $U$ donne toujours $2$ euros. Le jeu $V$ donne $0$ ou $4$ euros avec probabilités $1/2$.\\[E(U)=E(V)=2.\\]Pourtant $U$ est certain et $V$ fluctue. Pour quantifier cette dispersion autour de l’espérance, on introduit la variance."
+      },
+      {
+        "title": "Définition de la variance",
+        "body": "\\[\\boxed{V(X)=E\\bigl((X-E(X))^2\\bigr)=\\sum_i(x_i-E(X))^2p_i}.\\]Chaque carré est positif ou nul, donc $V(X)\\ge0$.\\medskip\\par La variance mesure un écart quadratique moyen. Si $X$ est en euros, $V(X)$ est en euros carrés."
+      },
+      {
+        "title": "Écart-type",
+        "body": "\\[\\boxed{\\sigma(X)=\\sqrt{V(X)}}.\\]L’écart-type a la même unité que $X$, ce qui facilite l’interprétation.\\medskip\\par Pour $V$ qui vaut $0$ ou $4$ équiprobablement,\\[V(V)=\\tfrac12(0-2)^2+\\tfrac12(4-2)^2=4,\\quad\\sigma(V)=2.\\]Il s’agit d’un indicateur de dispersion, pas d’un écart maximal."
+      },
+      {
+        "title": "Formule de König-Huygens",
+        "body": "La variance se calcule aussi par\\[\\boxed{V(X)=E(X^2)-E(X)^2}.\\]Attention :\\[E(X^2)=\\sum_i x_i^2p_i\\]et $E(X)^2=\\left(\\sum_i x_ip_i\\right)^2$ sont deux quantités différentes. La formule est souvent plus rapide que la définition."
+      },
+      {
+        "title": "Démonstration de König-Huygens",
+        "body": "Posons $m=E(X)$. On développe\\[(X-m)^2=X^2-2mX+m^2.\\]Par linéarité,\\[V(X)=E(X^2)-2mE(X)+m^2.\\]Comme $E(X)=m$, on obtient $V(X)=E(X^2)-m^2$. Cette preuve explique pourquoi il faut soustraire le carré de la moyenne."
+      },
+      {
+        "title": "Un calcul complet",
+        "body": "$X$ vaut $0$, $2$, $5$ avec probabilités $0,2$, $0,5$, $0,3$.\\[E(X)=0+1+1,5=2,5.\\]\\[E(X^2)=0+4\\times0,5+25\\times0,3=9,5.\\]\\[V(X)=9,5-2,5^2=3,25.\\]\\[\\sigma(X)=\\sqrt{3,25}\\approx1,803.\\]On conserve les valeurs exactes jusqu’au calcul final."
+      },
+      {
+        "title": "Transformation affine",
+        "body": "Pour $Y=aX+b$,\\[E(Y)=aE(X)+b,\\quad V(Y)=a^2V(X),\\quad\\sigma(Y)=|a|\\sigma(X).\\]Ajouter une constante déplace les valeurs sans changer leur dispersion. Multiplier par $a$ multiplie les distances à la moyenne par $|a|$. Le carré dans la variance garantit un résultat non négatif."
+      },
+      {
+        "title": "Variance nulle et certitude",
+        "body": "Si toutes les valeurs de probabilité non nulle sont égales à une constante $c$, alors $V(X)=0$.\\medskip\\par Réciproquement, si $V(X)=\\sum_i(x_i-E(X))^2p_i=0$, chaque terme non négatif est nul. Pour tout $p_i>0$, on a $x_i=E(X)$.\\medskip\\par La variable est donc constante avec probabilité $1$."
+      },
+      {
+        "title": "Une activité de comparaison",
+        "body": "Deux jeux ont même espérance $1$. Le premier donne $0$ ou $2$ équiprobablement ; le second donne $-9$ ou $11$ équiprobablement.\\medskip\\par Leurs écarts-types valent respectivement $1$ et $10$. Une même moyenne peut donc masquer des risques très différents. Le choix d’un jeu ne se résume pas à son espérance."
+      },
+      {
+        "title": "Bilan des calculs",
+        "body": "\\begin{enumerate}\\item Construire la loi et vérifier que les probabilités somment à $1$.\\item Calculer $m=\\sum x_ip_i$.\\item Calculer $E(X^2)=\\sum x_i^2p_i$.\\item En déduire $V(X)=E(X^2)-m^2$ puis $\\sigma(X)$.\\end{enumerate}Interpréter avec les unités. Ne pas confondre gain brut, gain net et espérance."
+      },
+      {
+        "title": "Un tableau de calcul complet",
+        "body": "$X$ prend $-2$, $1$ et $4$ avec probabilités $0,25$, $0,5$, $0,25$.\\[E(X)=-2(0,25)+1(0,5)+4(0,25)=1.\\]\\[E(X^2)=4(0,25)+1(0,5)+16(0,25)=5,5.\\]\\[V(X)=5,5-1^2=4,5,\\qquad\\sigma(X)=\\sqrt{4,5}.\\] On met au carré les valeurs de $X$, pas les probabilités."
+      },
+      {
+        "title": "Espérance ne signifie pas résultat possible",
+        "body": "Un dé équilibré a pour espérance $3,5$. Pourtant aucun lancer ne peut donner $3,5$.\\medskip\\par L’espérance décrit une moyenne théorique pondérée, pas l’issue la plus probable ni un résultat certain. Dans un jeu, elle ne garantit pas le gain d’une partie."
+      },
+      {
+        "title": "Ajouter un prix fixe",
+        "body": "Un gain brut $X$ a $E(X)=5$ euros et $\\sigma(X)=3$ euros. Si la participation coûte $4$ euros, le gain net est $Y=X-4$.\\[E(Y)=1,\\qquad V(Y)=V(X)=9,\\qquad\\sigma(Y)=3.\\] Soustraire une constante décale toutes les valeurs sans modifier leur dispersion."
+      },
+      {
+        "title": "Linéarité sans indépendance",
+        "body": "Pour tout couple de variables finies $X,Y$,\\[E(X+Y)=E(X)+E(Y).\\] L’indépendance n’est pas nécessaire. En revanche, on ne peut pas additionner automatiquement leurs variances. Par exemple $Y=X$ donne $V(X+Y)=V(2X)=4V(X)$, et non $2V(X)$."
+      },
+      {
+        "title": "Une loi représentée par des bâtons",
+        "body": "\\begin{center}\\begin{tikzpicture}\\begin{axis}[width=9cm,height=4.4cm,axis lines=left,xmin=-3,xmax=5,ymin=0,ymax=.6,xtick={-2,1,4},xlabel={$x_i$},ylabel={$P(X=x_i)$}]\\addplot[Blue,ycomb,very thick,mark=*]coordinates{(-2,.25)(1,.5)(4,.25)};\\end{axis}\\end{tikzpicture}\\end{center} Les hauteurs représentent des probabilités et leur somme vaut $1$. L’espérance vaut $1$ : c’est le centre d’équilibre de cette distribution symétrique."
+      }
+    ],
+    "exercises": [
+      {
+        "title": "Construire une loi",
+        "difficulty": "Application",
+        "statement": "On lance un dé équilibré. $X$ vaut $0$ pour un résultat impair, $2$ pour $2$ ou $4$, et $5$ pour $6$. Donner la loi, puis calculer $P(X\\ge2)$ et $E(X)$.",
+        "correction": "Les résultats impairs sont $1,3,5$, donc $P(X=0)=3/6=1/2$. Les résultats $2,4$ donnent $P(X=2)=2/6=1/3$. Enfin $P(X=5)=1/6$. La somme vaut $1$. Ainsi $P(X\\ge2)=1/3+1/6=1/2$. L’espérance est $0\\times1/2+2\\times1/3+5\\times1/6=4/6+5/6=3/2$."
+      },
+      {
+        "title": "Compléter et calculer",
+        "difficulty": "Application",
+        "statement": "$X$ prend les valeurs $-2$, $1$, $4$ avec probabilités $0,2$, $p$, $0,3$. Déterminer $p$, puis l’espérance, la variance et l’écart-type.",
+        "correction": "La somme des probabilités impose $p=1-0,2-0,3=0,5$. Alors $E(X)=-2\\times0,2+1\\times0,5+4\\times0,3=1,3$. On calcule $E(X^2)=4\\times0,2+1\\times0,5+16\\times0,3=6,1$. D’où $V(X)=6,1-1,3^2=4,41$ et $\\sigma(X)=\\sqrt{4,41}=2,1$. Les valeurs négatives de $X$ sont permises, mais la variance reste positive."
+      },
+      {
+        "title": "Prix équitable",
+        "difficulty": "Entraînement",
+        "statement": "Une roue donne un lot brut de $20$ euros avec probabilité $0,1$, de $5$ euros avec probabilité $0,3$, et rien sinon. Calculer le prix d’entrée équitable. Si le prix est $4$ euros, quelle est l’espérance du gain net ?",
+        "correction": "Le lot brut $L$ a pour espérance $20\\times0,1+5\\times0,3+0\\times0,6=3,5$ euros. Pour un prix $c$, le gain net est $G=L-c$, d’où $E(G)=3,5-c$. L’équité impose $c=3,5$ euros. Si $c=4$, $E(G)=-0,5$ euro : la perte moyenne attendue du joueur est de $50$ centimes par partie."
+      },
+      {
+        "title": "Deux méthodes pour la variance",
+        "difficulty": "Entraînement",
+        "statement": "$X$ vaut $1$ avec probabilité $3/4$ et $5$ avec probabilité $1/4$. Calculer $E(X)$, puis $V(X)$ par la définition et par König-Huygens.",
+        "correction": "$E(X)=1\\times3/4+5\\times1/4=2$. Par définition, $V(X)=(1-2)^2(3/4)+(5-2)^2(1/4)=3/4+9/4=3$. Par König-Huygens, $E(X^2)=1\\times3/4+25\\times1/4=7$, donc $V(X)=7-2^2=3$. Les deux méthodes donnent le même résultat. L’écart-type vaut $\\sqrt3$."
+      },
+      {
+        "title": "Transformation d’un gain",
+        "difficulty": "Entraînement",
+        "statement": "Une variable $X$ vérifie $E(X)=3$ et $V(X)=4$. On définit $Y=5-2X$. Calculer $E(Y)$, $V(Y)$ et $\\sigma(Y)$. Pourquoi la translation par $5$ ne change-t-elle pas la variance ?",
+        "correction": "Par linéarité, $E(Y)=5-2\\times3=-1$. La variance est $(-2)^2\\times4=16$, donc $\\sigma(Y)=4$. En effet, $Y-E(Y)=5-2X-(5-2E(X))=-2(X-E(X))$ : le terme $5$ disparaît. Les écarts sont multipliés par $-2$, leurs carrés par $4$. On ne multiplie donc pas la variance par $-2$."
+      },
+      {
+        "title": "Compter sans connaître la loi complète",
+        "difficulty": "Entraînement",
+        "statement": "Dans une classe de $30$ élèves, chaque élève a une probabilité $0,1$ d’être absent un jour donné. Les absences ne sont pas supposées indépendantes. Calculer l’espérance du nombre d’absents. Peut-on en déduire sa variance ?",
+        "correction": "Pour chaque élève, $I_i$ vaut $1$ s’il est absent et $0$ sinon. Le nombre d’absents est $N=I_1+\\cdots+I_{30}$. Or $E(I_i)=0,1$, donc par linéarité $E(N)=30\\times0,1=3$. L’indépendance n’est pas nécessaire pour cette moyenne. En revanche, les seules probabilités individuelles ne suffisent pas à déterminer la variance du total : des absences liées entre elles peuvent produire davantage de fluctuations."
+      },
+      {
+        "title": "Même espérance, risques différents",
+        "difficulty": "Approfondissement",
+        "statement": "Le jeu $A$ donne $2$ euros à coup sûr. Le jeu $B$ donne $-4$ euros avec probabilité $1/2$ et $8$ euros sinon. Comparer espérances et écarts-types. Quelle est la probabilité d’une perte dans chaque jeu ?",
+        "correction": "Pour $A$, $E(A)=2$, $V(A)=0$, $\\sigma(A)=0$ et la probabilité de perte est nulle. Pour $B$, $E(B)=(-4+8)/2=2$. Les écarts à la moyenne sont $-6$ et $6$, d’où $V(B)=36$ et $\\sigma(B)=6$. La probabilité de perte est $1/2$. Les moyennes sont identiques, mais le jeu $B$ est plus dispersé et comporte une possibilité de perte."
+      },
+      {
+        "title": "Espérance d’un nombre de succès",
+        "difficulty": "Approfondissement",
+        "statement": "On lance quatre fois une pièce donnant pile avec probabilité $p$. $N$ compte les piles. Expliquer pourquoi $E(N)=4p$. Pour $p=1/2$ et des lancers indépendants, construire la loi de $N$ et vérifier cette espérance.",
+        "correction": "En notant $I_i$ l’indicatrice d’un pile au lancer $i$, $N=I_1+I_2+I_3+I_4$ et $E(I_i)=p$. La linéarité donne donc $E(N)=4p$. Pour quatre lancers indépendants équilibrés, les $16$ chemins sont équiprobables. Les nombres de chemins donnant $0,1,2,3,4$ piles sont $1,4,6,4,1$. La loi est donc ces effectifs divisés par $16$. L’espérance vaut $(0+4+12+12+4)/16=32/16=2=4\\times1/2$."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Une loi finie doit vérifier…",
+        "choices": [
+          "des probabilités positives ou nulles de somme 1",
+          "des valeurs positives de somme 1",
+          "des valeurs toutes distinctes de même probabilité",
+          "une espérance entière"
+        ],
+        "answer": 0,
+        "explanation": "Les probabilités sont positives ou nulles et leur somme vaut 1. Les valeurs peuvent être négatives."
+      },
+      {
+        "question": "$X$ vaut $0$ ou $10$ avec probabilités $0,8$ et $0,2$. $E(X)=$",
+        "choices": [
+          "$5$",
+          "$2$",
+          "$8$",
+          "$10$"
+        ],
+        "answer": 1,
+        "explanation": "$E(X)=0\\times0,8+10\\times0,2=2$."
+      },
+      {
+        "question": "Si $E(X)=4$, alors $E(3X-2)=$",
+        "choices": [
+          "$14$",
+          "$6$",
+          "$10$",
+          "$12$"
+        ],
+        "answer": 2,
+        "explanation": "Par linéarité, $3E(X)-2=12-2=10$."
+      },
+      {
+        "question": "La formule de König-Huygens est…",
+        "choices": [
+          "$E(X^2)+E(X)^2$",
+          "$E(X)^2-E(X^2)$",
+          "$E(X^2)-E(X)$",
+          "$E(X^2)-E(X)^2$"
+        ],
+        "answer": 3,
+        "explanation": "La variance est le second moment moins le carré de la moyenne."
+      },
+      {
+        "question": "Une variance peut être…",
+        "choices": [
+          "nulle",
+          "strictement négative",
+          "un vecteur",
+          "toujours égale à l’espérance"
+        ],
+        "answer": 0,
+        "explanation": "Une variable constante a une variance nulle. Une variance est toujours positive ou nulle."
+      },
+      {
+        "question": "Pour utiliser $E(X+Y)=E(X)+E(Y)$, l’indépendance…",
+        "choices": [
+          "est indispensable",
+          "n’est pas nécessaire",
+          "doit être remplacée par l’incompatibilité",
+          "impose des variables positives"
+        ],
+        "answer": 1,
+        "explanation": "La linéarité de l’espérance vaut pour toutes les variables finies, dépendantes ou non."
+      },
+      {
+        "question": "Si $V(X)=9$, alors $\\sigma(X)=$",
+        "choices": [
+          "$81$",
+          "$9$",
+          "$3$",
+          "$4,5$"
+        ],
+        "answer": 2,
+        "explanation": "L’écart-type est la racine carrée de la variance : $\\sqrt9=3$."
+      },
+      {
+        "question": "Si $V(X)=2$, alors $V(-3X+7)=$",
+        "choices": [
+          "$1$",
+          "$-6$",
+          "$6$",
+          "$18$"
+        ],
+        "answer": 3,
+        "explanation": "Une translation ne change pas la variance et le coefficient est mis au carré : $(-3)^2\\times2=18$."
+      }
+    ]
+  }
+]

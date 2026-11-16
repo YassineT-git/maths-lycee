@@ -1,0 +1,31 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Exercices}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries Suites : construire, représenter et conjecturer}\par{\large Exercices}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+Les exercices progressent de l’application directe vers la recherche. Détailler les calculs et justifier les réponses.
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Rangs et valeurs}
+On définit $u_n=2n^2-3$ pour $n\ge0$. Calculer $u_0,u_1,u_4$, écrire $u_{n+1}$ et dire quel est le quatrième terme.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Calcul de proche en proche}
+$u_0=3$ et $u_{n+1}=u_n^2-2$. Calculer $u_1,u_2,u_3$. Pourquoi ne peut-on pas remplacer directement $u_n$ par $n$ ?
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Entraînement}{Une frise de triangles}
+Une frise de $n\ge1$ triangles utilise trois allumettes pour le premier triangle et deux de plus pour chaque triangle supplémentaire. Donner une récurrence puis une formule explicite pour le nombre $a_n$ d’allumettes. Calculer $a_{50}$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Étudier les variations}
+Étudier les variations de $u_n=n^2-5n$ pour $n\ge0$. Préciser les éventuels termes consécutifs égaux.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Entraînement}{Le piège du quotient}
+Pour $u_n=-2^n$, calculer $u_{n+1}/u_n$, puis $u_{n+1}-u_n$. La suite est-elle croissante ?
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Entraînement}{Conjectures de limites}
+Conjecturer et expliquer le comportement de $a_n=5-1/(n+1)$, $b_n=3n+2$, $c_n=(-1)^n$ et $d_n=(-1)^n/(n+1)$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Entraînement}{Seuil de production}
+Une machine produit $u_n=40+15n$ pièces au jour de rang $n\ge0$. Écrire un algorithme donnant le premier rang pour lequel $u_n\ge200$, puis le déterminer.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Vérifier une formule proposée}
+On propose $u_n=4\times3^n-2$ pour la suite $u_0=2$, $u_{n+1}=3u_n+4$. Vérifier l’initialisation et la règle. Calculer alors $u_6$.
+\end{minipage}\par
+\end{document}

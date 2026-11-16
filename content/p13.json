@@ -1,0 +1,246 @@
+[
+  {
+    "id": "p13",
+    "level": "premiere",
+    "title": "Simulation et échantillonnage",
+    "domain": "Probabilités",
+    "description": "Expérimenter avec Python, mesurer les fluctuations et distinguer observation numérique et résultat théorique.",
+    "prerequisites": [
+      "Probabilités",
+      "Espérance et écart-type",
+      "Boucles et listes Python"
+    ],
+    "objectives": [
+      "Simuler une expérience aléatoire",
+      "Construire des échantillons indépendants",
+      "Comparer fréquence et probabilité",
+      "Comparer moyenne et espérance",
+      "Observer les écarts à l’échelle de sigma sur racine de n"
+    ],
+    "coverage": [
+      "Simuler une expérience aléatoire",
+      "Construire des échantillons indépendants",
+      "Comparer fréquence et probabilité",
+      "Comparer moyenne et espérance",
+      "Observer les écarts à l’échelle de sigma sur racine de n"
+    ],
+    "slides": [
+      {
+        "title": "Une pièce ne donne pas toujours moitié-moitié",
+        "body": "Une pièce équilibrée donne pile avec probabilité $1/2$. Cela ne signifie pas que chaque série de dix lancers contient cinq piles.\\medskip\\par Une simulation permet d’observer la diversité des résultats et leur évolution avec la taille de l’échantillon."
+      },
+      {
+        "title": "Modèle et expérience",
+        "body": "Le modèle fixe les probabilités. L’expérience fournit une réalisation aléatoire.\\medskip\\par Pour un dé équilibré, $P(6)=1/6$ est une valeur théorique. Si l’on obtient $14$ six en $60$ lancers, la fréquence observée est $14/60\\approx0,233$. La différence n’est pas automatiquement une erreur du modèle."
+      },
+      {
+        "title": "Une expérience de Bernoulli",
+        "body": "Une variable de Bernoulli vaut $1$ en cas de succès et $0$ sinon. Son espérance vaut $p$.\\medskip\\par Pour simuler un succès de probabilité $p$, on tire un nombre uniforme dans $[0,1[$ et on regarde s’il est inférieur à $p$. La portion $[0,p[$ représente une fraction $p$ de l’intervalle."
+      },
+      {
+        "title": "Un premier code Python",
+        "body": "\\begin{codepython}\nfrom random import random\n\ndef succes(p):\n    return int(random() < p)\n\\end{codepython}\nLa comparaison produit un booléen. La conversion par \\texttt{int} donne $1$ ou $0$. Le paramètre doit vérifier $0\\le p\\le1$."
+      },
+      {
+        "title": "Simuler un dé",
+        "body": "\\begin{codepython}\nfrom random import randint\n\ndef de():\n    return randint(1, 6)\n\\end{codepython}\nLes deux bornes sont incluses dans \\texttt{randint}. Chaque entier de $1$ à $6$ est tiré avec la même probabilité. Utiliser \\texttt{randint(0, 6)} créerait sept issues."
+      },
+      {
+        "title": "Simuler une loi finie",
+        "body": "Pour une loi $P(X=0)=0,2$, $P(X=5)=0,5$, $P(X=10)=0,3$, on partage $[0,1[$ en trois intervalles :\\[ [0\\,;\\,0,2[\\ ;\\quad[0,2\\,;\\,0,7[\\ ;\\quad[0,7\\,;\\,1[.\\] Les longueurs sont les probabilités. Un tirage dans ces intervalles renvoie respectivement $0$, $5$ ou $10$."
+      },
+      {
+        "title": "Une loi finie en Python",
+        "body": "\\begin{codepython}\nfrom random import random\n\ndef gain():\n    u = random()\n    if u < 0.2:\n        return 0\n    elif u < 0.7:\n        return 5\n    return 10\n\\end{codepython}"
+      },
+      {
+        "title": "Pourquoi conserver le même tirage ?",
+        "body": "Un seul nombre $u$ décide de l’issue. Si le premier test échoue, on sait déjà que $u\\ge0,2$. Le test suivant $u<0,7$ sélectionne donc exactement $[0,2\\,;\\,0,7[$, de longueur $0,5$.\\medskip\\par Tirer un nouveau nombre à chaque condition changerait ces probabilités. Les seuils doivent être cumulés et appliqués au même tirage."
+      },
+      {
+        "title": "Un échantillon",
+        "body": "Un échantillon de taille $n$ est une liste de $n$ réalisations indépendantes d’une même expérience. Les probabilités restent les mêmes à chaque répétition.\\medskip\\par Un tirage sans remise dans une petite urne ne correspond généralement pas à ce modèle : la composition de l’urne change."
+      },
+      {
+        "title": "Construire une liste",
+        "body": "\\begin{codepython}\ndef echantillon(n):\n    valeurs = []\n    for i in range(n):\n        valeurs.append(de())\n    return valeurs\n\\end{codepython}\nLa boucle appelle réellement \\texttt{de()} à chaque passage. Répéter $n$ fois une seule valeur tirée auparavant ne produirait pas $n$ tirages indépendants."
+      },
+      {
+        "title": "Fréquence de succès",
+        "body": "\\begin{codepython}\ndef frequence(n, p):\n    total = 0\n    for i in range(n):\n        total += succes(p)\n    return total / n\n\\end{codepython}\nIl faut $n>0$. Le numérateur compte les succès et le dénominateur compte tous les essais. Une nouvelle exécution donne souvent une fréquence différente."
+      },
+      {
+        "title": "Moyenne d’un échantillon",
+        "body": "Pour les valeurs $x_1,\\ldots,x_n$, la moyenne est\\[\\overline x=\\frac{x_1+\\cdots+x_n}{n}.\\] En Python : \\texttt{sum(valeurs) / len(valeurs)}. Pour un dé équilibré, l’espérance vaut $3,5$, mais une moyenne observée n’est pas nécessairement exactement $3,5$."
+      },
+      {
+        "title": "Plusieurs échantillons de même taille",
+        "body": "\\begin{codepython}\nfrequences = []\nfor repetition in range(1000):\n    frequences.append(frequence(100, 0.5))\n\\end{codepython}\nChaque valeur résume une nouvelle série de $100$ essais. On peut alors tracer un histogramme des $1000$ fréquences pour observer leur dispersion autour de $0,5$."
+      },
+      {
+        "title": "La taille influence la dispersion",
+        "body": "Comparer des fréquences obtenues pour $n=20$, $n=100$ et $n=1000$. Les grandes tailles produisent généralement des valeurs plus concentrées autour de $p$.\\medskip\\par Cela ne signifie pas que chaque nouvelle fréquence est plus proche de $p$ que la précédente. Une observation favorable n’est pas une garantie."
+      },
+      {
+        "title": "L’échelle de référence",
+        "body": "Pour une variable d’espérance $\\mu$ et d’écart-type $\\sigma>0$, on compare expérimentalement $\\overline x$ à $\\mu$ à l’échelle\\[\\frac{\\sigma}{\\sqrt n}.\\] Multiplier la taille par $4$ divise cette échelle par $2$. Le cours de première observe ce comportement sans établir un théorème général de convergence."
+      },
+      {
+        "title": "Écart normalisé",
+        "body": "On peut calculer\\[z=\\frac{\\overline x-\\mu}{\\sigma/\\sqrt n}.\\] Pour une Bernoulli de paramètre $1/2$, $\\sigma=1/2$. Avec $n=100$ et une fréquence $0,57$, $z=(0,57-0,5)/0,05=1,4$. L’écart observé représente $1,4$ fois l’échelle de référence."
+      },
+      {
+        "title": "Compter les écarts observés",
+        "body": "Pour chaque échantillon, tester $|\\overline x-\\mu|\\le2\\sigma/\\sqrt n$. Puis calculer la proportion d’échantillons qui vérifient ce test.\\medskip\\par La proportion obtenue est expérimentale. Elle n’est pas automatiquement égale à $95\\,\\%$ et ne constitue pas une garantie universelle pour toute loi et toute taille."
+      },
+      {
+        "title": "Une simulation reproductible",
+        "body": "\\begin{codepython}\nfrom random import seed\nseed(2026)\n\\end{codepython}\nUne graine fixe permet de reproduire une suite pseudo-aléatoire lors d’un travail commun. Elle est utile pour vérifier un programme. Réinitialiser la même graine avant chaque tirage ferait répéter la même valeur."
+      },
+      {
+        "title": "Lire les résultats avec prudence",
+        "body": "Une simulation teste un modèle déjà choisi. Elle ne prouve ni l’indépendance d’expériences réelles, ni l’équilibre d’un dé réel.\\medskip\\par Dans un compte rendu, préciser la loi, la taille, le nombre de répétitions, les résultats observés et les limites de la conclusion. Distinguer « on observe » de « on démontre »."
+      }
+    ],
+    "exercises": [
+      {
+        "title": "Fréquence",
+        "difficulty": "Application",
+        "statement": "Une simulation donne $37$ succès en $80$ essais. Calculer la fréquence et expliquer pourquoi elle peut différer de $p=0,4$.",
+        "correction": "La fréquence vaut $37/80=0,4625$. Le paramètre $p$ décrit le modèle et la fréquence décrit un échantillon. La fluctuation aléatoire explique une différence possible sans contradiction."
+      },
+      {
+        "title": "Une loi simulée",
+        "difficulty": "Application",
+        "statement": "Un programme renvoie $1$ si $u<0,3$, et $0$ sinon, où $u$ est uniforme sur $[0,1[$. Donner la loi et l’espérance.",
+        "correction": "La portion $[0,0,3[$ a une longueur $0,3$. Donc $P(X=1)=0,3$ et $P(X=0)=0,7$. L’espérance vaut $1\\times0,3+0\\times0,7=0,3$."
+      },
+      {
+        "title": "Moyenne",
+        "difficulty": "Application",
+        "statement": "Pour l’échantillon $(2,6,3,1,4,5)$, calculer la moyenne et la fréquence de la valeur $6$.",
+        "correction": "La somme vaut $21$, la taille vaut $6$, donc la moyenne vaut $21/6=3,5$. Un seul élément vaut $6$, donc sa fréquence est $1/6$. Ces deux statistiques ne mesurent pas la même chose."
+      },
+      {
+        "title": "Déboguer",
+        "difficulty": "Entraînement",
+        "statement": "Un élève tire une fois un dé puis remplit une liste de cent copies de ce résultat. Pourquoi son échantillon est-il incorrect ?",
+        "correction": "Les cent valeurs sont parfaitement dépendantes puisqu’elles sont identiques par construction. Il faut appeler la fonction de tirage à chaque passage dans la boucle. Avoir une liste de longueur cent ne garantit pas cent expériences indépendantes."
+      },
+      {
+        "title": "Échelle",
+        "difficulty": "Entraînement",
+        "statement": "Pour $\\sigma=3$, calculer $\\sigma/\\sqrt n$ pour $n=100$ et $n=400$. Interpréter.",
+        "correction": "On obtient $3/10=0,3$, puis $3/20=0,15$. Quadrupler la taille divise l’échelle par deux. Cela décrit une dispersion de référence, pas une borne certaine sur chaque moyenne observée."
+      },
+      {
+        "title": "Écart normalisé",
+        "difficulty": "Entraînement",
+        "statement": "Une variable a $\\mu=10$, $\\sigma=2$. Pour $n=64$, on observe $\\overline x=10,5$. Calculer l’écart normalisé.",
+        "correction": "L’échelle vaut $2/8=0,25$. L’écart à la moyenne théorique vaut $0,5$. Donc $z=0,5/0,25=2$. La moyenne observée est au-dessus de l’espérance de deux échelles de référence."
+      },
+      {
+        "title": "Seuils cumulés",
+        "difficulty": "Entraînement",
+        "statement": "Proposer les seuils d’une simulation d’une variable prenant $-2$, $1$ et $4$ avec probabilités $0,25$, $0,35$, $0,40$. Calculer son espérance.",
+        "correction": "Les seuils cumulés sont $0,25$ et $0,60$. Renvoyer $-2$ si $u<0,25$, $1$ si $0,25\\le u<0,60$, et $4$ sinon. L’espérance vaut $-2(0,25)+1(0,35)+4(0,40)=1,45$."
+      },
+      {
+        "title": "Conclusion expérimentale",
+        "difficulty": "Approfondissement",
+        "statement": "Une expérience montre $946$ moyennes dans une bande donnée parmi $1000$ échantillons. Peut-on affirmer que la probabilité théorique est exactement $0,946$ ?",
+        "correction": "Non : $946/1000=0,946$ est la fréquence observée pour cette expérience. Elle varie avec les échantillons. Elle fournit une estimation expérimentale sous le modèle simulé, mais ni une égalité exacte ni une garantie pour des modèles différents."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "$18$ succès sur $60$ donnent la fréquence :",
+        "choices": [
+          "$0,3$",
+          "$0,18$",
+          "$3$",
+          "$42/60$"
+        ],
+        "answer": 0,
+        "explanation": "La fréquence est $18/60=0,3$."
+      },
+      {
+        "question": "Pour simuler une Bernoulli de paramètre $0,2$, on teste :",
+        "choices": [
+          "$u>0,2$",
+          "$u<0,2$",
+          "$u=0,2$",
+          "$u<2$"
+        ],
+        "answer": 1,
+        "explanation": "La longueur de $[0,0,2[$ vaut $0,2$."
+      },
+      {
+        "question": "Une fréquence observée est :",
+        "choices": [
+          "Toujours la probabilité",
+          "Toujours égale à $1/2$",
+          "Variable selon l’échantillon",
+          "Indépendante de tous les tirages"
+        ],
+        "answer": 2,
+        "explanation": "Elle dépend des résultats aléatoires de la série."
+      },
+      {
+        "question": "La moyenne de $(1,2,6)$ vaut :",
+        "choices": [
+          "$2$",
+          "$6$",
+          "$9$",
+          "$3$"
+        ],
+        "answer": 3,
+        "explanation": "La somme vaut $9$ et la taille $3$."
+      },
+      {
+        "question": "Quadrupler $n$ divise $\\sigma/\\sqrt n$ par :",
+        "choices": [
+          "$2$",
+          "$4$",
+          "$16$",
+          "$1$"
+        ],
+        "answer": 0,
+        "explanation": "$\\sqrt{4n}=2\\sqrt n$."
+      },
+      {
+        "question": "Le code randint(1,6) peut produire :",
+        "choices": [
+          "Seulement 1 à 5",
+          "Les entiers 1 à 6",
+          "Tous les réels entre 1 et 6",
+          "Seulement 1 et 6"
+        ],
+        "answer": 1,
+        "explanation": "Les bornes de randint sont incluses."
+      },
+      {
+        "question": "Une simulation permet de :",
+        "choices": [
+          "Démontrer toute conjecture",
+          "Garantir un résultat réel",
+          "Observer le comportement d’un modèle",
+          "Supprimer la fluctuation"
+        ],
+        "answer": 2,
+        "explanation": "Les conclusions restent liées au modèle et aux échantillons simulés."
+      },
+      {
+        "question": "Une graine fixe sert à :",
+        "choices": [
+          "Garantir un dé équilibré",
+          "Obtenir la moyenne exacte",
+          "Rendre les événements incompatibles",
+          "Reproduire une suite pseudo-aléatoire"
+        ],
+        "answer": 3,
+        "explanation": "Elle permet de retrouver les mêmes tirages pour vérifier un programme."
+      }
+    ]
+  }
+]

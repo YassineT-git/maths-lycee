@@ -1,0 +1,272 @@
+[
+  {
+    "id": "p10",
+    "level": "premiere",
+    "title": "Droites et cercles dans un repère",
+    "domain": "Géométrie",
+    "description": "Traduire une configuration géométrique en équations pour démontrer et calculer.",
+    "prerequisites": [
+      "Produit scalaire",
+      "Équation cartésienne de droite",
+      "Résolution de systèmes linéaires"
+    ],
+    "objectives": [
+      "Lire et construire un vecteur normal",
+      "Déterminer une équation de droite ou de cercle",
+      "Calculer un projeté orthogonal",
+      "Résoudre un problème d’intersection"
+    ],
+    "coverage": [
+      "Vecteur normal",
+      "Équation cartésienne de droite",
+      "Orthogonalité et parallélisme",
+      "Projeté orthogonal",
+      "Médiatrice",
+      "Équation de cercle",
+      "Intersections droite-cercle",
+      "Configurations repérées"
+    ],
+    "slides": [
+      {
+        "title": "Un problème de localisation",
+        "body": "Une antenne est située en $C(2,1)$ et sa portée est de $5$ unités. Les points exactement à la limite de portée vérifient $CM=5$.\\medskip\\par Une route suit la droite $y=1$. Pour savoir où elle coupe cette limite, on peut traduire les deux conditions en équations. Tout le chapitre relie ainsi figures et calculs."
+      },
+      {
+        "title": "Le cadre : un repère orthonormé",
+        "body": "Les axes sont perpendiculaires et utilisent la même unité. Pour $A(x_A,y_A)$ et $B(x_B,y_B)$ :\\[\\overrightarrow{AB}=(x_B-x_A,y_B-y_A),\\]\\[AB^2=(x_B-x_A)^2+(y_B-y_A)^2.\\]Le milieu de $[AB]$ a pour coordonnées $\\left(\\frac{x_A+x_B}{2},\\frac{y_A+y_B}{2}\\right)$."
+      },
+      {
+        "title": "Vecteur normal à une droite",
+        "body": "Un vecteur \\textbf{normal} à une droite est un vecteur non nul orthogonal à un vecteur directeur de cette droite.\\medskip\\par Si $\\vec n=(a,b)$ est normal, alors $\\vec d=(-b,a)$ dirige la droite, car $a(-b)+ba=0$.\\medskip\\par Exemple : $(2,3)$ est normal à toute droite de direction $(-3,2)$."
+      },
+      {
+        "title": "D’une condition géométrique à une équation",
+        "body": "La droite passant par $A(x_A,y_A)$ et de normale $\\vec n=(a,b)\\ne(0,0)$ est définie par\\[\\vec n\\cdot\\overrightarrow{AM}=0.\\]Pour $M(x,y)$, cela donne\\[a(x-x_A)+b(y-y_A)=0.\\]En développant, on obtient $ax+by+c=0$, où $c=-ax_A-by_A$."
+      },
+      {
+        "title": "Lire une équation cartésienne",
+        "body": "Pour la droite $d:3x-2y+7=0$, une normale est $\\vec n=(3,-2)$ et un directeur est $\\vec u=(2,3)$.\\medskip\\par Le point $A(1,5)$ appartient à $d$ car $3-10+7=0$.\\medskip\\par Multiplier toute l’équation par un réel non nul donne la même droite : une équation n’est pas unique."
+      },
+      {
+        "title": "Construire une équation de droite",
+        "body": "La droite passe par $A(1,-2)$ et admet $(2,3)$ pour normale.\\[2(x-1)+3(y+2)=0.\\]Après développement :\\[\\boxed{2x+3y+4=0}.\\]Contrôle : substituer les coordonnées de $A$ donne $2-6+4=0$. La normale lue dans l’équation est bien $(2,3)$."
+      },
+      {
+        "title": "Deux points donnent une direction",
+        "body": "Pour $A(1,2)$ et $B(4,3)$, un directeur est $\\overrightarrow{AB}=(3,1)$. Une normale est donc $(1,-3)$.\\medskip\\par La droite $(AB)$ a pour équation\\[(x-1)-3(y-2)=0,\\quad\\text{soit }x-3y+5=0.\\]On vérifie que les deux points satisfont l’équation."
+      },
+      {
+        "title": "Parallèles et perpendiculaires",
+        "body": "Deux droites sont parallèles si leurs normales sont colinéaires. Elles sont perpendiculaires si leurs normales sont orthogonales.\\medskip\\par Les droites $2x+3y=1$ et $4x+6y=5$ sont parallèles.\\medskip\\par Les droites $2x+3y=1$ et $3x-2y=5$ sont perpendiculaires car $(2,3)\\cdot(3,-2)=0$."
+      },
+      {
+        "title": "Projeté orthogonal : les deux conditions",
+        "body": "Le projeté orthogonal $H$ de $P$ sur une droite $d$ vérifie :\\begin{enumerate}\\item $H$ appartient à $d$ ;\\item $\\overrightarrow{PH}$ est colinéaire à une normale de $d$.\\end{enumerate}Si $P\\in d$, alors $H=P$.\\medskip\\par Pour calculer $H$, on intersecte $d$ avec la perpendiculaire à $d$ passant par $P$."
+      },
+      {
+        "title": "Calcul d’un projeté",
+        "body": "Soit $P(3,1)$ et $d:x+y-2=0$. Une normale est $(1,1)$. On pose $H=(3+t,1+t)$.\\medskip\\par La condition $H\\in d$ donne $3+t+1+t-2=0$, donc $t=-1$.\\[H=(2,0).\\]Contrôle : $2+0-2=0$ et $\\overrightarrow{PH}=(-1,-1)$ est bien normal à $d$."
+      },
+      {
+        "title": "Distance et point le plus proche",
+        "body": "Le projeté $H$ est le point de $d$ le plus proche de $P$. En effet, pour tout $M\\in d$, le triangle $PHM$ est rectangle en $H$, donc\\[PM^2=PH^2+HM^2\\ge PH^2.\\]Dans l’exemple précédent, $PH=\\sqrt{(-1)^2+(-1)^2}=\\sqrt2$. Cette longueur est la distance du point à la droite."
+      },
+      {
+        "title": "La médiatrice d’un segment",
+        "body": "Pour $A\\ne B$, la médiatrice de $[AB]$ passe par le milieu $I$ et admet $\\overrightarrow{AB}$ pour normale.\\medskip\\par Si $A(0,0)$ et $B(4,2)$, alors $I(2,1)$ et\\[4(x-2)+2(y-1)=0.\\]Une équation simplifiée est $2x+y-5=0$. Ses points sont équidistants de $A$ et $B$."
+      },
+      {
+        "title": "Équation d’un cercle",
+        "body": "Le cercle de centre $C(a,b)$ et de rayon $r>0$ est l’ensemble des $M(x,y)$ tels que\\[\\boxed{(x-a)^2+(y-b)^2=r^2}.\\]C’est simplement l’égalité $CM^2=r^2$.\\medskip\\par Exemple : $(x-2)^2+(y+1)^2=9$ a pour centre $(2,-1)$ et pour rayon $3$."
+      },
+      {
+        "title": "Reconnaître un cercle par complétion",
+        "body": "On étudie $x^2+y^2-4x+6y+9=0$.\\[x^2-4x=(x-2)^2-4,\\quad y^2+6y=(y+3)^2-9.\\]Ainsi\\[(x-2)^2+(y+3)^2=4.\\]C’est le cercle de centre $(2,-3)$ et de rayon $2$. La complétion des carrés rend la géométrie visible."
+      },
+      {
+        "title": "Un réel à contrôler",
+        "body": "Après complétion, on peut obtenir\\[(x-a)^2+(y-b)^2=R.\\]\\begin{itemize}\\item Si $R>0$ : cercle de rayon $\\sqrt R$.\\item Si $R=0$ : le seul point $(a,b)$.\\item Si $R<0$ : aucun point réel.\\end{itemize}Une équation contenant $x^2+y^2$ ne représente donc pas automatiquement un cercle."
+      },
+      {
+        "title": "Cercle de diamètre connu",
+        "body": "Pour $A(-1,2)$ et $B(5,2)$, le centre est le milieu $I(2,2)$ et le rayon vaut $AB/2=3$.\\[\\boxed{(x-2)^2+(y-2)^2=9}.\\]Autre méthode : écrire $\\overrightarrow{MA}\\cdot\\overrightarrow{MB}=0$, puis développer. Les deux méthodes produisent des équations équivalentes."
+      },
+      {
+        "title": "Intersection d’une droite et d’un cercle",
+        "body": "Pour le cercle $x^2+y^2=5$ et la droite $y=1$, substituer $y=1$ donne\\[x^2+1=5,\\qquad x^2=4.\\]Les intersections sont $(-2,1)$ et $(2,1)$.\\medskip\\par Une droite et un cercle peuvent avoir zéro, un ou deux points communs. Un point unique correspond à une tangente."
+      },
+      {
+        "title": "Tangente à un cercle",
+        "body": "La tangente au cercle de centre $C$ en un point $A$ du cercle est perpendiculaire au rayon $CA$. Elle admet donc $\\overrightarrow{CA}$ pour normale.\\medskip\\par Pour $x^2+y^2=25$ et $A(3,4)$ :\\[3(x-3)+4(y-4)=0,\\quad\\text{soit }3x+4y=25.\\]Vérifier d’abord que $A$ appartient au cercle."
+      },
+      {
+        "title": "Démontrer avec des coordonnées",
+        "body": "Pour étudier une configuration :\\begin{enumerate}\\item Choisir ou vérifier un repère orthonormé.\\item Traduire les hypothèses en coordonnées ou équations.\\item Effectuer les calculs exacts.\\item Traduire le résultat en une conclusion géométrique.\\end{enumerate}Un dessin suggère une perpendicularité, mais le produit scalaire nul la démontre."
+      },
+      {
+        "title": "Bilan des erreurs fréquentes",
+        "body": "Dans $(x-2)^2+(y+3)^2=16$, le centre est $(2,-3)$ et le rayon est $4$, pas $16$.\\medskip\\par Dans $ax+by+c=0$, $(a,b)$ est une \\textbf{normale}, pas généralement une direction.\\medskip\\par Enfin, un point d’intersection doit satisfaire les \\textbf{deux} équations. Toujours vérifier les coordonnées trouvées."
+      },
+      {
+        "title": "Une droite depuis un point et une normale",
+        "body": "La droite passe par $A(2,-1)$ et a pour normale $\\vec n=(3,2)$. Un point $M(x,y)$ appartient à la droite si\\[\\overrightarrow{AM}\\cdot\\vec n=0.\\] Ainsi $3(x-2)+2(y+1)=0$, soit $3x+2y-4=0$. Le point $A$ vérifie bien cette équation."
+      },
+      {
+        "title": "Un projeté résolu sans deviner",
+        "body": "On projette $A(3,4)$ sur $d:x+y-2=0$. Une normale est $(1,1)$. La droite perpendiculaire passant par $A$ a pour équation $y=x+1$.\\medskip\\par Au point d’intersection : $x+(x+1)-2=0$, donc $x=1/2$ et $y=3/2$. Le projeté est $H(1/2,3/2)$."
+      },
+      {
+        "title": "Reconnaître centre et rayon",
+        "body": "$x^2+y^2-4x+6y+9=0$. On complète les carrés :\\[(x-2)^2-4+(y+3)^2-9+9=0.\\] Donc $(x-2)^2+(y+3)^2=4$. Le centre est $(2,-3)$ et le rayon $2$. Le rayon est la racine du membre de droite, pas le membre de droite lui-même."
+      },
+      {
+        "title": "Contrôler une intersection",
+        "body": "Pour le cercle $x^2+y^2=5$ et la droite $y=x-1$, substituer donne $2x^2-2x-4=0$, soit $(x-2)(x+1)=0$.\\medskip\\par Les points sont $(2,1)$ et $(-1,-2)$. Vérification : chacun satisfait l’équation de la droite et celle du cercle. Une solution de l’équation en $x$ doit encore être associée à son ordonnée."
+      },
+      {
+        "title": "La normale dirige la perpendiculaire",
+        "body": "\\begin{center}\\begin{tikzpicture}[>=Stealth]\\draw[step=1,Line](-.3,-.3)grid(4.5,4.5);\\draw[Blue,thick](-.2,2.2)--(2.2,-.2)node[right]{$d$};\\draw[dashed](.5,1.5)--(3,4);\\fill(3,4)circle(2pt)node[right]{$A(3,4)$};\\fill(.5,1.5)circle(2pt)node[left]{$H$};\\draw[->,thick,Ink](1,1)--(2,2)node[right]{$\\vec n$};\\end{tikzpicture}\\end{center} Sur $d:x+y=2$, la normale $(1,1)$ donne la direction de $AH$. Le point $H$ appartient à $d$, tandis que $AH$ lui est perpendiculaire."
+      }
+    ],
+    "exercises": [
+      {
+        "title": "Lire et vérifier",
+        "difficulty": "Application",
+        "statement": "Pour $d:4x-3y+6=0$, donner une normale et un directeur. Les points $A(0,2)$ et $B(3,5)$ appartiennent-ils à $d$ ?",
+        "correction": "Une normale est $(4,-3)$ et un directeur est $(3,4)$, car leur produit vaut $12-12=0$. Pour $A$, le membre de gauche vaut $0-6+6=0$ : $A\\in d$. Pour $B$, il vaut $12-15+6=3\\ne0$ : $B\\notin d$. Le test d’appartenance consiste à substituer les deux coordonnées, sans résoudre l’équation."
+      },
+      {
+        "title": "Une droite par deux points",
+        "difficulty": "Application",
+        "statement": "Déterminer une équation de la droite passant par $A(-1,2)$ et $B(3,4)$. Donner une équation de sa parallèle passant par $C(0,-1)$.",
+        "correction": "$\\overrightarrow{AB}=(4,2)$ est directeur. On choisit la normale $(1,-2)$, car $4-4=0$. Par $A$, l’équation est $(x+1)-2(y-2)=0$, soit $x-2y+5=0$. La parallèle conserve la même normale. Par $C$, on écrit $x-2(y+1)=0$, soit $x-2y-2=0$. Les constantes diffèrent : les droites sont distinctes et parallèles."
+      },
+      {
+        "title": "Perpendiculaire et intersection",
+        "difficulty": "Entraînement",
+        "statement": "Soit $d:2x-y+1=0$. Écrire une équation de la perpendiculaire à $d$ passant par $P(1,1)$, puis calculer leur intersection.",
+        "correction": "Une normale à $d$ est $(2,-1)$, donc une normale à la perpendiculaire est $(1,2)$. L’équation cherchée est $(x-1)+2(y-1)=0$, soit $x+2y-3=0$. De $d$, on tire $y=2x+1$. La substitution donne $x+4x+2-3=0$, donc $x=1/5$, puis $y=7/5$. L’intersection est $(1/5,7/5)$."
+      },
+      {
+        "title": "Projeté et distance",
+        "difficulty": "Entraînement",
+        "statement": "Calculer le projeté $H$ de $P(4,0)$ sur $d:x+y-2=0$. Déduire la distance de $P$ à $d$ et justifier que tous les autres points de $d$ sont plus éloignés.",
+        "correction": "Une normale est $(1,1)$. On pose $H=(4+t,t)$. L’appartenance impose $4+2t-2=0$, d’où $t=-1$ et $H=(3,-1)$. La distance vaut $PH=\\sqrt{(-1)^2+(-1)^2}=\\sqrt2$. Pour tout $M\\in d$, Pythagore dans le triangle $PHM$ donne $PM^2=PH^2+HM^2\\ge PH^2$, avec égalité seulement pour $M=H$. Cela établit le minimum."
+      },
+      {
+        "title": "Médiatrice",
+        "difficulty": "Entraînement",
+        "statement": "Déterminer la médiatrice de $A(-2,1)$ et $B(4,3)$. Vérifier que $M(0,5)$ appartient à cette droite en utilisant deux méthodes.",
+        "correction": "Le milieu est $I(1,2)$ et $\\overrightarrow{AB}=(6,2)$ est normal. Une équation est $6(x-1)+2(y-2)=0$, soit $3x+y-5=0$. Pour $M(0,5)$, $3\\times0+5-5=0$. Autre méthode : $MA^2=(0+2)^2+(5-1)^2=20$ et $MB^2=(0-4)^2+(5-3)^2=20$. Donc $MA=MB$ et $M$ est bien sur la médiatrice."
+      },
+      {
+        "title": "Identifier des ensembles",
+        "difficulty": "Application",
+        "statement": "Identifier les ensembles définis par : (a) $x^2+y^2-6x+2y+6=0$ ; (b) $(x-1)^2+(y-2)^2=0$ ; (c) $(x+2)^2+y^2=-1$.",
+        "correction": "(a) On complète : $(x-3)^2-9+(y+1)^2-1+6=0$, donc $(x-3)^2+(y+1)^2=4$. C’est le cercle de centre $(3,-1)$ et rayon $2$. (b) Une somme de carrés nulle impose $x-1=0$ et $y-2=0$ : un seul point $(1,2)$. (c) Une somme de carrés est positive ou nulle, donc elle ne peut valoir $-1$ : l’ensemble est vide."
+      },
+      {
+        "title": "Une route et une zone circulaire",
+        "difficulty": "Approfondissement",
+        "statement": "Une zone a pour frontière $(x-2)^2+(y-1)^2=25$. Une route suit $y=4$. Déterminer les deux points d’entrée et de sortie de la zone, puis la longueur de route située dans le disque.",
+        "correction": "Sur la route, $(y-1)^2=9$. L’équation devient $(x-2)^2=16$, d’où $x-2=\\pm4$. Les points sont $A(-2,4)$ et $B(6,4)$. Le segment intérieur est horizontal, de longueur $|6-(-2)|=8$. Pour $-2\\le x\\le6$, on a bien $(x-2)^2+9\\le25$, ce qui caractérise les points du disque."
+      },
+      {
+        "title": "Tangente et vérification",
+        "difficulty": "Approfondissement",
+        "statement": "Pour le cercle $x^2+y^2=10$, vérifier que $A(1,3)$ est sur le cercle et trouver sa tangente. Montrer par substitution que la tangente n’a qu’un point commun avec le cercle.",
+        "correction": "$1^2+3^2=10$, donc $A$ est sur le cercle. Le rayon $\\overrightarrow{OA}=(1,3)$ est normal à la tangente : $(x-1)+3(y-3)=0$, soit $x+3y=10$. On remplace $x$ par $10-3y$ dans le cercle : $(10-3y)^2+y^2=10$, soit $10y^2-60y+90=0$. Cela équivaut à $10(y-3)^2=0$, donc $y=3$ puis $x=1$. Le seul point commun est bien $A$."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Une normale à $2x-5y+1=0$ est…",
+        "choices": [
+          "$(2,-5)$",
+          "$(5,2)$",
+          "$(1,2)$",
+          "$(2,5)$"
+        ],
+        "answer": 0,
+        "explanation": "Les coefficients de $x$ et $y$ donnent la normale $(2,-5)$."
+      },
+      {
+        "question": "Une direction de $3x+2y=7$ est…",
+        "choices": [
+          "$(3,2)$",
+          "$(2,-3)$",
+          "$(2,3)$",
+          "$(3,-2)$"
+        ],
+        "answer": 1,
+        "explanation": "$(3,2)\\cdot(2,-3)=6-6=0$."
+      },
+      {
+        "question": "Le centre de $(x+2)^2+(y-4)^2=9$ est…",
+        "choices": [
+          "$(2,4)$",
+          "$(-2,-4)$",
+          "$(-2,4)$",
+          "$(4,-2)$"
+        ],
+        "answer": 2,
+        "explanation": "On lit $(x-(-2))^2+(y-4)^2$, donc le centre est $(-2,4)$."
+      },
+      {
+        "question": "Le rayon de $(x-1)^2+y^2=16$ vaut…",
+        "choices": [
+          "$16$",
+          "$8$",
+          "$256$",
+          "$4$"
+        ],
+        "answer": 3,
+        "explanation": "Le second membre est le carré du rayon : $r=\\sqrt{16}=4$."
+      },
+      {
+        "question": "Le point $(1,2)$ appartient à…",
+        "choices": [
+          "$x+y=3$",
+          "$2x-y=1$",
+          "$x-y=1$",
+          "$x+2y=4$"
+        ],
+        "answer": 0,
+        "explanation": "$1+2=3$. Les trois autres égalités sont fausses."
+      },
+      {
+        "question": "Le projeté de $(3,4)$ sur l’axe des abscisses est…",
+        "choices": [
+          "$(0,4)$",
+          "$(3,0)$",
+          "$(0,0)$",
+          "$(4,3)$"
+        ],
+        "answer": 1,
+        "explanation": "La perpendiculaire à l’axe des abscisses conserve l’abscisse et impose $y=0$."
+      },
+      {
+        "question": "L’équation $(x-1)^2+(y+2)^2=-4$ définit…",
+        "choices": [
+          "un cercle de rayon 2",
+          "un point",
+          "l’ensemble vide",
+          "une droite"
+        ],
+        "answer": 2,
+        "explanation": "Une somme de carrés réels ne peut pas être négative."
+      },
+      {
+        "question": "La tangente à $x^2+y^2=25$ en $(5,0)$ est…",
+        "choices": [
+          "$y=0$",
+          "$y=5$",
+          "$x=0$",
+          "$x=5$"
+        ],
+        "answer": 3,
+        "explanation": "Le rayon est horizontal, donc la tangente est verticale et passe par $(5,0)$."
+      }
+    ]
+  }
+]

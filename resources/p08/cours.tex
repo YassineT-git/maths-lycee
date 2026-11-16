@@ -1,0 +1,105 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\input{theme-slides.tex}
+\title{Angles et trigonométrie}
+\subtitle{Première spécialité}
+\renewcommand{\chapternumber}{08}\author{Maths Lycée}
+\date{Année scolaire 2026--2027}
+\begin{document}\begin{frame}\titlepage\end{frame}
+\begin{frame}{Objectifs du chapitre}\begin{itemize}
+\item Mesurer un angle en radians
+\item Placer un point sur le cercle trigonométrique
+\item Utiliser sinus et cosinus
+\item Retrouver les valeurs remarquables
+\item Exploiter les angles associés et la périodicité
+\end{itemize}\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Mesurer un arc}
+Sur un cercle de rayon $r$, un angle au centre peut être mesuré par le rapport entre la longueur de l’arc et le rayon. Ce rapport ne dépend pas de la taille du cercle.\medskip\par Un arc de longueur égale au rayon correspond à un angle d’un radian.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Un tour complet}
+La circonférence vaut $2\pi r$. Un tour mesure donc $2\pi$ radians, un demi-tour $\pi$ radians et un quart de tour $\pi/2$ radians.\medskip\par Le radian est une mesure d’angle, pas une longueur. Sur le cercle de rayon $1$, la valeur numérique de l’arc coïncide avec celle de l’angle en radians.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Convertir degrés et radians}
+La correspondance est $180^\circ=\pi$ radians.\[\theta_{\rm rad}=\theta_{\rm deg}\frac\pi{180}.\] Ainsi $60^\circ=\pi/3$ et $135^\circ=3\pi/4$. Dans l’autre sens, $5\pi/6$ radians représentent $150^\circ$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Le cercle orienté}
+Le cercle trigonométrique a pour centre l’origine et pour rayon $1$. On part du point $I(1,0)$. Les angles positifs tournent dans le sens contraire des aiguilles d’une montre, les négatifs dans l’autre sens.\medskip\par À chaque réel $x$, l’enroulement associe un point du cercle.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Des angles différents, un même point}
+Ajouter $2\pi$ revient à effectuer un tour complet. Les réels $x$ et $x+2k\pi$, avec $k\in\mathbb Z$, correspondent au même point.\medskip\par Exemple : $13\pi/6=\pi/6+2\pi$ et $-11\pi/6=\pi/6-2\pi$. Ils correspondent tous au même point.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Coordonnées : cosinus et sinus}
+Le point associé à $x$ a pour coordonnées\[M(\cos x,\sin x).\] Le cosinus est l’abscisse, le sinus l’ordonnée. Ces nombres sont compris entre $-1$ et $1$. Ils ne sont pas les coordonnées de l’angle lui-même, mais celles du point obtenu par enroulement.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Lire les signes sur le cercle}
+\begin{columns}[c,onlytextwidth]\begin{column}{.60\textwidth}\centering\begin{adjustbox}{max width=\linewidth,max height=3.7cm}\begin{tikzpicture}[scale=1.4]\draw[->](-1.3,0)--(1.4,0);\draw[->](0,-1.3)--(0,1.35);\draw[Blue,thick](0,0)circle(1);\draw[Blue](0,0)--(.707,.707);\fill(.707,.707)circle(1.5pt);\draw[dashed](.707,0)--(.707,.707)--(0,.707);\node[right]at(.8,.8){$M$};\node[below]at(.6,0){$\cos x$};\node[left]at(0,.7){$\sin x$};\end{tikzpicture}\end{adjustbox}\end{column}\begin{column}{.36\textwidth} À droite, le cosinus est positif. En haut, le sinus est positif.\end{column}\end{columns}
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une identité fondamentale}
+Le point $M$ appartient au cercle de rayon $1$. Par Pythagore,\[\cos^2x+\sin^2x=1.\] Attention : $\cos^2x$ signifie $(\cos x)^2$. Si l’on connaît un sinus et que l’on cherche un cosinus, il faut encore choisir le signe grâce au quadrant.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Valeurs sur les axes}
+\[\begin{array}{c|rrrr}x&0&\pi/2&\pi&3\pi/2\\\hline\cos x&1&0&-1&0\\\sin x&0&1&0&-1\end{array}\]\medskip Ces valeurs se lisent directement dans les coordonnées des quatre points du cercle situés sur les axes.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Le triangle rectangle isocèle}
+Pour $x=\pi/4$, les deux coordonnées positives sont égales. Si chacune vaut $a$, Pythagore donne $2a^2=1$, donc $a=\sqrt2/2$.\[\cos(\pi/4)=\sin(\pi/4)=\frac{\sqrt2}{2}.\] Le signe positif vient du premier quadrant.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Le triangle équilatéral}
+Couper un triangle équilatéral de côté $2$ en deux donne un triangle rectangle d’hypoténuse $2$, avec des côtés $1$ et $\sqrt3$.\[\cos(\pi/3)=\frac12,\qquad\sin(\pi/3)=\frac{\sqrt3}{2}.\] Pour $\pi/6$, les rôles des deux côtés s’échangent.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Table des valeurs remarquables}
+\[\begin{array}{c|ccccc}x&0&\pi/6&\pi/4&\pi/3&\pi/2\\\hline\cos x&1&\sqrt3/2&\sqrt2/2&1/2&0\\\sin x&0&1/2&\sqrt2/2&\sqrt3/2&1\end{array}\]\medskip Apprendre les valeurs avec leur position sur le cercle permet de retrouver les signes pour les autres angles.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Angles opposés}
+Les points associés à $x$ et $-x$ sont symétriques par rapport à l’axe horizontal. Leur abscisse est identique, leurs ordonnées sont opposées.\[\cos(-x)=\cos x,\qquad\sin(-x)=-\sin x.\] Le cosinus est pair, le sinus impair.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Angles supplémentaires}
+La symétrie par rapport à l’axe vertical associe les angles $x$ et $\pi-x$.\[\cos(\pi-x)=-\cos x,\qquad\sin(\pi-x)=\sin x.\] Ainsi $\cos(5\pi/6)=-\sqrt3/2$ et $\sin(5\pi/6)=1/2$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Un demi-tour supplémentaire}
+Les points associés à $x$ et $\pi+x$ sont diamétralement opposés. Les deux coordonnées changent de signe.\[\cos(\pi+x)=-\cos x,\qquad\sin(\pi+x)=-\sin x.\] Pour $4\pi/3=\pi+\pi/3$, on obtient $(-1/2,-\sqrt3/2)$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Périodicité et lecture d’une fonction}
+Pour tout réel $x$,\[\cos(x+2\pi)=\cos x,\qquad\sin(x+2\pi)=\sin x.\] Les courbes reproduisent le même motif tous les $2\pi$. Une calculatrice réglée en degrés ne donnera pas les bonnes valeurs si l’angle saisi est en radians.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Une équation lue sur le cercle}
+Chercher les angles de $[0,2\pi[$ tels que $\sin x=1/2$ revient à intersecter le cercle avec la droite horizontale $y=1/2$.\medskip\par Il y a deux points : $x=\pi/6$ et $x=5\pi/6$. Un seul angle remarquable ne donne pas nécessairement toutes les solutions.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Méthode pour un angle quelconque}
+\begin{enumerate}\item Retirer des tours complets si nécessaire.\item Repérer le quadrant et les signes attendus.\item Relier l’angle à $\pi/6$, $\pi/4$ ou $\pi/3$.\item Appliquer la symétrie appropriée.\item Vérifier $\cos^2x+\sin^2x=1$.\end{enumerate} Exemple : $17\pi/6$ se ramène à $5\pi/6$.
+\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 1}
+Le cosinus d’un angle est :\begin{enumerate}
+\item L’ordonnée
+\item L’abscisse
+\item Le rayon
+\item La longueur de l’arc
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 1 : résolution}
+\begin{block}{Réponse 2}L’abscisse\end{block}\medskip Le point associé a pour coordonnées $(\cos x,\sin x)$.\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 2}
+$13\pi/6$ correspond au même point que :\begin{enumerate}
+\item $\pi/3$
+\item $5\pi/6$
+\item $\pi$
+\item $\pi/6$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 2 : résolution}
+\begin{block}{Réponse 4}$\pi/6$\end{block}\medskip On retire $2\pi=12\pi/6$.\end{frame}
+\end{document}

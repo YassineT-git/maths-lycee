@@ -1,0 +1,31 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Exercices}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries Variables aléatoires et espérance}\par{\large Exercices}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+Les exercices progressent de l’application directe vers la recherche. Détailler les calculs et justifier les réponses.
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Construire une loi}
+On lance un dé équilibré. $X$ vaut $0$ pour un résultat impair, $2$ pour $2$ ou $4$, et $5$ pour $6$. Donner la loi, puis calculer $P(X\ge2)$ et $E(X)$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Compléter et calculer}
+$X$ prend les valeurs $-2$, $1$, $4$ avec probabilités $0,2$, $p$, $0,3$. Déterminer $p$, puis l’espérance, la variance et l’écart-type.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Entraînement}{Prix équitable}
+Une roue donne un lot brut de $20$ euros avec probabilité $0,1$, de $5$ euros avec probabilité $0,3$, et rien sinon. Calculer le prix d’entrée équitable. Si le prix est $4$ euros, quelle est l’espérance du gain net ?
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Deux méthodes pour la variance}
+$X$ vaut $1$ avec probabilité $3/4$ et $5$ avec probabilité $1/4$. Calculer $E(X)$, puis $V(X)$ par la définition et par König-Huygens.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Entraînement}{Transformation d’un gain}
+Une variable $X$ vérifie $E(X)=3$ et $V(X)=4$. On définit $Y=5-2X$. Calculer $E(Y)$, $V(Y)$ et $\sigma(Y)$. Pourquoi la translation par $5$ ne change-t-elle pas la variance ?
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Entraînement}{Compter sans connaître la loi complète}
+Dans une classe de $30$ élèves, chaque élève a une probabilité $0,1$ d’être absent un jour donné. Les absences ne sont pas supposées indépendantes. Calculer l’espérance du nombre d’absents. Peut-on en déduire sa variance ?
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Approfondissement}{Même espérance, risques différents}
+Le jeu $A$ donne $2$ euros à coup sûr. Le jeu $B$ donne $-4$ euros avec probabilité $1/2$ et $8$ euros sinon. Comparer espérances et écarts-types. Quelle est la probabilité d’une perte dans chaque jeu ?
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Espérance d’un nombre de succès}
+On lance quatre fois une pièce donnant pile avec probabilité $p$. $N$ compte les piles. Expliquer pourquoi $E(N)=4p$. Pour $p=1/2$ et des lancers indépendants, construire la loi de $N$ et vérifier cette espérance.
+\end{minipage}\par
+\end{document}

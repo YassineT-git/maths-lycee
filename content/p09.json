@@ -1,0 +1,272 @@
+[
+  {
+    "id": "p09",
+    "level": "premiere",
+    "title": "Produit scalaire",
+    "domain": "Géométrie",
+    "description": "Relier longueurs, angles et orthogonalité grâce à un calcul sur les vecteurs.",
+    "prerequisites": [
+      "Coordonnées de vecteurs et norme",
+      "Théorème de Pythagore",
+      "Cosinus et cercle trigonométrique"
+    ],
+    "objectives": [
+      "Calculer un produit scalaire avec la formule adaptée",
+      "Démontrer une orthogonalité",
+      "Déterminer une longueur ou un angle",
+      "Utiliser Al-Kashi et caractériser un cercle"
+    ],
+    "coverage": [
+      "Projection orthogonale",
+      "Expression avec le cosinus",
+      "Expression en coordonnées dans un repère orthonormé",
+      "Bilinéarité et symétrie",
+      "Identités de normes",
+      "Orthogonalité",
+      "Théorème d’Al-Kashi",
+      "Cercle de diamètre donné"
+    ],
+    "slides": [
+      {
+        "title": "Une force et un déplacement",
+        "body": "Une force $\\vec F$ de norme $10$ et un déplacement $\\vec d$ de norme $3$ forment un angle de $60^\\circ$. Le nombre $10\\times3\\times\\cos60^\\circ=15$ mesure la contribution de la force dans la direction du déplacement.\\medskip\\par Ce calcul associe aux deux vecteurs un \\textbf{nombre réel}, appelé produit scalaire. Il tient compte à la fois des longueurs et de leur direction."
+      },
+      {
+        "title": "Définition par un angle",
+        "body": "Pour deux vecteurs non nuls,\\[\\vec u\\cdot\\vec v=\\|\\vec u\\|\\,\\|\\vec v\\|\\cos\\theta,\\qquad\\theta\\in[0,\\pi].\\]Si l’un des vecteurs est nul, le produit scalaire vaut $0$.\\medskip\\par Le résultat est un réel, jamais un vecteur. L’angle est celui de deux représentants de même origine."
+      },
+      {
+        "title": "Le signe donne une information",
+        "body": "Les normes sont positives. Le signe dépend donc de $\\cos\\theta$.\\begin{itemize}\\item Angle aigu : produit positif.\\item Angle droit : produit nul.\\item Angle obtus : produit négatif.\\end{itemize}Deux vecteurs de même sens ont un produit positif. Deux vecteurs de sens opposés ont un produit négatif."
+      },
+      {
+        "title": "Projection orthogonale",
+        "body": "Soit $H$ le projeté orthogonal de $B$ sur la droite $(OA)$, avec $A\\ne O$.\\[\\overrightarrow{OA}\\cdot\\overrightarrow{OB}=\\overrightarrow{OA}\\cdot\\overrightarrow{OH}.\\]Si $\\overrightarrow{OH}=t\\overrightarrow{OA}$, ce produit vaut $t\\,OA^2$. Le réel $t$ peut être négatif : une projection située de l’autre côté de $O$ donne un produit négatif."
+      },
+      {
+        "title": "Exemple par projection",
+        "body": "On a $OA=5$. Le projeté $H$ de $B$ est sur la demi-droite $[OA)$ et $OH=2$. Alors\\[\\overrightarrow{OA}\\cdot\\overrightarrow{OB}=5\\times2=10.\\]Si $H$ était sur la demi-droite opposée, avec la même distance $OH=2$, le produit vaudrait $-10$. La longueur $OB$ n’est pas nécessaire ici."
+      },
+      {
+        "title": "Expression en coordonnées",
+        "body": "Dans un \\textbf{repère orthonormé}, si $\\vec u=(x,y)$ et $\\vec v=(x\\prime,y\\prime)$, alors\\[\\boxed{\\vec u\\cdot\\vec v=xx\\prime+yy\\prime}.\\]Exemple : $(2,-3)\\cdot(4,1)=2\\times4-3\\times1=5$.\\medskip\\par Cette formule ne s’utilise pas sans vérifier que les axes sont perpendiculaires et de même unité."
+      },
+      {
+        "title": "Symétrie et bilinéarité",
+        "body": "Pour tous vecteurs et tout réel $\\lambda$ :\\[\\vec u\\cdot\\vec v=\\vec v\\cdot\\vec u,\\]\\[\\vec u\\cdot(\\vec v+\\vec w)=\\vec u\\cdot\\vec v+\\vec u\\cdot\\vec w,\\]\\[\\vec u\\cdot(\\lambda\\vec v)=\\lambda(\\vec u\\cdot\\vec v).\\]On développe donc comme une expression algébrique. Attention : un produit scalaire n’est pas un produit de trois vecteurs."
+      },
+      {
+        "title": "Pourquoi la formule fonctionne",
+        "body": "Dans une base orthonormée $(\\vec i,\\vec j)$, on écrit $\\vec u=x\\vec i+y\\vec j$ et $\\vec v=x\\prime\\vec i+y\\prime\\vec j$.\\medskip\\par La bilinéarité donne quatre termes. Comme $\\vec i\\cdot\\vec i=\\vec j\\cdot\\vec j=1$ et $\\vec i\\cdot\\vec j=0$, les termes croisés disparaissent :\\[\\vec u\\cdot\\vec v=xx\\prime+yy\\prime.\\]"
+      },
+      {
+        "title": "Norme et carré scalaire",
+        "body": "\\[\\vec u\\cdot\\vec u=\\|\\vec u\\|^2.\\]Ainsi, pour $\\vec u=(3,-4)$, $\\|\\vec u\\|=\\sqrt{9+16}=5$.\\medskip\\par En développant :\\[\\|\\vec u+\\vec v\\|^2=\\|\\vec u\\|^2+2\\vec u\\cdot\\vec v+\\|\\vec v\\|^2.\\]Cette identité relie un calcul vectoriel aux longueurs."
+      },
+      {
+        "title": "Retrouver le produit avec trois longueurs",
+        "body": "Le développement de $\\|\\vec u-\\vec v\\|^2$ donne\\[\\vec u\\cdot\\vec v=\\frac{\\|\\vec u\\|^2+\\|\\vec v\\|^2-\\|\\vec u-\\vec v\\|^2}{2}.\\]Dans un triangle $ABC$, avec $\\vec u=\\overrightarrow{AB}$ et $\\vec v=\\overrightarrow{AC}$, on obtient\\[\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=\\frac{AB^2+AC^2-BC^2}{2}.\\]"
+      },
+      {
+        "title": "Orthogonalité : un critère de calcul",
+        "body": "Deux vecteurs non nuls sont orthogonaux si et seulement si leur produit scalaire est nul.\\medskip\\par Exemple : $(2,3)\\cdot(3,-2)=6-6=0$.\\medskip\\par Pour prouver que $(AB)\\perp(AC)$, vérifier que $A\\ne B$, $A\\ne C$, puis calculer $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}$. Le vecteur nul est orthogonal à tout vecteur, mais ne dirige aucune droite."
+      },
+      {
+        "title": "Chercher une coordonnée",
+        "body": "On veut $\\vec u=(3,-2)$ orthogonal à $\\vec v=(t,6)$.\\[\\vec u\\cdot\\vec v=3t-12.\\]L’orthogonalité équivaut à $3t-12=0$, donc $t=4$.\\medskip\\par Vérification : $(3,-2)\\cdot(4,6)=12-12=0$. L’équation obtenue est linéaire en l’inconnue."
+      },
+      {
+        "title": "Calculer un angle",
+        "body": "Pour $\\vec u=(1,0)$ et $\\vec v=(1,\\sqrt3)$ :\\[\\vec u\\cdot\\vec v=1,\\quad\\|\\vec u\\|=1,\\quad\\|\\vec v\\|=2.\\]Donc $\\cos\\theta=1/2$ et $\\theta=\\pi/3=60^\\circ$.\\medskip\\par En général, calculer d’abord le produit et les deux normes, puis utiliser $\\arccos$ dans l’unité demandée."
+      },
+      {
+        "title": "Théorème d’Al-Kashi",
+        "body": "Dans tout triangle $ABC$,\\[\\boxed{BC^2=AB^2+AC^2-2AB\\times AC\\cos\\widehat{BAC}}.\\]C’est une généralisation de Pythagore. Si l’angle en $A$ est droit, son cosinus est nul, et l’on retrouve $BC^2=AB^2+AC^2$. On utilise ce résultat avec deux côtés et l’angle compris entre eux."
+      },
+      {
+        "title": "Preuve d’Al-Kashi",
+        "body": "On a $\\overrightarrow{BC}=\\overrightarrow{AC}-\\overrightarrow{AB}$. Par l’identité de norme,\\[BC^2=AC^2+AB^2-2\\overrightarrow{AB}\\cdot\\overrightarrow{AC}.\\]Puis la définition par le cosinus donne\\[\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=AB\\times AC\\cos\\widehat{BAC}.\\]La substitution donne exactement la formule annoncée."
+      },
+      {
+        "title": "Une longueur dans un triangle",
+        "body": "Si $AB=5$, $AC=8$ et $\\widehat{BAC}=60^\\circ$,\\[BC^2=25+64-2\\times5\\times8\\times\\frac12=49.\\]Comme une longueur est positive, $BC=7$.\\medskip\\par Le signe devant le terme contenant le cosinus est négatif. Si l’angle est obtus, son cosinus est négatif et ce terme augmente le carré du côté opposé."
+      },
+      {
+        "title": "Cercle de diamètre donné",
+        "body": "Pour $A\\ne B$, le cercle de diamètre $[AB]$ est l’ensemble des points $M$ tels que\\[\\overrightarrow{MA}\\cdot\\overrightarrow{MB}=0.\\]Pour $M\\ne A,B$, cela signifie que le triangle $AMB$ est rectangle en $M$. Les points $A$ et $B$ satisfont aussi l’égalité grâce au vecteur nul."
+      },
+      {
+        "title": "Preuve de la caractérisation du cercle",
+        "body": "Soit $I$ le milieu de $[AB]$. On a $\\overrightarrow{IA}=-\\overrightarrow{IB}$. Alors\\[\\overrightarrow{MA}\\cdot\\overrightarrow{MB}=(\\overrightarrow{MI}+\\overrightarrow{IA})\\cdot(\\overrightarrow{MI}-\\overrightarrow{IA})=MI^2-IA^2.\\]Le produit est nul exactement lorsque $MI=IA$, c’est-à-dire lorsque $M$ est sur le cercle de centre $I$ et de rayon $AB/2$."
+      },
+      {
+        "title": "Quelle formule choisir ?",
+        "body": "\\begin{itemize}\\item Coordonnées connues : $xx\\prime+yy\\prime$.\\item Normes et angle connus : $\\|u\\|\\|v\\|\\cos\\theta$.\\item Trois longueurs connues : identité de norme.\\item Projection simple : utiliser la longueur algébrique projetée.\\end{itemize}Toujours dessiner les vecteurs de même origine avant de lire l’angle. $\\overrightarrow{BA}=-\\overrightarrow{AB}$ change le signe du produit."
+      },
+      {
+        "title": "Bilan et contrôle rapide",
+        "body": "Pour $AB=AC=5$ et $BC=6$,\\[\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=\\frac{25+25-36}{2}=7.\\]L’angle en $A$ est aigu car le produit est positif. Son cosinus vaut $7/25$.\\medskip\\par À retenir : un produit scalaire transforme une question géométrique en un calcul de réel. La précision des orientations et du repère est essentielle."
+      },
+      {
+        "title": "Des coordonnées à l’angle",
+        "body": "$\\vec u=(1,2)$ et $\\vec v=(3,-1)$.\\[\\vec u\\cdot\\vec v=1\\times3+2\\times(-1)=1.\\]\\[\\|\\vec u\\|=\\sqrt5,\\quad\\|\\vec v\\|=\\sqrt{10},\\quad\\cos\\theta=\\frac1{\\sqrt{50}}.\\] Le produit est positif : l’angle non orienté est aigu. La calculatrice donne environ $81,9^\\circ$."
+      },
+      {
+        "title": "Un calcul par les longueurs",
+        "body": "Un triangle a $AB=4$, $AC=5$ et $BC=3$.\\[\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=\\frac{AB^2+AC^2-BC^2}{2}=\\frac{16+25-9}{2}=16.\\] Donc $\\cos\\widehat{BAC}=16/(4\\times5)=0,8$. Les deux vecteurs doivent partir du même sommet pour appliquer cette lecture de l’angle."
+      },
+      {
+        "title": "Attention à l’orientation des vecteurs",
+        "body": "$\\overrightarrow{BA}=-\\overrightarrow{AB}$. Par bilinéarité,\\[\\overrightarrow{BA}\\cdot\\overrightarrow{AC}=-\\overrightarrow{AB}\\cdot\\overrightarrow{AC}.\\] Inverser un seul vecteur change le signe du produit. Inverser les deux conserve le produit. Un dessin aide à vérifier les directions avant de remplacer par des longueurs."
+      },
+      {
+        "title": "Un critère d’orthogonalité justifié",
+        "body": "$\\vec u=(2,-3)$ et $\\vec v=(t,4)$. Ils sont orthogonaux si et seulement si\\[2t-12=0\\quad\\Longleftrightarrow\\quad t=6.\\] Pour $t=6$, le produit vaut bien $0$. La conclusion porte sur les directions des vecteurs, sans exiger qu’ils soient tracés avec la même origine."
+      },
+      {
+        "title": "Le produit scalaire par projection",
+        "body": "\\begin{center}\\begin{tikzpicture}[>=Stealth]\\draw[->,thick,Blue](0,0)--(4,0)node[below]{$\\vec u$};\\draw[->,thick,Ink](0,0)--(2.5,2)node[above]{$\\vec v$};\\draw[dashed](2.5,2)--(2.5,0)node[below]{$H$};\\draw(2.25,0)--(2.25,.25)--(2.5,.25);\\node[below left]at(0,0){$O$};\\draw[Blue](.7,0)arc(0:38.66:.7);\\node at(1,.3){$\\theta$};\\end{tikzpicture}\\end{center} La projection de $\\vec v$ sur la direction de $\\vec u$ a pour longueur $OH=\\|\\vec v\\|\\cos\\theta$. Ici l’angle est aigu, donc le produit est positif."
+      }
+    ],
+    "exercises": [
+      {
+        "title": "Calculs de base",
+        "difficulty": "Application",
+        "statement": "Dans un repère orthonormé, $\\vec u=(3,-1)$, $\\vec v=(2,4)$ et $\\vec w=(-1,2)$. Calculer $\\vec u\\cdot\\vec v$, $\\|\\vec u\\|$, puis $\\vec u\\cdot(2\\vec v-\\vec w)$ de deux façons.",
+        "correction": "$\\vec u\\cdot\\vec v=3\\times2-1\\times4=2$ et $\\|\\vec u\\|=\\sqrt{3^2+(-1)^2}=\\sqrt{10}$. On calcule $2\\vec v-\\vec w=(5,6)$, donc le produit vaut $15-6=9$. Par bilinéarité, $\\vec u\\cdot\\vec w=-3-2=-5$, puis $2(\\vec u\\cdot\\vec v)-\\vec u\\cdot\\vec w=4-(-5)=9$. Les deux résultats coïncident."
+      },
+      {
+        "title": "Projection et signe",
+        "difficulty": "Application",
+        "statement": "$OA=6$. Le projeté orthogonal $H$ de $B$ sur $(OA)$ vérifie $OH=4$. Calculer $\\overrightarrow{OA}\\cdot\\overrightarrow{OB}$ lorsque $H\\in[OA)$, puis lorsque $H$ est sur la demi-droite opposée. Que peut-on dire du type de l’angle $\\widehat{AOB}$ ?",
+        "correction": "Lorsque les vecteurs $\\overrightarrow{OA}$ et $\\overrightarrow{OH}$ sont de même sens, le produit vaut $6\\times4=24$. Il est positif, donc l’angle est aigu. Dans l’autre cas la longueur algébrique projetée vaut $-4$, d’où $6\\times(-4)=-24$. L’angle est alors obtus. La distance $OH$ seule ne détermine pas le signe : la position de $H$ est indispensable."
+      },
+      {
+        "title": "Un triangle rectangle",
+        "difficulty": "Application",
+        "statement": "On donne $A(1,2)$, $B(4,3)$ et $C(0,5)$. Démontrer que le triangle est rectangle. Calculer ses trois longueurs et son aire.",
+        "correction": "$\\overrightarrow{AB}=(3,1)$ et $\\overrightarrow{AC}=(-1,3)$. Leur produit est $-3+3=0$ et les deux vecteurs sont non nuls : le triangle est rectangle en $A$. On a $AB=AC=\\sqrt{10}$. Enfin $\\overrightarrow{BC}=(-4,2)$, donc $BC=\\sqrt{20}=2\\sqrt5$. L’aire vaut $AB\\times AC/2=10/2=5$ unités d’aire. Pythagore vérifie $10+10=20$."
+      },
+      {
+        "title": "Paramètre et orthogonalité",
+        "difficulty": "Entraînement",
+        "statement": "Pour $\\vec u=(2,t)$ et $\\vec v=(t-1,3)$, déterminer $t$ pour que les vecteurs soient orthogonaux. Pour cette valeur, calculer leurs normes.",
+        "correction": "Le produit vaut $2(t-1)+3t=5t-2$. L’orthogonalité équivaut donc à $5t-2=0$, soit $t=2/5$. Alors $\\vec u=(2,2/5)$ et $\\vec v=(-3/5,3)$. Les normes sont $\\sqrt{4+4/25}=2\\sqrt{26}/5$ et $\\sqrt{9/25+9}=3\\sqrt{26}/5$. Les vecteurs ne sont pas nuls et leurs directions sont bien perpendiculaires."
+      },
+      {
+        "title": "Deux côtés et un angle",
+        "difficulty": "Entraînement",
+        "statement": "Dans un triangle, $AB=4$, $AC=7$ et $\\widehat{BAC}=120^\\circ$. Déterminer exactement $BC$. Puis calculer $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}$.",
+        "correction": "$\\cos120^\\circ=-1/2$. Al-Kashi donne $BC^2=16+49-2\\times4\\times7\\times(-1/2)=93$, donc $BC=\\sqrt{93}$. Le produit scalaire vaut $4\\times7\\times(-1/2)=-14$. On peut vérifier grâce à la formule des trois longueurs : $(16+49-93)/2=-14$. Le signe négatif est cohérent avec l’angle obtus."
+      },
+      {
+        "title": "Retrouver un angle",
+        "difficulty": "Entraînement",
+        "statement": "Un triangle vérifie $AB=5$, $AC=6$ et $BC=7$. Calculer $\\cos\\widehat{BAC}$, puis donner l’angle au degré près. Est-il rectangle ?",
+        "correction": "On part d’Al-Kashi et on isole le cosinus : $\\cos\\widehat{BAC}=(AB^2+AC^2-BC^2)/(2AB\\times AC)=(25+36-49)/60=1/5$. Ainsi $\\widehat{BAC}=\\arccos(0,2)\\approx78^\\circ$. Le plus grand côté est $BC=7$, or $7^2=49\\ne25+36=61$. Le triangle n’est donc rectangle en aucun sommet."
+      },
+      {
+        "title": "Un lieu géométrique",
+        "difficulty": "Approfondissement",
+        "statement": "Soient $A(-2,1)$ et $B(4,1)$. Déterminer l’ensemble des $M(x,y)$ vérifiant $\\overrightarrow{MA}\\cdot\\overrightarrow{MB}=0$. Donner centre et rayon, puis tester $C(1,4)$.",
+        "correction": "On écrit $\\overrightarrow{MA}=(-2-x,1-y)$ et $\\overrightarrow{MB}=(4-x,1-y)$. L’égalité devient $x^2-2x-8+(y-1)^2=0$, soit $(x-1)^2+(y-1)^2=9$. C’est le cercle de centre $I(1,1)$ et rayon $3$, donc de diamètre $[AB]$. Pour $C(1,4)$, le membre de gauche vaut $0+9=9$ : $C$ est sur ce cercle. Le triangle $ACB$ est rectangle en $C$."
+      },
+      {
+        "title": "Automatiser un test géométrique",
+        "difficulty": "Approfondissement",
+        "statement": "On veut tester avec un programme si trois points distincts $A,B,C$ forment un angle droit en $A$. Décrire les calculs nécessaires. Appliquer à $A(0,0)$, $B(6,2)$, $C(-1,3)$. Pourquoi comparer exactement à zéro peut-il poser problème avec des décimaux approchés ?",
+        "correction": "Calculer $u_x=x_B-x_A$, $u_y=y_B-y_A$, $v_x=x_C-x_A$, $v_y=y_C-y_A$, puis $s=u_xv_x+u_yv_y$. Vérifier d’abord que $A\\ne B$ et $A\\ne C$. Ici $s=6(-1)+2\\times3=0$, donc l’angle est droit. Avec des flottants, un calcul théoriquement nul peut être un très petit réel. On peut comparer $|s|$ à une tolérance adaptée à la taille des données. Ce test approché ne remplace pas une démonstration exacte."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Quel est $(2,-1)\\cdot(3,4)$ ?",
+        "choices": [
+          "$2$",
+          "$10$",
+          "$-2$",
+          "$7$"
+        ],
+        "answer": 0,
+        "explanation": "$2\\times3+(-1)\\times4=6-4=2$."
+      },
+      {
+        "question": "Si $\\|u\\|=3$, $\\|v\\|=4$ et leur angle vaut $60^\\circ$, alors $u\\cdot v=$",
+        "choices": [
+          "$12$",
+          "$6$",
+          "$0$",
+          "$-6$"
+        ],
+        "answer": 1,
+        "explanation": "$3\\times4\\times\\cos60^\\circ=12\\times\\frac12=6$."
+      },
+      {
+        "question": "Quel vecteur est orthogonal à $(2,5)$ ?",
+        "choices": [
+          "$ (5,2)$",
+          "$ (2,-5)$",
+          "$ (5,-2)$",
+          "$ (1,1)$"
+        ],
+        "answer": 2,
+        "explanation": "$2\\times5+5\\times(-2)=0$."
+      },
+      {
+        "question": "Un produit scalaire strictement négatif entre deux vecteurs non nuls correspond à un angle…",
+        "choices": [
+          "nul",
+          "aigu",
+          "droit",
+          "obtus"
+        ],
+        "answer": 3,
+        "explanation": "Les normes sont positives et le cosinus est négatif pour un angle obtus."
+      },
+      {
+        "question": "Pour tout vecteur $u$, $u\\cdot u=$",
+        "choices": [
+          "$\\|u\\|^2$",
+          "$\\|u\\|$",
+          "$0$",
+          "$2u$"
+        ],
+        "answer": 0,
+        "explanation": "Le cosinus de l’angle nul vaut 1, donc le produit est le carré de la norme."
+      },
+      {
+        "question": "$AB=3$, $AC=4$, $BC=5$. Alors $\\overrightarrow{AB}\\cdot\\overrightarrow{AC}=$",
+        "choices": [
+          "$12$",
+          "$0$",
+          "$5$",
+          "$-12$"
+        ],
+        "answer": 1,
+        "explanation": "La formule des longueurs donne $(9+16-25)/2=0$."
+      },
+      {
+        "question": "$\\|u-v\\|^2$ vaut…",
+        "choices": [
+          "$\\|u\\|^2-\\|v\\|^2$",
+          "$\\|u\\|^2+\\|v\\|^2$",
+          "$\\|u\\|^2+\\|v\\|^2-2u\\cdot v$",
+          "$\\|u\\|^2+\\|v\\|^2+2u\\cdot v$"
+        ],
+        "answer": 2,
+        "explanation": "En développant $(u-v)\\cdot(u-v)$, les deux termes croisés valent chacun $-u\\cdot v$."
+      },
+      {
+        "question": "Pour $A\\ne B$, l’ensemble $\\overrightarrow{MA}\\cdot\\overrightarrow{MB}=0$ est…",
+        "choices": [
+          "la médiatrice de $[AB]$",
+          "la droite $(AB)$",
+          "le disque de diamètre $[AB]$",
+          "le cercle de diamètre $[AB]$"
+        ],
+        "answer": 3,
+        "explanation": "En notant $I$ le milieu, le produit vaut $MI^2-IA^2$. Il est nul exactement sur le cercle."
+      }
+    ]
+  }
+]

@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Corrigé détaillé}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries Angles et trigonométrie}\par{\large Corrigé détaillé}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Conversions}
+{\small\color{Muted}\textbf{Énoncé.} Convertir $30^\circ$, $225^\circ$ en radians et $7\pi/6$ en degrés.}
+\par\medskip
+\textbf{Résolution.}\par
+Multiplier les degrés par $\pi/180$ donne $\pi/6$ et $5\pi/4$. Multiplier $7\pi/6$ par $180/\pi$ donne $210^\circ$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Même point}
+{\small\color{Muted}\textbf{Énoncé.} Ramener $19\pi/6$ et $-7\pi/4$ dans $[0,2\pi[$.}
+\par\medskip
+\textbf{Résolution.}\par
+$19\pi/6-2\pi=7\pi/6$. Puis $-7\pi/4+2\pi=\pi/4$. Les deux opérations ajoutent ou retirent un tour sans changer le point.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Entraînement}{Valeurs exactes}
+{\small\color{Muted}\textbf{Énoncé.} Calculer sinus et cosinus de $2\pi/3$ et $7\pi/4$.}
+\par\medskip
+\textbf{Résolution.}\par
+$2\pi/3=\pi-\pi/3$ donne $\cos=-1/2$ et $\sin=\sqrt3/2$. Pour $7\pi/4=2\pi-\pi/4$, le point est celui de $-\pi/4$ : $\cos=\sqrt2/2$ et $\sin=-\sqrt2/2$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Un signe à choisir}
+{\small\color{Muted}\textbf{Énoncé.} On sait $\sin x=3/5$ et $x\in[\pi/2,\pi]$. Déterminer $\cos x$.}
+\par\medskip
+\textbf{Résolution.}\par
+L’identité donne $\cos^2x=1-9/25=16/25$. Les candidats sont $4/5$ et $-4/5$. Dans le deuxième quadrant, l’abscisse est négative : $\cos x=-4/5$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Entraînement}{Deux solutions}
+{\small\color{Muted}\textbf{Énoncé.} Résoudre $\cos x=1/2$ dans $[0,2\pi[$.}
+\par\medskip
+\textbf{Résolution.}\par
+La droite verticale d’abscisse $1/2$ coupe le cercle en deux points symétriques par rapport à l’axe horizontal. Les angles sont $\pi/3$ et $5\pi/3$. Les deux appartiennent à l’intervalle demandé.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Application}{Longueur d’arc}
+{\small\color{Muted}\textbf{Énoncé.} Calculer la longueur d’un arc de rayon $6$ cm correspondant à $\pi/3$ radians.}
+\par\medskip
+\textbf{Résolution.}\par
+La définition du radian donne $\theta=\ell/r$, donc $\ell=r\theta=6\times\pi/3=2\pi$ cm. L’angle doit être en radians pour appliquer cette formule.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Approfondissement}{Une affirmation fausse}
+{\small\color{Muted}\textbf{Énoncé.} La relation $\sin(a+b)=\sin a+\sin b$ est-elle toujours vraie ?}
+\par\medskip
+\textbf{Résolution.}\par
+Non. Prendre $a=b=\pi/2$. Le membre de gauche vaut $\sin\pi=0$, celui de droite vaut $1+1=2$. Ce contre-exemple suffit. L’addition des angles ne se traduit pas par une addition des sinus.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Déplacement circulaire}
+{\small\color{Muted}\textbf{Énoncé.} Un point part de $(1,0)$ et avance de $\pi/3$ radians à chaque étape. Donner ses coordonnées aux étapes $1$, $2$, $3$ et $6$.}
+\par\medskip
+\textbf{Résolution.}\par
+Les angles sont $\pi/3$, $2\pi/3$, $\pi$ et $2\pi$. Les coordonnées sont $(1/2,\sqrt3/2)$, $(-1/2,\sqrt3/2)$, $(-1,0)$ et $(1,0)$. Au bout de six étapes, le point revient à sa position initiale.
+\end{minipage}\par
+\end{document}

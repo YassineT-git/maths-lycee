@@ -1,0 +1,267 @@
+[
+  {
+    "id": "p03",
+    "level": "premiere",
+    "title": "Suites arithmétiques et géométriques",
+    "domain": "Algèbre",
+    "description": "Reconnaître des évolutions régulières, calculer un terme, un cumul et un seuil.",
+    "prerequisites": [
+      "Définition d’une suite",
+      "Pourcentages",
+      "Puissances"
+    ],
+    "objectives": [
+      "Distinguer ajout et multiplication constants",
+      "Calculer les termes et les sommes",
+      "Démontrer les formules de somme",
+      "Modéliser des évolutions discrètes"
+    ],
+    "slides": [
+      {
+        "title": "Deux économies différentes",
+        "body": "Ana dépose $30$ euros chaque mois sur un compte sans intérêt. Bilal place $500$ euros qui augmentent de $2\\,\\%$ par an. Ana ajoute toujours la même quantité ; Bilal multiplie toujours par $1,02$. Ces deux mécanismes conduisent à deux familles de suites."
+      },
+      {
+        "title": "Suite arithmétique",
+        "body": "Une suite est arithmétique de raison $r$ si $u_{n+1}=u_n+r$ pour chaque rang. Ainsi $u_{n+1}-u_n=r$ est constant. Exemple : $7,10,13,16,\\ldots$ a pour raison $3$. Calculer plusieurs différences est utile pour conjecturer ; une preuve doit établir la relation pour tout $n$."
+      },
+      {
+        "title": "Terme général arithmétique",
+        "body": "À partir de $u_0$, on ajoute $r$ exactement $n$ fois pour atteindre $u_n$. Donc \\[u_n=u_0+nr.\\] Plus généralement, pour deux rangs $p,n$, $u_n=u_p+(n-p)r$. Si $u_1=5$ et $r=2$, alors $u_{10}=5+9\\times2=23$."
+      },
+      {
+        "title": "Justification de la formule",
+        "body": "Pour $n>p$, additionnons les égalités $u_{p+1}-u_p=r$, $u_{p+2}-u_{p+1}=r$, jusqu’à $u_n-u_{n-1}=r$. Les termes intermédiaires se simplifient. Il reste $u_n-u_p=(n-p)r$. Ce calcul explique pourquoi on compte les écarts entre rangs, et non le nombre de termes."
+      },
+      {
+        "title": "Variations et représentation",
+        "body": "Comme $u_{n+1}-u_n=r$, une suite arithmétique est strictement croissante si $r>0$, constante si $r=0$, strictement décroissante si $r<0$. Les points $(n,u_n)$ sont alignés sur la droite $y=u_0+rx$. Attention : seules les abscisses entières correspondent à la suite."
+      },
+      {
+        "title": "Somme des entiers : preuve",
+        "body": "Posons $S=1+2+\\cdots+n$. En écrivant la somme dans l’ordre inverse et en additionnant colonne à colonne, chaque paire vaut $n+1$. Il y a $n$ paires, donc $2S=n(n+1)$. Ainsi \\[1+2+\\cdots+n=\\frac{n(n+1)}2.\\] Pour $n=100$, on obtient $5050$."
+      },
+      {
+        "title": "Somme arithmétique",
+        "body": "Pour $p\\le n$, il y a $n-p+1$ termes entre $u_p$ et $u_n$, bornes incluses. Les termes symétriques ont pour somme $u_p+u_n$. Donc \\[u_p+\\cdots+u_n=(n-p+1)\\frac{u_p+u_n}{2}.\\] Exemple : $4+7+10+13+16=5\\times(4+16)/2=50$."
+      },
+      {
+        "title": "Suite géométrique",
+        "body": "Une suite est géométrique de raison $q$ si $v_{n+1}=qv_n$. Exemple : $3,6,12,24,\\ldots$ a pour raison $2$. Quand les termes sont non nuls, le quotient $v_{n+1}/v_n$ est constant. Une suite nulle est géométrique pour toute raison : le quotient n’est alors pas défini."
+      },
+      {
+        "title": "Terme général géométrique",
+        "body": "Pour $q\\ne0$, de $v_p$ à $v_n$ avec $n\\ge p$, on multiplie $n-p$ fois par $q$, donc $v_n=v_pq^{n-p}$. En particulier $v_n=v_0q^n$. Si $q=0$, tous les termes après le premier valent $0$ ; on traite directement ce cas pour éviter une écriture ambiguë de $0^0$."
+      },
+      {
+        "title": "Pourquoi la formule convient",
+        "body": "Pour $q\\ne0$, posons $w_n=v_0q^n$. On a $w_0=v_0$ et $w_{n+1}=v_0q^{n+1}=qw_n$. La formule respecte donc la valeur de départ et la règle de multiplication. Exemple : $v_0=5$, $q=3$ donnent $v_4=5\\times81=405$."
+      },
+      {
+        "title": "Taux constant et multiplicateur",
+        "body": "Une hausse de $t\\,\\%$ multiplie par $1+t/100$. Une baisse de $t\\,\\%$ multiplie par $1-t/100$. Pour un capital de $800$ euros augmentant de $3\\,\\%$ par an, $C_n=800(1,03)^n$. Deux hausses de $3\\,\\%$ donnent un coefficient $(1,03)^2=1,0609$, soit $6,09\\,\\%$."
+      },
+      {
+        "title": "Variations : attention au signe",
+        "body": "On utilise $v_{n+1}-v_n=v_n(q-1)$. Si $v_0>0$ et $q>0$, la suite croît pour $q>1$ et décroît pour $0<q<1$. Si $v_0<0$, ces sens s’inversent. Si $q<0$ et $v_0\\ne0$, les signes alternent : la suite n’est pas monotone. Pour $q=1$, elle est constante."
+      },
+      {
+        "title": "Somme géométrique : preuve",
+        "body": "Posons $S=1+q+\\cdots+q^n$. Alors $qS=q+q^2+\\cdots+q^{n+1}$. En soustrayant, $(1-q)S=1-q^{n+1}$. Si $q\\ne1$, \\[S=\\frac{1-q^{n+1}}{1-q}.\\] Si $q=1$, chacun des $n+1$ termes vaut $1$, donc $S=n+1$."
+      },
+      {
+        "title": "Somme de termes consécutifs",
+        "body": "Pour une suite géométrique et $p\\le n$, factoriser le premier terme donne, si $q\\ne1$, \\[v_p+\\cdots+v_n=v_p\\frac{1-q^{n-p+1}}{1-q}.\\] Exemple : $3+6+12+24=3(1-2^4)/(1-2)=45$. L’exposant compte les termes : ici quatre."
+      },
+      {
+        "title": "Un cumul d’économies",
+        "body": "Ana met de côté $20$ euros le premier mois, puis $5$ euros de plus chaque mois. Son versement du mois $n\\ge1$ vaut $a_n=20+5(n-1)$. Au douzième mois, $a_{12}=75$. Le total versé est $12(20+75)/2=570$ euros. Le versement du dernier mois et le cumul sont deux quantités différentes."
+      },
+      {
+        "title": "Une décroissance en contexte",
+        "body": "Une quantité fictive diminue de $20\\,\\%$ à chaque étape. Avec $Q_0=100$, on obtient $Q_n=100(0,8)^n$. Les premiers termes sont $100,80,64,51,2$. La suite est positive et décroissante. Les valeurs semblent se rapprocher de $0$ sans devenir négatives : l’étude formelle des limites viendra plus tard."
+      },
+      {
+        "title": "Un seuil avec une boucle",
+        "body": "Quand $100(0,8)^n<30$ pour la première fois ? Partir de $n=0$, $Q=100$. Tant que $Q\\ge30$, multiplier $Q$ par $0,8$ et ajouter $1$ à $n$. On trouve $n=6$ : $Q_5=32,768$ et $Q_6=26,2144$. Contrôler les deux rangs garantit que le seuil est le premier."
+      },
+      {
+        "title": "Cumul dans un algorithme",
+        "body": "Pour sommer $v_0$ à $v_n$, initialiser $v=v_0$ et $S=0$. Répéter $n+1$ fois : ajouter $v$ à $S$, puis remplacer $v$ par $qv$. L’ordre est essentiel : si on multiplie avant d’additionner, on commence à $v_1$. Comparer la boucle à la formule de somme permet de vérifier les indices."
+      },
+      {
+        "title": "Bilan de reconnaissance",
+        "body": "\\begin{itemize}\\item Accroissement constant : suite arithmétique.\\item Coefficient multiplicateur constant : suite géométrique.\\item Dans une somme, compter les termes avant d’appliquer la formule.\\item Distinguer valeur initiale, rang initial et raison.\\end{itemize} Une formule explicite se vérifie avec le premier terme et la relation de récurrence."
+      },
+      {
+        "title": "Ne pas confondre valeur et cumul",
+        "body": "On verse $50$ euros le premier mois, puis $10$ euros de plus chaque mois. Le versement du douzième mois vaut $50+11\\times10=160$ euros.\\medskip\\par Le total versé est une autre quantité :\\[S=12\\times\\frac{50+160}{2}=1260\\ \\text{euros}.\\] Une question sur le total appelle une somme, pas un seul terme."
+      },
+      {
+        "title": "Compter les termes correctement",
+        "body": "De $u_3$ à $u_{12}$ inclus, il y a $12-3+1=10$ termes. Pour une suite arithmétique,\\[u_3+\\cdots+u_{12}=10\\frac{u_3+u_{12}}2.\\] Pour une suite géométrique de raison $q\\ne1$, cette somme vaut $u_3(1-q^{10})/(1-q)$. Le même nombre de termes apparaît dans les deux formules."
+      },
+      {
+        "title": "Une baisse suivie d’une hausse",
+        "body": "Un prix de $100$ euros baisse de $20\\,\\%$, puis augmente de $20\\,\\%$.\\[100\\times0,8\\times1,2=96.\\] Les évolutions successives se multiplient. Les pourcentages ne s’annulent pas, car la seconde variation porte sur $80$ euros. Le taux global vaut $0,96-1=-4\\,\\%$."
+      },
+      {
+        "title": "Un seuil à vérifier des deux côtés",
+        "body": "$u_n=100\\times1,1^n$. On cherche le premier indice tel que $u_n>150$.\\medskip\\par $u_4=146,41$ et $u_5=161,051$. La suite est croissante car $u_0>0$ et $q>1$. Donc le premier indice est $5$. Vérifier le terme précédent et la croissance permet de justifier le mot « premier »."
+      },
+      {
+        "title": "Deux modèles, deux graphiques",
+        "body": "\\begin{center}\\begin{tikzpicture}\\begin{axis}[width=9cm,height=4.4cm,xmin=0,xmax=5,ymin=0,ymax=16,axis lines=left,xlabel=$n$,ylabel=$u_n$,legend style={font=\\tiny,at={(0.02,.98)},anchor=north west}]\\addplot[Blue,only marks,mark=*] coordinates {(0,2)(1,4)(2,6)(3,8)(4,10)(5,12)};\\addlegendentry{$2+2n$}\\addplot[Ink,only marks,mark=square*] coordinates {(0,2)(1,3)(2,4.5)(3,6.75)(4,10.125)(5,15.1875)};\\addlegendentry{$2(1,5)^n$}\\end{axis}\\end{tikzpicture}\\end{center} Une suite arithmétique donne des points alignés. Pour la suite géométrique, les écarts successifs grandissent ici. Les indices sont entiers : on trace des points."
+      }
+    ],
+    "exercises": [
+      {
+        "title": "Une suite arithmétique",
+        "difficulty": "Application",
+        "statement": "$u_0=12$ et $r=-3$. Calculer $u_7$, écrire $u_n$ et déterminer le premier rang tel que $u_n<0$.",
+        "correction": "La formule est $u_n=12-3n$, donc $u_7=-9$. L’inégalité $12-3n<0$ donne $n>4$. Le premier rang entier est $5$ : $u_4=0$ ne satisfait pas l’inégalité stricte et $u_5=-3<0$."
+      },
+      {
+        "title": "Retrouver la raison",
+        "difficulty": "Entraînement",
+        "statement": "Une suite arithmétique vérifie $u_3=11$ et $u_8=31$. Trouver $r$, $u_0$ et $u_{20}$.",
+        "correction": "Entre les rangs $3$ et $8$, il y a cinq accroissements : $31-11=5r$, donc $r=4$. Puis $u_0=u_3-3r=11-12=-1$. Enfin $u_{20}=-1+20\\times4=79$."
+      },
+      {
+        "title": "Sommes arithmétiques",
+        "difficulty": "Application",
+        "statement": "Calculer $1+\\cdots+80$, puis $7+11+15+\\cdots+63$.",
+        "correction": "La première somme vaut $80\\times81/2=3240$. Pour la seconde, le terme de rang $k$ à partir de $0$ est $7+4k$. Résoudre $7+4k=63$ donne $k=14$, soit quinze termes. La somme vaut $15(7+63)/2=525$."
+      },
+      {
+        "title": "Une suite géométrique",
+        "difficulty": "Application",
+        "statement": "$v_1=6$, $q=1/2$. Calculer $v_5$, puis $v_1+\\cdots+v_5$.",
+        "correction": "Il faut quatre multiplications pour passer de $1$ à $5$ : $v_5=6(1/2)^4=3/8$. La somme comporte cinq termes : $6[1-(1/2)^5]/(1-1/2)=12\\times31/32=93/8=11,625$."
+      },
+      {
+        "title": "Variations comparées",
+        "difficulty": "Entraînement",
+        "statement": "Étudier les variations de $a_n=4(0,7)^n$, $b_n=-3\\times2^n$ et $c_n=5(-1/2)^n$.",
+        "correction": "$a_n>0$ et sa raison est comprise entre $0$ et $1$ : elle décroît strictement. Pour $b$, la différence vaut $-3\\times2^n<0$, donc elle décroît aussi, malgré une raison supérieure à $1$. Pour $c$, les premiers termes sont $5,-2,5,1,25$ : ils descendent puis montent ; l’alternance se poursuit, donc la suite n’est pas monotone."
+      },
+      {
+        "title": "Placement et versement",
+        "difficulty": "Entraînement",
+        "statement": "Un capital fictif de $1500$ euros augmente de $4\\,\\%$ par an sans versement. Donner sa valeur après trois ans et le taux total d’évolution. Comparer à trois hausses additionnées.",
+        "correction": "La suite est géométrique de raison $1,04$. Après trois ans : $C_3=1500(1,04)^3=1687,296$, soit $1687,30$ euros au centime. Le coefficient total est $1,124864$, donc le taux vaut $12,4864\\,\\%$. Additionner les taux donnerait $12\\,\\%$ : cela oublie que les hausses portent sur des montants successivement plus grands."
+      },
+      {
+        "title": "Algorithme de cumul",
+        "difficulty": "Entraînement",
+        "statement": "On initialise $v=2$, $S=0$. On répète six fois : $S\\leftarrow S+v$, puis $v\\leftarrow3v$. Quelle somme calcule-t-on ? La calculer sans boucle.",
+        "correction": "La première addition porte sur $v_0=2$. Les six additions portent donc sur $v_0$ à $v_5$, de raison $3$. La somme est $2(1-3^6)/(1-3)=3^6-1=728$. À la fin, la variable $v$ contient déjà $v_6$, mais ce dernier terme n’a pas été ajouté."
+      },
+      {
+        "title": "Remboursement : changement de suite",
+        "difficulty": "Approfondissement",
+        "statement": "Une dette fictive suit $D_{n+1}=1,1D_n-100$, avec $D_0=500$. Poser $v_n=D_n-1000$. Montrer que $v$ est géométrique et exprimer $D_n$, tant que le modèle décrit une dette.",
+        "correction": "$v_{n+1}=D_{n+1}-1000=1,1D_n-1100=1,1(D_n-1000)=1,1v_n$. La raison est $1,1$ et $v_0=-500$. Ainsi $v_n=-500(1,1)^n$ et $D_n=1000-500(1,1)^n$. La dette décroît car $D_{n+1}-D_n=-50(1,1)^n<0$. Quand la formule devient négative, il faut adapter le dernier remboursement : une dette remboursée ne se poursuit pas en montant négatif dans cette situation."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Une suite arithmétique de premier terme $u_0=5$ et de raison $3$ vérifie :",
+        "choices": [
+          "$u_n=5+3n$",
+          "$u_n=5\\times3^n$",
+          "$u_n=3+5n$",
+          "$u_n=5+3(n-1)$"
+        ],
+        "answer": 0,
+        "explanation": "Entre $u_0$ et $u_n$, on ajoute la raison $n$ fois."
+      },
+      {
+        "question": "Combien de termes contient $u_3+\\cdots+u_{10}$ ?",
+        "choices": [
+          "$7$",
+          "$8$",
+          "$10$",
+          "$11$"
+        ],
+        "answer": 1,
+        "explanation": "Les deux bornes sont incluses : $10-3+1=8$."
+      },
+      {
+        "question": "Une baisse de $12\\,\\%$ correspond au multiplicateur :",
+        "choices": [
+          "$1,12$",
+          "$-0,12$",
+          "$0,88$",
+          "$0,12$"
+        ],
+        "answer": 2,
+        "explanation": "Le coefficient vaut $1-12/100=0,88$."
+      },
+      {
+        "question": "Pour une suite géométrique $v_1=2$, $q=3$, $v_4$ vaut :",
+        "choices": [
+          "$18$",
+          "$24$",
+          "$162$",
+          "$54$"
+        ],
+        "answer": 3,
+        "explanation": "$v_4=2\\times3^{4-1}=54$."
+      },
+      {
+        "question": "$1+2+\\cdots+20$ vaut :",
+        "choices": [
+          "$210$",
+          "$200$",
+          "$190$",
+          "$420$"
+        ],
+        "answer": 0,
+        "explanation": "La somme vaut $20\\times21/2=210$."
+      },
+      {
+        "question": "$1+2+4+8+16$ vaut :",
+        "choices": [
+          "$30$",
+          "$31$",
+          "$32$",
+          "$63$"
+        ],
+        "answer": 1,
+        "explanation": "Il y a cinq termes : $(1-2^5)/(1-2)=31$."
+      },
+      {
+        "question": "La suite $u_n=-2(0,5)^n$ est :",
+        "choices": [
+          "Strictement décroissante",
+          "Constante",
+          "Strictement croissante",
+          "Alternée en signe"
+        ],
+        "answer": 2,
+        "explanation": "$u_{n+1}-u_n=-2(0,5)^n(0,5-1)=(0,5)^n>0$."
+      },
+      {
+        "question": "Deux hausses successives de $10\\,\\%$ donnent :",
+        "choices": [
+          "$10\\,\\%$",
+          "$20\\,\\%$",
+          "$100\\,\\%$",
+          "$21\\,\\%$"
+        ],
+        "answer": 3,
+        "explanation": "$1,1\\times1,1=1,21$, soit une hausse totale de $21\\,\\%$."
+      }
+    ],
+    "coverage": [
+      "Suites arithmétiques",
+      "Suites géométriques",
+      "Termes généraux et preuves",
+      "Variations et signes",
+      "Sommes et preuves",
+      "Évolutions à taux constant",
+      "Seuils et cumul algorithmique"
+    ]
+  }
+]

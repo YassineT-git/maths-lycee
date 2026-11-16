@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Corrigé détaillé}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries Produit scalaire}\par{\large Corrigé détaillé}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Calculs de base}
+{\small\color{Muted}\textbf{Énoncé.} Dans un repère orthonormé, $\vec u=(3,-1)$, $\vec v=(2,4)$ et $\vec w=(-1,2)$. Calculer $\vec u\cdot\vec v$, $\|\vec u\|$, puis $\vec u\cdot(2\vec v-\vec w)$ de deux façons.}
+\par\medskip
+\textbf{Résolution.}\par
+$\vec u\cdot\vec v=3\times2-1\times4=2$ et $\|\vec u\|=\sqrt{3^2+(-1)^2}=\sqrt{10}$. On calcule $2\vec v-\vec w=(5,6)$, donc le produit vaut $15-6=9$. Par bilinéarité, $\vec u\cdot\vec w=-3-2=-5$, puis $2(\vec u\cdot\vec v)-\vec u\cdot\vec w=4-(-5)=9$. Les deux résultats coïncident.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Projection et signe}
+{\small\color{Muted}\textbf{Énoncé.} $OA=6$. Le projeté orthogonal $H$ de $B$ sur $(OA)$ vérifie $OH=4$. Calculer $\overrightarrow{OA}\cdot\overrightarrow{OB}$ lorsque $H\in[OA)$, puis lorsque $H$ est sur la demi-droite opposée. Que peut-on dire du type de l’angle $\widehat{AOB}$ ?}
+\par\medskip
+\textbf{Résolution.}\par
+Lorsque les vecteurs $\overrightarrow{OA}$ et $\overrightarrow{OH}$ sont de même sens, le produit vaut $6\times4=24$. Il est positif, donc l’angle est aigu. Dans l’autre cas la longueur algébrique projetée vaut $-4$, d’où $6\times(-4)=-24$. L’angle est alors obtus. La distance $OH$ seule ne détermine pas le signe : la position de $H$ est indispensable.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Application}{Un triangle rectangle}
+{\small\color{Muted}\textbf{Énoncé.} On donne $A(1,2)$, $B(4,3)$ et $C(0,5)$. Démontrer que le triangle est rectangle. Calculer ses trois longueurs et son aire.}
+\par\medskip
+\textbf{Résolution.}\par
+$\overrightarrow{AB}=(3,1)$ et $\overrightarrow{AC}=(-1,3)$. Leur produit est $-3+3=0$ et les deux vecteurs sont non nuls : le triangle est rectangle en $A$. On a $AB=AC=\sqrt{10}$. Enfin $\overrightarrow{BC}=(-4,2)$, donc $BC=\sqrt{20}=2\sqrt5$. L’aire vaut $AB\times AC/2=10/2=5$ unités d’aire. Pythagore vérifie $10+10=20$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Paramètre et orthogonalité}
+{\small\color{Muted}\textbf{Énoncé.} Pour $\vec u=(2,t)$ et $\vec v=(t-1,3)$, déterminer $t$ pour que les vecteurs soient orthogonaux. Pour cette valeur, calculer leurs normes.}
+\par\medskip
+\textbf{Résolution.}\par
+Le produit vaut $2(t-1)+3t=5t-2$. L’orthogonalité équivaut donc à $5t-2=0$, soit $t=2/5$. Alors $\vec u=(2,2/5)$ et $\vec v=(-3/5,3)$. Les normes sont $\sqrt{4+4/25}=2\sqrt{26}/5$ et $\sqrt{9/25+9}=3\sqrt{26}/5$. Les vecteurs ne sont pas nuls et leurs directions sont bien perpendiculaires.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Entraînement}{Deux côtés et un angle}
+{\small\color{Muted}\textbf{Énoncé.} Dans un triangle, $AB=4$, $AC=7$ et $\widehat{BAC}=120^\circ$. Déterminer exactement $BC$. Puis calculer $\overrightarrow{AB}\cdot\overrightarrow{AC}$.}
+\par\medskip
+\textbf{Résolution.}\par
+$\cos120^\circ=-1/2$. Al-Kashi donne $BC^2=16+49-2\times4\times7\times(-1/2)=93$, donc $BC=\sqrt{93}$. Le produit scalaire vaut $4\times7\times(-1/2)=-14$. On peut vérifier grâce à la formule des trois longueurs : $(16+49-93)/2=-14$. Le signe négatif est cohérent avec l’angle obtus.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Entraînement}{Retrouver un angle}
+{\small\color{Muted}\textbf{Énoncé.} Un triangle vérifie $AB=5$, $AC=6$ et $BC=7$. Calculer $\cos\widehat{BAC}$, puis donner l’angle au degré près. Est-il rectangle ?}
+\par\medskip
+\textbf{Résolution.}\par
+On part d’Al-Kashi et on isole le cosinus : $\cos\widehat{BAC}=(AB^2+AC^2-BC^2)/(2AB\times AC)=(25+36-49)/60=1/5$. Ainsi $\widehat{BAC}=\arccos(0,2)\approx78^\circ$. Le plus grand côté est $BC=7$, or $7^2=49\ne25+36=61$. Le triangle n’est donc rectangle en aucun sommet.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Approfondissement}{Un lieu géométrique}
+{\small\color{Muted}\textbf{Énoncé.} Soient $A(-2,1)$ et $B(4,1)$. Déterminer l’ensemble des $M(x,y)$ vérifiant $\overrightarrow{MA}\cdot\overrightarrow{MB}=0$. Donner centre et rayon, puis tester $C(1,4)$.}
+\par\medskip
+\textbf{Résolution.}\par
+On écrit $\overrightarrow{MA}=(-2-x,1-y)$ et $\overrightarrow{MB}=(4-x,1-y)$. L’égalité devient $x^2-2x-8+(y-1)^2=0$, soit $(x-1)^2+(y-1)^2=9$. C’est le cercle de centre $I(1,1)$ et rayon $3$, donc de diamètre $[AB]$. Pour $C(1,4)$, le membre de gauche vaut $0+9=9$ : $C$ est sur ce cercle. Le triangle $ACB$ est rectangle en $C$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Automatiser un test géométrique}
+{\small\color{Muted}\textbf{Énoncé.} On veut tester avec un programme si trois points distincts $A,B,C$ forment un angle droit en $A$. Décrire les calculs nécessaires. Appliquer à $A(0,0)$, $B(6,2)$, $C(-1,3)$. Pourquoi comparer exactement à zéro peut-il poser problème avec des décimaux approchés ?}
+\par\medskip
+\textbf{Résolution.}\par
+Calculer $u_x=x_B-x_A$, $u_y=y_B-y_A$, $v_x=x_C-x_A$, $v_y=y_C-y_A$, puis $s=u_xv_x+u_yv_y$. Vérifier d’abord que $A\ne B$ et $A\ne C$. Ici $s=6(-1)+2\times3=0$, donc l’angle est droit. Avec des flottants, un calcul théoriquement nul peut être un très petit réel. On peut comparer $|s|$ à une tolérance adaptée à la taille des données. Ce test approché ne remplace pas une démonstration exacte.
+\end{minipage}\par
+\end{document}

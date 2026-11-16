@@ -1,0 +1,60 @@
+% Maths Lycée — thème éditorial inspiré du portfolio de Yassine.
+% Modifier ici les couleurs et la typographie de tous les diaporamas.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern,amsmath,amssymb,mathtools,tikz,pgfplots,listings,adjustbox}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\pgfplotsset{compat=1.18,width=9cm,height=4.2cm}
+\definecolor{Ink}{HTML}{202124}
+\definecolor{Blue}{HTML}{356B9E}
+\definecolor{Mist}{HTML}{F6F6F5}
+\definecolor{Muted}{HTML}{737579}
+\definecolor{Line}{HTML}{E7E7E5}
+\setbeamercolor{normal text}{fg=Ink,bg=white}
+\setbeamercolor{structure}{fg=Blue}
+\setbeamercolor{frametitle}{fg=Ink}
+\setbeamercolor{title}{fg=Ink}
+\setbeamercolor{block title}{fg=Blue,bg=Mist}
+\setbeamercolor{block body}{fg=Ink,bg=Mist}
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamersize{text margin left=1cm,text margin right=1cm}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[default]
+\setlength{\parskip}{7pt}
+\newcommand{\slidekind}{COMPRENDRE}
+\newcommand{\chapternumber}{01}
+\setbeamertemplate{frametitle}{\vspace{0.3cm}{\fontsize{7}{9}\selectfont\color{Blue}\MakeUppercase{\slidekind}}\par\vspace{0.1cm}\insertframetitle\par\vspace{0.08cm}\color{Line}\rule{\textwidth}{0.4pt}\vspace{-0.02cm}}
+\setbeamertemplate{footline}{\hspace{1cm}\begin{minipage}{\dimexpr\paperwidth-2cm}\color{Line}\rule{\textwidth}{0.4pt}\par\vspace{0.06cm}{\fontsize{6.5}{8}\selectfont\color{Muted}MATHS LYCÉE\quad / \quad PREMIÈRE SPÉCIALITÉ\hfill\insertframenumber\ /\ \inserttotalframenumber}\end{minipage}\vspace{0.22cm}}
+\setbeamertemplate{title page}{
+\vspace{0.3cm}
+{\fontsize{8}{10}\selectfont\color{Blue}MATHS LYCÉE\quad /\quad 2026--2027}\par
+\vspace{0.6cm}
+\begin{columns}[c,onlytextwidth]
+\begin{column}{.72\textwidth}
+{\fontsize{9}{12}\selectfont\color{Muted}CHAPITRE \chapternumber}\par\vspace{0.22cm}
+{\usebeamerfont{title}\color{Ink}\inserttitle\par}
+\vspace{0.4cm}{\color{Blue}\rule{1.5cm}{2pt}}\par
+{\small\color{Muted}Comprendre les notions.\par Justifier chaque étape.}
+\end{column}
+\begin{column}{.23\textwidth}
+\begin{tikzpicture}[scale=.65]
+\fill[Mist,rounded corners=6pt](-1.9,-2.1)rectangle(2,2.5);
+\draw[Line,step=.5](-1.8,-2)grid(1.9,2.4);
+\draw[Muted,->](-1.7,-1.3)--(1.8,-1.3);
+\draw[Muted,->](0,-1.6)--(0,2.2);
+\draw[Blue,very thick,domain=-1.5:1.5,samples=40]plot(\x,{1.3*\x*\x-1.3});
+\fill[Blue](1,0)circle(2.5pt);
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\vfill}
+\lstdefinestyle{mathspython}{language=Python,basicstyle=\ttfamily\small,keywordstyle=\color{Blue}\bfseries,commentstyle=\color{Muted},stringstyle=\color{Blue},backgroundcolor=\color{Mist},frame=none,xleftmargin=8pt,xrightmargin=8pt,aboveskip=8pt,belowskip=8pt,showstringspaces=false,columns=fullflexible,keepspaces=true,breaklines=true}
+\lstnewenvironment{codepython}{\lstset{style=mathspython}}{}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathrm{V}}
+\hypersetup{colorlinks=true,urlcolor=Blue}

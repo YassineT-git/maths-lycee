@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Corrigé détaillé}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries Suites : construire, représenter et conjecturer}\par{\large Corrigé détaillé}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Rangs et valeurs}
+{\small\color{Muted}\textbf{Énoncé.} On définit $u_n=2n^2-3$ pour $n\ge0$. Calculer $u_0,u_1,u_4$, écrire $u_{n+1}$ et dire quel est le quatrième terme.}
+\par\medskip
+\textbf{Résolution.}\par
+On remplace $n$ par chaque rang : $u_0=-3$, $u_1=-1$, $u_4=29$. On a $u_{n+1}=2(n+1)^2-3=2n^2+4n-1$. Le premier terme étant $u_0$, le quatrième est $u_3=15$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Calcul de proche en proche}
+{\small\color{Muted}\textbf{Énoncé.} $u_0=3$ et $u_{n+1}=u_n^2-2$. Calculer $u_1,u_2,u_3$. Pourquoi ne peut-on pas remplacer directement $u_n$ par $n$ ?}
+\par\medskip
+\textbf{Résolution.}\par
+$u_1=3^2-2=7$, puis $u_2=7^2-2=47$, puis $u_3=47^2-2=2207$. La lettre $u_n$ désigne la valeur précédente, alors que $n$ désigne son rang. La formule $n^2-2$ définirait une autre suite, explicite.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Entraînement}{Une frise de triangles}
+{\small\color{Muted}\textbf{Énoncé.} Une frise de $n\ge1$ triangles utilise trois allumettes pour le premier triangle et deux de plus pour chaque triangle supplémentaire. Donner une récurrence puis une formule explicite pour le nombre $a_n$ d’allumettes. Calculer $a_{50}$.}
+\par\medskip
+\textbf{Résolution.}\par
+On a $a_1=3$ et $a_{n+1}=a_n+2$. Entre le premier et le $n$-ième triangle, on ajoute $n-1$ triangles, donc $a_n=3+2(n-1)=2n+1$. Ainsi $a_{50}=101$. Le test $n=1$ redonne bien $3$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Étudier les variations}
+{\small\color{Muted}\textbf{Énoncé.} Étudier les variations de $u_n=n^2-5n$ pour $n\ge0$. Préciser les éventuels termes consécutifs égaux.}
+\par\medskip
+\textbf{Résolution.}\par
+$u_{n+1}-u_n=(n+1)^2-5(n+1)-n^2+5n=2n-4$. Cette différence est négative pour $n=0,1$, nulle pour $n=2$, positive pour $n\ge3$. Donc $u_0>u_1>u_2=u_3<u_4<u_5<\cdots$. Les termes égaux sont $u_2=u_3=-6$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Entraînement}{Le piège du quotient}
+{\small\color{Muted}\textbf{Énoncé.} Pour $u_n=-2^n$, calculer $u_{n+1}/u_n$, puis $u_{n+1}-u_n$. La suite est-elle croissante ?}
+\par\medskip
+\textbf{Résolution.}\par
+Le quotient vaut $2>1$. Pourtant les termes sont négatifs, donc le critère réservé aux suites positives ne s’applique pas. La différence est $-2^{n+1}+2^n=-2^n<0$. La suite est strictement décroissante : $-1,-2,-4,-8,\ldots$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Entraînement}{Conjectures de limites}
+{\small\color{Muted}\textbf{Énoncé.} Conjecturer et expliquer le comportement de $a_n=5-1/(n+1)$, $b_n=3n+2$, $c_n=(-1)^n$ et $d_n=(-1)^n/(n+1)$.}
+\par\medskip
+\textbf{Résolution.}\par
+Le terme $1/(n+1)$ se rapproche de $0$, donc $a_n$ se rapproche de $5$ par valeurs inférieures. $b_n$ augmente sans borne : limite $+\infty$. $c_n$ alterne entre $1$ et $-1$ et n’a pas de limite. Enfin $|d_n|=1/(n+1)$ se rapproche de $0$ : malgré l’alternance, $d_n$ se rapproche de $0$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Entraînement}{Seuil de production}
+{\small\color{Muted}\textbf{Énoncé.} Une machine produit $u_n=40+15n$ pièces au jour de rang $n\ge0$. Écrire un algorithme donnant le premier rang pour lequel $u_n\ge200$, puis le déterminer.}
+\par\medskip
+\textbf{Résolution.}\par
+Initialiser $n=0$, $u=40$. Tant que $u<200$, ajouter $1$ à $n$ et $15$ à $u$. À la sortie, le rang convient. Algébriquement, $40+15n\ge200$ équivaut à $n\ge160/15=10,666\ldots$. Le premier rang entier est $11$. Vérification : $u_{10}=190<200$ et $u_{11}=205\ge200$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Vérifier une formule proposée}
+{\small\color{Muted}\textbf{Énoncé.} On propose $u_n=4\times3^n-2$ pour la suite $u_0=2$, $u_{n+1}=3u_n+4$. Vérifier l’initialisation et la règle. Calculer alors $u_6$.}
+\par\medskip
+\textbf{Résolution.}\par
+Au rang $0$, la formule donne $4-2=2$. Ensuite $3u_n+4=3(4\times3^n-2)+4=4\times3^{n+1}-2=u_{n+1}$. La formule fournit donc exactement la suite construite par cette valeur initiale et cette règle. Enfin $u_6=4\times729-2=2914$. Cette vérification évite six calculs successifs.
+\end{minipage}\par
+\end{document}

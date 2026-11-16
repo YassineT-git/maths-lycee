@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Corrigé détaillé}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries Calculer une dérivée}\par{\large Corrigé détaillé}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Références}
+{\small\color{Muted}\textbf{Énoncé.} Dériver $4x^3-5x+2$, $2/x$ et $3\sqrt{x}$. Préciser les domaines.}
+\par\medskip
+\textbf{Résolution.}\par
+Le polynôme est dérivable sur $\R$ et sa dérivée vaut $12x^2-5$. Sur $\R\setminus\{0\}$, $(2/x)\prime=-2/x^2$. Enfin $3\sqrt{x}$ est définie sur $[0,+\infty[$, dérivable sur $]0,+\infty[$ et sa dérivée vaut $3/(2\sqrt{x})$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Un produit}
+{\small\color{Muted}\textbf{Énoncé.} Dériver $(x^2-1)(x+4)$ de deux façons.}
+\par\medskip
+\textbf{Résolution.}\par
+Par produit : $2x(x+4)+(x^2-1)=3x^2+8x-1$. Par développement, $f=x^3+4x^2-x-4$, d’où la même dérivée. Les deux calculs sont valables sur $\R$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Entraînement}{Quotient}
+{\small\color{Muted}\textbf{Énoncé.} Dériver $(3x-2)/(x+1)$ et étudier le signe de la dérivée.}
+\par\medskip
+\textbf{Résolution.}\par
+Le domaine exclut $-1$. Le numérateur de la dérivée vaut $3(x+1)-(3x-2)=5$. Donc $f\prime=5/(x+1)^2>0$ pour $x\ne-1$. La positivité vaut séparément sur les deux intervalles du domaine.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Racine composée}
+{\small\color{Muted}\textbf{Énoncé.} Donner les domaines de définition et dérivabilité de $\sqrt{5-2x}$, puis sa dérivée.}
+\par\medskip
+\textbf{Résolution.}\par
+$5-2x\ge0$ équivaut à $x\le5/2$. Pour dériver la racine, il faut $5-2x>0$, donc $x<5/2$. Le facteur intérieur est $-2$, d’où $f\prime=-1/\sqrt{5-2x}$. Le bord $5/2$ ne fournit pas de nombre dérivé fini.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Entraînement}{Repérer une erreur}
+{\small\color{Muted}\textbf{Énoncé.} Un élève écrit $((x+1)/x)\prime=1$. Corriger et vérifier par simplification.}
+\par\medskip
+\textbf{Résolution.}\par
+La règle du quotient donne $[x-(x+1)]/x^2=-1/x^2$. On retrouve ce résultat en écrivant $(x+1)/x=1+1/x$. L’élève a divisé les dérivées, ce qui n’est pas une règle de dérivation.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Entraînement}{Tangente}
+{\small\color{Muted}\textbf{Énoncé.} Pour $f(x)=1/(x^2+1)$, déterminer la tangente en $1$.}
+\par\medskip
+\textbf{Résolution.}\par
+$f(1)=1/2$. La règle de l’inverse donne $f\prime(x)=-2x/(x^2+1)^2$, donc $f\prime(1)=-1/2$. La tangente est $y=1/2-(x-1)/2=1-x/2$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Entraînement}{Contrôle numérique}
+{\small\color{Muted}\textbf{Énoncé.} Pour $f(x)=x^3$, calculer le taux entre $2$ et $2+h$, puis comparer à la dérivée pour $h=0,01$.}
+\par\medskip
+\textbf{Résolution.}\par
+En développant $(2+h)^3$, le taux vaut $12+6h+h^2$. Pour $h=0,01$, il vaut $12,0601$. La dérivée en $2$ vaut $3\times2^2=12$. Le petit écart est attendu : le taux moyen n’est pas exactement la dérivée.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Famille de tangentes}
+{\small\color{Muted}\textbf{Énoncé.} Pour $f(x)=x^3-3x$, chercher les points où la tangente est parallèle à $y=9x+1$.}
+\par\medskip
+\textbf{Résolution.}\par
+Une parallèle a une pente $9$. On résout $f\prime(x)=3x^2-3=9$, soit $x^2=4$, donc $x=-2$ ou $x=2$. Les points sont $(-2,-2)$ et $(2,2)$. Les tangentes valent respectivement $y=9x+16$ et $y=9x-16$.
+\end{minipage}\par
+\end{document}

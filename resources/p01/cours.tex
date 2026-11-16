@@ -1,0 +1,128 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\input{theme-slides.tex}
+\title{Second degré : formes, équations et signes}
+\subtitle{Première spécialité}
+\renewcommand{\chapternumber}{01}\author{Maths Lycée}
+\date{Année scolaire 2026--2027}
+\begin{document}\begin{frame}\titlepage\end{frame}
+\begin{frame}{Objectifs du chapitre}\begin{itemize}
+\item Reconnaître les trois formes d’un trinôme
+\item Résoudre équations et inéquations du second degré
+\item Choisir une méthode de factorisation
+\item Justifier un extremum
+\end{itemize}\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Un rectangle à optimiser}
+Un rectangle a un périmètre de $20$ cm. Si sa largeur vaut $x$, sa longueur vaut $10-x$. Son aire est $A(x)=x(10-x)$, avec $0<x<10$. Pour $x=3$, elle vaut $21$ cm$^2$ ; pour $x=5$, elle vaut $25$ cm$^2$. Comment prouver que $25$ est le maximum ?
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Reconnaître un trinôme}
+Une fonction polynôme du second degré s’écrit $f(x)=ax^2+bx+c$, avec $a\ne0$. Les coefficients sont constants. Exemple : $f(x)=2x^2-3x+1$ donne $a=2$, $b=-3$, $c=1$. Si $a=0$, on étudie une fonction affine, pas un trinôme.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Trois écritures, trois usages}
+\begin{itemize}\item Développée : $ax^2+bx+c$, utile pour identifier les coefficients.\item Canonique : $a(x-\alpha)^2+\beta$, utile pour les variations et l’extremum.\item Factorisée : $a(x-r_1)(x-r_2)$, lorsqu’elle existe sur $\mathbb R$, utile pour les racines et le signe.\end{itemize} Développer permet de vérifier que deux écritures représentent la même fonction.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Compléter un carré}
+Pour $f(x)=x^2-6x+5$, on reconnaît $x^2-6x=(x-3)^2-9$. Ainsi \[f(x)=(x-3)^2-4.\] Le carré est toujours positif ou nul : $f(x)\ge-4$, avec égalité seulement pour $x=3$. On obtient le minimum sans résoudre d’équation.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Sommet et variations}
+Dans $f(x)=a(x-\alpha)^2+\beta$, le sommet a pour coordonnées $(\alpha,\beta)$. Si $a>0$, $f$ décroît jusqu’à $\alpha$, puis croît : son minimum vaut $\beta$. Si $a<0$, les variations s’inversent : $\beta$ est un maximum. L’axe de symétrie est $x=\alpha$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une parabole visible}
+\begin{columns}[c,onlytextwidth]\begin{column}{.60\textwidth}\centering\begin{adjustbox}{max width=\linewidth,max height=3.7cm}\begin{tikzpicture}[scale=.55]\draw[->] (-.6,0)--(6.5,0) node[right]{$x$};\draw[->] (0,-4.8)--(0,5.8) node[above]{$y$};\draw[blue,thick,domain=0:6,samples=60] plot (\x,{(\x-3)^2-4});\draw[dashed] (3,-4)--(3,5);\fill (3,-4) circle(3pt) node[right]{$S(3,-4)$};\node at (1,.5){$1$};\node at (5,.5){$5$};\end{tikzpicture}\end{adjustbox}\end{column}\begin{column}{.36\textwidth} Ici $f(x)=(x-3)^2-4$ : les zéros sont symétriques par rapport à $3$.\end{column}\end{columns}
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Racines et produit nul}
+Une racine de $f$ est un réel $r$ tel que $f(r)=0$. Si $f(x)=2(x-1)(x+3)$, alors $f(x)=0$ équivaut à $x=1$ ou $x=-3$. La constante $2$ n’apporte aucune solution : elle n’est jamais nulle. Le produit nul s’utilise pour une équation dont un membre vaut zéro.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Factoriser avant les formules}
+Pour $x^2-9$, reconnaître $(x-3)(x+3)$ est plus rapide qu’un discriminant. Pour $x^2-5x+6$, chercher deux nombres de somme $5$ et de produit $6$ donne $2$ et $3$. Donc $x^2-5x+6=(x-2)(x-3)$. Toujours vérifier par développement.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Somme et produit des racines}
+En développant $a(x-r_1)(x-r_2)$, on obtient $ax^2-a(r_1+r_2)x+ar_1r_2$. Par identification, \[r_1+r_2=-\frac ba,\qquad r_1r_2=\frac ca.\] Exemple : les racines de $2x^2-6x+4$ ont pour somme $3$ et pour produit $2$ : ce sont $1$ et $2$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Le discriminant}
+Pour $ax^2+bx+c=0$, avec $a\ne0$, on définit $\Delta=b^2-4ac$. \begin{itemize}\item $\Delta>0$ : deux racines distinctes $\frac{-b-\sqrt\Delta}{2a}$ et $\frac{-b+\sqrt\Delta}{2a}$.\item $\Delta=0$ : une racine double $-\frac b{2a}$.\item $\Delta<0$ : aucune racine réelle.\end{itemize}
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Pourquoi ces formules ?}
+La complétion du carré donne \[ax^2+bx+c=a\left[\left(x+\frac b{2a}\right)^2-\frac{\Delta}{4a^2}\right].\] L’équation équivaut à $(2ax+b)^2=\Delta$. Un carré ne peut pas être négatif. Si $\Delta\ge0$, on obtient $2ax+b=\pm\sqrt\Delta$, puis les formules. Ce calcul démontre les trois cas.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Un calcul entièrement conduit}
+Résolvons $2x^2+x-3=0$. Ici $a=2$, $b=1$, $c=-3$, donc $\Delta=1-4\times2\times(-3)=25$. Les racines sont $(-1-5)/4=-3/2$ et $(-1+5)/4=1$. Ainsi \[2x^2+x-3=2(x+3/2)(x-1).\] Vérification : $2+1-3=0$ pour $x=1$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Deux autres cas}
+Pour $x^2+4x+4$, $\Delta=16-16=0$ et $f(x)=(x+2)^2$ : racine double $-2$. Pour $x^2+x+1$, $\Delta=1-4=-3$ : pas de racine réelle. Sa forme canonique $(x+1/2)^2+3/4$ confirme même que $f(x)>0$ pour tout réel $x$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Signe avec deux racines}
+Si $r_1<r_2$, les facteurs $x-r_1$ et $x-r_2$ ont le même signe à l’extérieur de $[r_1,r_2]$ et des signes contraires à l’intérieur. Donc $f$ a le signe de $a$ à l’extérieur, le signe opposé entre les racines, et vaut zéro aux racines. Exemple : $2(x+3/2)(x-1)<0$ pour $-3/2<x<1$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Signe sans deux racines}
+Si $\Delta<0$, le trinôme garde strictement le signe de $a$ sur $\mathbb R$. Si $\Delta=0$, il s’écrit $a(x-\alpha)^2$ : il garde le signe de $a$, sauf qu’il s’annule en $\alpha$. Exemple : $-(x-2)^2\le0$ partout ; l’égalité n’a lieu qu’en $2$.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Résoudre une inéquation}
+Résolvons $-x^2+4x-3\ge0$. On factorise : $-(x-1)(x-3)$. Le coefficient dominant est négatif, donc l’expression est positive entre $1$ et $3$. Les bornes sont autorisées par le symbole $\ge$. L’ensemble solution est $[1,3]$. Avec $>0$, on aurait $]1,3[$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Fabriquer un trinôme}
+Tout trinôme ayant pour racines distinctes $-1$ et $4$ s’écrit $f(x)=a(x+1)(x-4)$ avec $a\ne0$. Si l’on impose $f(0)=8$, alors $-4a=8$, donc $a=-2$. On obtient $f(x)=-2(x+1)(x-4)$. Les racines seules ne déterminent pas le coefficient $a$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Retour au rectangle}
+On transforme $A(x)=-x^2+10x=25-(x-5)^2$. Pour tout $x\in]0,10[$, le carré est positif ou nul : $A(x)\le25$. L’égalité est atteinte pour $x=5$, valeur autorisée. Le rectangle optimal est donc un carré de côté $5$ cm, d’aire $25$ cm$^2$.
+\end{frame}
+\renewcommand{\slidekind}{À RETENIR}
+\begin{frame}[t,fragile]{Erreurs à détecter}
+\begin{itemize}\item Dans $2x^2+x-3$, le coefficient $c$ est $-3$.\item $\sqrt{b^2}=|b|$, pas toujours $b$.\item Une racine doit annuler le trinôme initial.\item Le signe entre les racines dépend de $a$.\item Une forme factorisée réelle n’existe pas si $\Delta<0$.\end{itemize}
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Activité et méthode de choix}
+Pour $f(x)=x^2-4x-5$, trouver successivement une forme factorisée et une forme canonique. \medskip Réponse : $(x-5)(x+1)$ et $(x-2)^2-9$. Pour résoudre $f(x)=0$, la première est directe. Pour déterminer le minimum, la seconde est directe. \textbf{Bilan :} choisir l’écriture en fonction de la question, puis contrôler le résultat.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Quelle écriture choisir ?}
+On donne $f(x)=2x^2-8x+6=2(x-1)(x-3)=2(x-2)^2-2$.\begin{enumerate}\item Quelle forme permet de calculer $f(0)$ rapidement ?\item Quelle forme révèle les racines ?\item Quelle forme donne le minimum ?\end{enumerate}\medskip Chercher d’abord sans développer. Les trois expressions définissent la même fonction.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Trois questions, trois lectures}
+\begin{itemize}\item Forme développée : $f(0)=6$, par lecture du terme constant.\item Forme factorisée : $f(x)=0$ exactement pour $x=1$ ou $x=3$.\item Forme avec un carré : $2(x-2)^2\ge0$, donc $f(x)\ge-2$, avec égalité pour $x=2$.\end{itemize} Le calcul le plus court vient souvent du choix de la bonne forme.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Un signe présenté sans raccourci}
+Pour $f(x)=2(x-1)(x-3)$,\[\begin{array}{c|ccccc}x&]-\infty,1[&1&]1,3[&3&]3,+\infty[\\\hline x-1&-&0&+&+&+\\x-3&-&-&-&0&+\\f(x)&+&0&-&0&+\end{array}\]\medskip Ainsi $f(x)\le0$ donne $[1,3]$, alors que $f(x)<0$ donne $]1,3[$. Les bornes dépendent du caractère strict de l’inégalité.
+\end{frame}
+\renewcommand{\slidekind}{À RETENIR}
+\begin{frame}[t,fragile]{Vérifier une racine proposée}
+Un élève propose $x=-1$ comme racine de $x^2-5x+6$. En remplaçant, on obtient $1+5+6=12$, donc ce n’est pas une racine.\medskip\par Un remplacement fournit un contrôle rapide. Pour démontrer que toutes les solutions ont été trouvées, il faut une résolution complète : $(x-2)(x-3)=0$.
+\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 1}
+Les racines de $x^2-5x+6$ sont :\begin{enumerate}
+\item $-2$ et $-3$
+\item $2$ et $3$
+\item $1$ et $6$
+\item $-1$ et $-6$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 1 : résolution}
+\begin{block}{Réponse 2}$2$ et $3$\end{block}\medskip $(x-2)(x-3)=x^2-5x+6$.\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 2}
+Un trinôme de coefficient dominant positif et de discriminant négatif est :\begin{enumerate}
+\item Toujours négatif
+\item Parfois nul
+\item Positif seulement pour $x>0$
+\item Strictement positif sur $\mathbb R$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 2 : résolution}
+\begin{block}{Réponse 4}Strictement positif sur $\mathbb R$\end{block}\medskip Il n’a aucune racine et conserve le signe de son coefficient dominant.\end{frame}
+\end{document}

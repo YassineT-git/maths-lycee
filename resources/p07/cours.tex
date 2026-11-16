@@ -1,0 +1,105 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\input{theme-slides.tex}
+\title{La fonction exponentielle}
+\subtitle{Première spécialité}
+\renewcommand{\chapternumber}{07}\author{Maths Lycée}
+\date{Année scolaire 2026--2027}
+\begin{document}\begin{frame}\titlepage\end{frame}
+\begin{frame}{Objectifs du chapitre}\begin{itemize}
+\item Définir la fonction exponentielle
+\item Utiliser ses propriétés algébriques
+\item Résoudre équations et inéquations
+\item Dériver une exponentielle affine
+\item Relier modèles continus et suites géométriques
+\end{itemize}\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une croissance proportionnelle}
+Une population fictive augmente d’autant plus vite qu’elle est grande. On cherche une fonction dont la vitesse de variation est proportionnelle à sa valeur.\medskip\par Dans le modèle le plus simple, $f\prime=f$ et la valeur initiale est $f(0)=1$. Cette condition conduit à une nouvelle fonction.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Définition}
+Il existe une unique fonction dérivable sur $\R$ telle que\[f\prime(x)=f(x)\quad\text{et}\quad f(0)=1.\] On l’appelle fonction exponentielle, notée $\exp$. L’existence et l’unicité sont admises ici. On écrit aussi $\exp(x)=e^x$ et $e=\exp(1)\approx2,71828$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une valeur toujours positive}
+La fonction exponentielle ne s’annule pas et vérifie $e^x>0$ pour tout réel $x$.\medskip\par Ainsi $e^{-3}$ est positif, même si l’exposant est négatif. Cette propriété permettra de connaître le signe de nombreuses dérivées sans calculer de valeurs approchées.
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Pourquoi l’exponentielle ne s’annule pas}
+Poser $h(x)=f(x)f(-x)$, où $f\prime=f$. La règle du produit donne\[h\prime(x)=f(x)f(-x)-f(x)f(-x)=0.\] Donc $h$ est constante et $h(0)=1$. Ainsi $f(x)f(-x)=1$ : aucun facteur ne peut être nul. La continuité et $f(0)=1$ assurent la positivité.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Additionner les exposants}
+Pour tous réels $a,b$,\[e^{a+b}=e^ae^b.\] Une somme dans l’exposant devient un produit de valeurs. Par exemple $e^{x+2}=e^xe^2$. En revanche, $e^{x+2}$ n’est pas égal à $e^x+e^2$.
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Justification de la relation fonctionnelle}
+Fixer $a$ et poser $g(x)=e^{a+x}/e^a$. Le dénominateur est non nul. Alors $g\prime=g$ et $g(0)=1$.\medskip\par Par unicité de la fonction de la définition, $g(x)=e^x$. Multiplier par $e^a$ donne $e^{a+x}=e^ae^x$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Opposés, différences et puissances}
+La relation précédente donne\[e^{-a}=\frac1{e^a},\qquad e^{a-b}=\frac{e^a}{e^b},\qquad(e^a)^n=e^{na}\quad(n\in\mathbb Z).\] Exemple : $e^{3x}e^{-x}/e^2=e^{2x-2}$. Chaque simplification porte sur les exposants du produit ou du quotient.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Dérivée et variations}
+Par définition, $(e^x)\prime=e^x$. Cette dérivée est strictement positive, donc l’exponentielle est strictement croissante sur $\R$.\medskip\par Puisque $e^0=1$, on a $e^x<1$ si $x<0$ et $e^x>1$ si $x>0$. La fonction reste toujours positive.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{La courbe et sa tangente}
+\begin{columns}[c,onlytextwidth]\begin{column}{.60\textwidth}\centering\begin{adjustbox}{max width=\linewidth,max height=3.7cm}\begin{tikzpicture}\begin{axis}[width=9cm,height=4.2cm,axis lines=middle,xmin=-2,xmax=1.6,ymin=-.4,ymax=5,xlabel=$x$,ylabel=$y$]\addplot[Blue,thick,domain=-2:1.6,samples=70]{exp(x)};\addplot[gray,domain=-1.4:1.6]{1+x};\addplot[only marks] coordinates {(0,1)};\end{axis}\end{tikzpicture}\end{adjustbox}\end{column}\begin{column}{.36\textwidth} En zéro, la valeur et la pente valent $1$ : la tangente est $y=1+x$.\end{column}\end{columns}
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Équations exponentielles}
+La stricte croissance donne l’équivalence\[e^u=e^v\quad\Longleftrightarrow\quad u=v.\] Résoudre $e^{2x-1}=e^{x+3}$ revient à résoudre $2x-1=x+3$, donc $x=4$. Cette méthode fonctionne quand on reconnaît deux exponentielles.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Inéquations exponentielles}
+Pour tous réels $u,v$,\[e^u\le e^v\quad\Longleftrightarrow\quad u\le v.\] Ainsi $e^{3-2x}\le1$ équivaut à $3-2x\le0$, donc $x\ge3/2$. Le signe s’inverse en divisant par $-2$, pas lors du passage aux exposants.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Une équation ramenée au second degré}
+Résoudre $e^{2x}-3e^x+2=0$. Poser $X=e^x>0$.\[X^2-3X+2=(X-1)(X-2)=0.\] On obtient $e^x=1$ ou $e^x=2$. La première donne $x=0$. La seconde se résout numériquement en première : $x\approx0,693$. Le logarithme sera étudié ensuite.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Dériver une exponentielle affine}
+Pour $f(x)=e^{ax+b}$,\[f\prime(x)=a e^{ax+b}.\] Le facteur $a$ ne doit pas être oublié. Pour $f(x)=5e^{-0,2x}$, on obtient $f\prime(x)=-e^{-0,2x}<0$. Le modèle est décroissant.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Un produit avec une exponentielle}
+$f(x)=xe^{-x}$ sur $[0,+\infty[$. Par produit,\[f\prime(x)=e^{-x}-xe^{-x}=(1-x)e^{-x}.\] L’exponentielle est positive : le signe est celui de $1-x$. Le maximum est atteint en $x=1$ et vaut $1/e$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Modèle continu et prélèvements réguliers}
+Pour $N(t)=N_0e^{kt}$, avec $N_0>0$,\[\frac{N(t+1)}{N(t)}=e^k.\] Aux instants entiers, $u_n=N(n)$ est une suite géométrique de raison $q=e^k$. Le coefficient continu $k$ et le taux discret $q-1$ sont liés mais différents.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Interpréter un coefficient}
+Avec $N(t)=100e^{0,1t}$, on a $N\prime(t)=0,1N(t)$. Le taux instantané est $0,1$ par unité de temps.\medskip\par Sur une unité de temps, le multiplicateur vaut $e^{0,1}\approx1,10517$, soit environ $10,52\,\%$ d’augmentation, et non exactement $10\,\%$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Approximation près de zéro}
+La tangente fournit $e^h\approx1+h$ pour $h$ proche de zéro. Ainsi $e^{0,02}\approx1,02$.\medskip\par Cette approximation explique pourquoi taux instantané et taux discret sont proches quand le pas est petit. Elle n’autorise pas à remplacer $e^2$ par $3$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une inégalité démontrée}
+Poser $g(x)=e^x-x-1$. Alors $g\prime(x)=e^x-1$, négative pour $x<0$ et positive pour $x>0$.\medskip\par Le minimum vaut $g(0)=0$. Donc $e^x\ge1+x$ sur $\R$, avec égalité seulement en zéro. La courbe reste au-dessus de sa tangente en zéro.
+\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 1}
+$e^{a+b}$ est égal à :\begin{enumerate}
+\item $e^a+e^b$
+\item $e^ae^b$
+\item $e^{ab}$
+\item $e^a/e^b$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 1 : résolution}
+\begin{block}{Réponse 2}$e^ae^b$\end{block}\medskip La somme des exposants correspond au produit des valeurs.\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 2}
+Près de zéro, $e^h$ est approché par :\begin{enumerate}
+\item $h$
+\item $1-h$
+\item $h^2$
+\item $1+h$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 2 : résolution}
+\begin{block}{Réponse 4}$1+h$\end{block}\medskip C’est l’expression de la tangente en zéro.\end{frame}
+\end{document}

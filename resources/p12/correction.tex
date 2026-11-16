@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Corrigé détaillé}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries Variables aléatoires et espérance}\par{\large Corrigé détaillé}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Construire une loi}
+{\small\color{Muted}\textbf{Énoncé.} On lance un dé équilibré. $X$ vaut $0$ pour un résultat impair, $2$ pour $2$ ou $4$, et $5$ pour $6$. Donner la loi, puis calculer $P(X\ge2)$ et $E(X)$.}
+\par\medskip
+\textbf{Résolution.}\par
+Les résultats impairs sont $1,3,5$, donc $P(X=0)=3/6=1/2$. Les résultats $2,4$ donnent $P(X=2)=2/6=1/3$. Enfin $P(X=5)=1/6$. La somme vaut $1$. Ainsi $P(X\ge2)=1/3+1/6=1/2$. L’espérance est $0\times1/2+2\times1/3+5\times1/6=4/6+5/6=3/2$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Compléter et calculer}
+{\small\color{Muted}\textbf{Énoncé.} $X$ prend les valeurs $-2$, $1$, $4$ avec probabilités $0,2$, $p$, $0,3$. Déterminer $p$, puis l’espérance, la variance et l’écart-type.}
+\par\medskip
+\textbf{Résolution.}\par
+La somme des probabilités impose $p=1-0,2-0,3=0,5$. Alors $E(X)=-2\times0,2+1\times0,5+4\times0,3=1,3$. On calcule $E(X^2)=4\times0,2+1\times0,5+16\times0,3=6,1$. D’où $V(X)=6,1-1,3^2=4,41$ et $\sigma(X)=\sqrt{4,41}=2,1$. Les valeurs négatives de $X$ sont permises, mais la variance reste positive.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Entraînement}{Prix équitable}
+{\small\color{Muted}\textbf{Énoncé.} Une roue donne un lot brut de $20$ euros avec probabilité $0,1$, de $5$ euros avec probabilité $0,3$, et rien sinon. Calculer le prix d’entrée équitable. Si le prix est $4$ euros, quelle est l’espérance du gain net ?}
+\par\medskip
+\textbf{Résolution.}\par
+Le lot brut $L$ a pour espérance $20\times0,1+5\times0,3+0\times0,6=3,5$ euros. Pour un prix $c$, le gain net est $G=L-c$, d’où $E(G)=3,5-c$. L’équité impose $c=3,5$ euros. Si $c=4$, $E(G)=-0,5$ euro : la perte moyenne attendue du joueur est de $50$ centimes par partie.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Deux méthodes pour la variance}
+{\small\color{Muted}\textbf{Énoncé.} $X$ vaut $1$ avec probabilité $3/4$ et $5$ avec probabilité $1/4$. Calculer $E(X)$, puis $V(X)$ par la définition et par König-Huygens.}
+\par\medskip
+\textbf{Résolution.}\par
+$E(X)=1\times3/4+5\times1/4=2$. Par définition, $V(X)=(1-2)^2(3/4)+(5-2)^2(1/4)=3/4+9/4=3$. Par König-Huygens, $E(X^2)=1\times3/4+25\times1/4=7$, donc $V(X)=7-2^2=3$. Les deux méthodes donnent le même résultat. L’écart-type vaut $\sqrt3$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Entraînement}{Transformation d’un gain}
+{\small\color{Muted}\textbf{Énoncé.} Une variable $X$ vérifie $E(X)=3$ et $V(X)=4$. On définit $Y=5-2X$. Calculer $E(Y)$, $V(Y)$ et $\sigma(Y)$. Pourquoi la translation par $5$ ne change-t-elle pas la variance ?}
+\par\medskip
+\textbf{Résolution.}\par
+Par linéarité, $E(Y)=5-2\times3=-1$. La variance est $(-2)^2\times4=16$, donc $\sigma(Y)=4$. En effet, $Y-E(Y)=5-2X-(5-2E(X))=-2(X-E(X))$ : le terme $5$ disparaît. Les écarts sont multipliés par $-2$, leurs carrés par $4$. On ne multiplie donc pas la variance par $-2$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Entraînement}{Compter sans connaître la loi complète}
+{\small\color{Muted}\textbf{Énoncé.} Dans une classe de $30$ élèves, chaque élève a une probabilité $0,1$ d’être absent un jour donné. Les absences ne sont pas supposées indépendantes. Calculer l’espérance du nombre d’absents. Peut-on en déduire sa variance ?}
+\par\medskip
+\textbf{Résolution.}\par
+Pour chaque élève, $I_i$ vaut $1$ s’il est absent et $0$ sinon. Le nombre d’absents est $N=I_1+\cdots+I_{30}$. Or $E(I_i)=0,1$, donc par linéarité $E(N)=30\times0,1=3$. L’indépendance n’est pas nécessaire pour cette moyenne. En revanche, les seules probabilités individuelles ne suffisent pas à déterminer la variance du total : des absences liées entre elles peuvent produire davantage de fluctuations.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Approfondissement}{Même espérance, risques différents}
+{\small\color{Muted}\textbf{Énoncé.} Le jeu $A$ donne $2$ euros à coup sûr. Le jeu $B$ donne $-4$ euros avec probabilité $1/2$ et $8$ euros sinon. Comparer espérances et écarts-types. Quelle est la probabilité d’une perte dans chaque jeu ?}
+\par\medskip
+\textbf{Résolution.}\par
+Pour $A$, $E(A)=2$, $V(A)=0$, $\sigma(A)=0$ et la probabilité de perte est nulle. Pour $B$, $E(B)=(-4+8)/2=2$. Les écarts à la moyenne sont $-6$ et $6$, d’où $V(B)=36$ et $\sigma(B)=6$. La probabilité de perte est $1/2$. Les moyennes sont identiques, mais le jeu $B$ est plus dispersé et comporte une possibilité de perte.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Espérance d’un nombre de succès}
+{\small\color{Muted}\textbf{Énoncé.} On lance quatre fois une pièce donnant pile avec probabilité $p$. $N$ compte les piles. Expliquer pourquoi $E(N)=4p$. Pour $p=1/2$ et des lancers indépendants, construire la loi de $N$ et vérifier cette espérance.}
+\par\medskip
+\textbf{Résolution.}\par
+En notant $I_i$ l’indicatrice d’un pile au lancer $i$, $N=I_1+I_2+I_3+I_4$ et $E(I_i)=p$. La linéarité donne donc $E(N)=4p$. Pour quatre lancers indépendants équilibrés, les $16$ chemins sont équiprobables. Les nombres de chemins donnant $0,1,2,3,4$ piles sont $1,4,6,4,1$. La loi est donc ces effectifs divisés par $16$. L’espérance vaut $(0+4+12+12+4)/16=32/16=2=4\times1/2$.
+\end{minipage}\par
+\end{document}

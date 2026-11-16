@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Corrigé détaillé}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries Droites et cercles dans un repère}\par{\large Corrigé détaillé}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Lire et vérifier}
+{\small\color{Muted}\textbf{Énoncé.} Pour $d:4x-3y+6=0$, donner une normale et un directeur. Les points $A(0,2)$ et $B(3,5)$ appartiennent-ils à $d$ ?}
+\par\medskip
+\textbf{Résolution.}\par
+Une normale est $(4,-3)$ et un directeur est $(3,4)$, car leur produit vaut $12-12=0$. Pour $A$, le membre de gauche vaut $0-6+6=0$ : $A\in d$. Pour $B$, il vaut $12-15+6=3\ne0$ : $B\notin d$. Le test d’appartenance consiste à substituer les deux coordonnées, sans résoudre l’équation.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Une droite par deux points}
+{\small\color{Muted}\textbf{Énoncé.} Déterminer une équation de la droite passant par $A(-1,2)$ et $B(3,4)$. Donner une équation de sa parallèle passant par $C(0,-1)$.}
+\par\medskip
+\textbf{Résolution.}\par
+$\overrightarrow{AB}=(4,2)$ est directeur. On choisit la normale $(1,-2)$, car $4-4=0$. Par $A$, l’équation est $(x+1)-2(y-2)=0$, soit $x-2y+5=0$. La parallèle conserve la même normale. Par $C$, on écrit $x-2(y+1)=0$, soit $x-2y-2=0$. Les constantes diffèrent : les droites sont distinctes et parallèles.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Entraînement}{Perpendiculaire et intersection}
+{\small\color{Muted}\textbf{Énoncé.} Soit $d:2x-y+1=0$. Écrire une équation de la perpendiculaire à $d$ passant par $P(1,1)$, puis calculer leur intersection.}
+\par\medskip
+\textbf{Résolution.}\par
+Une normale à $d$ est $(2,-1)$, donc une normale à la perpendiculaire est $(1,2)$. L’équation cherchée est $(x-1)+2(y-1)=0$, soit $x+2y-3=0$. De $d$, on tire $y=2x+1$. La substitution donne $x+4x+2-3=0$, donc $x=1/5$, puis $y=7/5$. L’intersection est $(1/5,7/5)$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Projeté et distance}
+{\small\color{Muted}\textbf{Énoncé.} Calculer le projeté $H$ de $P(4,0)$ sur $d:x+y-2=0$. Déduire la distance de $P$ à $d$ et justifier que tous les autres points de $d$ sont plus éloignés.}
+\par\medskip
+\textbf{Résolution.}\par
+Une normale est $(1,1)$. On pose $H=(4+t,t)$. L’appartenance impose $4+2t-2=0$, d’où $t=-1$ et $H=(3,-1)$. La distance vaut $PH=\sqrt{(-1)^2+(-1)^2}=\sqrt2$. Pour tout $M\in d$, Pythagore dans le triangle $PHM$ donne $PM^2=PH^2+HM^2\ge PH^2$, avec égalité seulement pour $M=H$. Cela établit le minimum.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Entraînement}{Médiatrice}
+{\small\color{Muted}\textbf{Énoncé.} Déterminer la médiatrice de $A(-2,1)$ et $B(4,3)$. Vérifier que $M(0,5)$ appartient à cette droite en utilisant deux méthodes.}
+\par\medskip
+\textbf{Résolution.}\par
+Le milieu est $I(1,2)$ et $\overrightarrow{AB}=(6,2)$ est normal. Une équation est $6(x-1)+2(y-2)=0$, soit $3x+y-5=0$. Pour $M(0,5)$, $3\times0+5-5=0$. Autre méthode : $MA^2=(0+2)^2+(5-1)^2=20$ et $MB^2=(0-4)^2+(5-3)^2=20$. Donc $MA=MB$ et $M$ est bien sur la médiatrice.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Application}{Identifier des ensembles}
+{\small\color{Muted}\textbf{Énoncé.} Identifier les ensembles définis par : (a) $x^2+y^2-6x+2y+6=0$ ; (b) $(x-1)^2+(y-2)^2=0$ ; (c) $(x+2)^2+y^2=-1$.}
+\par\medskip
+\textbf{Résolution.}\par
+(a) On complète : $(x-3)^2-9+(y+1)^2-1+6=0$, donc $(x-3)^2+(y+1)^2=4$. C’est le cercle de centre $(3,-1)$ et rayon $2$. (b) Une somme de carrés nulle impose $x-1=0$ et $y-2=0$ : un seul point $(1,2)$. (c) Une somme de carrés est positive ou nulle, donc elle ne peut valoir $-1$ : l’ensemble est vide.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Approfondissement}{Une route et une zone circulaire}
+{\small\color{Muted}\textbf{Énoncé.} Une zone a pour frontière $(x-2)^2+(y-1)^2=25$. Une route suit $y=4$. Déterminer les deux points d’entrée et de sortie de la zone, puis la longueur de route située dans le disque.}
+\par\medskip
+\textbf{Résolution.}\par
+Sur la route, $(y-1)^2=9$. L’équation devient $(x-2)^2=16$, d’où $x-2=\pm4$. Les points sont $A(-2,4)$ et $B(6,4)$. Le segment intérieur est horizontal, de longueur $|6-(-2)|=8$. Pour $-2\le x\le6$, on a bien $(x-2)^2+9\le25$, ce qui caractérise les points du disque.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Tangente et vérification}
+{\small\color{Muted}\textbf{Énoncé.} Pour le cercle $x^2+y^2=10$, vérifier que $A(1,3)$ est sur le cercle et trouver sa tangente. Montrer par substitution que la tangente n’a qu’un point commun avec le cercle.}
+\par\medskip
+\textbf{Résolution.}\par
+$1^2+3^2=10$, donc $A$ est sur le cercle. Le rayon $\overrightarrow{OA}=(1,3)$ est normal à la tangente : $(x-1)+3(y-3)=0$, soit $x+3y=10$. On remplace $x$ par $10-3y$ dans le cercle : $(10-3y)^2+y^2=10$, soit $10y^2-60y+90=0$. Cela équivaut à $10(y-3)^2=0$, donc $y=3$ puis $x=1$. Le seul point commun est bien $A$.
+\end{minipage}\par
+\end{document}

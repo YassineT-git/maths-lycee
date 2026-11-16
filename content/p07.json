@@ -1,0 +1,242 @@
+[
+  {
+    "id": "p07",
+    "level": "premiere",
+    "title": "La fonction exponentielle",
+    "domain": "Analyse",
+    "description": "Comprendre une croissance proportionnelle, utiliser les propriétés de l’exponentielle et construire des modèles.",
+    "prerequisites": [
+      "Dérivation",
+      "Puissances",
+      "Suites géométriques"
+    ],
+    "objectives": [
+      "Définir la fonction exponentielle",
+      "Utiliser ses propriétés algébriques",
+      "Résoudre équations et inéquations",
+      "Dériver une exponentielle affine",
+      "Relier modèles continus et suites géométriques"
+    ],
+    "coverage": [
+      "Définir la fonction exponentielle",
+      "Utiliser ses propriétés algébriques",
+      "Résoudre équations et inéquations",
+      "Dériver une exponentielle affine",
+      "Relier modèles continus et suites géométriques"
+    ],
+    "slides": [
+      {
+        "title": "Une croissance proportionnelle",
+        "body": "Une population fictive augmente d’autant plus vite qu’elle est grande. On cherche une fonction dont la vitesse de variation est proportionnelle à sa valeur.\\medskip\\par Dans le modèle le plus simple, $f\\prime=f$ et la valeur initiale est $f(0)=1$. Cette condition conduit à une nouvelle fonction."
+      },
+      {
+        "title": "Définition",
+        "body": "Il existe une unique fonction dérivable sur $\\R$ telle que\\[f\\prime(x)=f(x)\\quad\\text{et}\\quad f(0)=1.\\] On l’appelle fonction exponentielle, notée $\\exp$. L’existence et l’unicité sont admises ici. On écrit aussi $\\exp(x)=e^x$ et $e=\\exp(1)\\approx2,71828$."
+      },
+      {
+        "title": "Une valeur toujours positive",
+        "body": "La fonction exponentielle ne s’annule pas et vérifie $e^x>0$ pour tout réel $x$.\\medskip\\par Ainsi $e^{-3}$ est positif, même si l’exposant est négatif. Cette propriété permettra de connaître le signe de nombreuses dérivées sans calculer de valeurs approchées."
+      },
+      {
+        "title": "Pourquoi l’exponentielle ne s’annule pas",
+        "body": "Poser $h(x)=f(x)f(-x)$, où $f\\prime=f$. La règle du produit donne\\[h\\prime(x)=f(x)f(-x)-f(x)f(-x)=0.\\] Donc $h$ est constante et $h(0)=1$. Ainsi $f(x)f(-x)=1$ : aucun facteur ne peut être nul. La continuité et $f(0)=1$ assurent la positivité."
+      },
+      {
+        "title": "Additionner les exposants",
+        "body": "Pour tous réels $a,b$,\\[e^{a+b}=e^ae^b.\\] Une somme dans l’exposant devient un produit de valeurs. Par exemple $e^{x+2}=e^xe^2$. En revanche, $e^{x+2}$ n’est pas égal à $e^x+e^2$."
+      },
+      {
+        "title": "Justification de la relation fonctionnelle",
+        "body": "Fixer $a$ et poser $g(x)=e^{a+x}/e^a$. Le dénominateur est non nul. Alors $g\\prime=g$ et $g(0)=1$.\\medskip\\par Par unicité de la fonction de la définition, $g(x)=e^x$. Multiplier par $e^a$ donne $e^{a+x}=e^ae^x$."
+      },
+      {
+        "title": "Opposés, différences et puissances",
+        "body": "La relation précédente donne\\[e^{-a}=\\frac1{e^a},\\qquad e^{a-b}=\\frac{e^a}{e^b},\\qquad(e^a)^n=e^{na}\\quad(n\\in\\mathbb Z).\\] Exemple : $e^{3x}e^{-x}/e^2=e^{2x-2}$. Chaque simplification porte sur les exposants du produit ou du quotient."
+      },
+      {
+        "title": "Dérivée et variations",
+        "body": "Par définition, $(e^x)\\prime=e^x$. Cette dérivée est strictement positive, donc l’exponentielle est strictement croissante sur $\\R$.\\medskip\\par Puisque $e^0=1$, on a $e^x<1$ si $x<0$ et $e^x>1$ si $x>0$. La fonction reste toujours positive."
+      },
+      {
+        "title": "La courbe et sa tangente",
+        "body": "\\begin{center}\\begin{tikzpicture}\\begin{axis}[width=9cm,height=4.2cm,axis lines=middle,xmin=-2,xmax=1.6,ymin=-.4,ymax=5,xlabel=$x$,ylabel=$y$]\\addplot[Blue,thick,domain=-2:1.6,samples=70]{exp(x)};\\addplot[gray,domain=-1.4:1.6]{1+x};\\addplot[only marks] coordinates {(0,1)};\\end{axis}\\end{tikzpicture}\\end{center} En zéro, la valeur et la pente valent $1$ : la tangente est $y=1+x$."
+      },
+      {
+        "title": "Équations exponentielles",
+        "body": "La stricte croissance donne l’équivalence\\[e^u=e^v\\quad\\Longleftrightarrow\\quad u=v.\\] Résoudre $e^{2x-1}=e^{x+3}$ revient à résoudre $2x-1=x+3$, donc $x=4$. Cette méthode fonctionne quand on reconnaît deux exponentielles."
+      },
+      {
+        "title": "Inéquations exponentielles",
+        "body": "Pour tous réels $u,v$,\\[e^u\\le e^v\\quad\\Longleftrightarrow\\quad u\\le v.\\] Ainsi $e^{3-2x}\\le1$ équivaut à $3-2x\\le0$, donc $x\\ge3/2$. Le signe s’inverse en divisant par $-2$, pas lors du passage aux exposants."
+      },
+      {
+        "title": "Une équation ramenée au second degré",
+        "body": "Résoudre $e^{2x}-3e^x+2=0$. Poser $X=e^x>0$.\\[X^2-3X+2=(X-1)(X-2)=0.\\] On obtient $e^x=1$ ou $e^x=2$. La première donne $x=0$. La seconde se résout numériquement en première : $x\\approx0,693$. Le logarithme sera étudié ensuite."
+      },
+      {
+        "title": "Dériver une exponentielle affine",
+        "body": "Pour $f(x)=e^{ax+b}$,\\[f\\prime(x)=a e^{ax+b}.\\] Le facteur $a$ ne doit pas être oublié. Pour $f(x)=5e^{-0,2x}$, on obtient $f\\prime(x)=-e^{-0,2x}<0$. Le modèle est décroissant."
+      },
+      {
+        "title": "Un produit avec une exponentielle",
+        "body": "$f(x)=xe^{-x}$ sur $[0,+\\infty[$. Par produit,\\[f\\prime(x)=e^{-x}-xe^{-x}=(1-x)e^{-x}.\\] L’exponentielle est positive : le signe est celui de $1-x$. Le maximum est atteint en $x=1$ et vaut $1/e$."
+      },
+      {
+        "title": "Modèle continu et prélèvements réguliers",
+        "body": "Pour $N(t)=N_0e^{kt}$, avec $N_0>0$,\\[\\frac{N(t+1)}{N(t)}=e^k.\\] Aux instants entiers, $u_n=N(n)$ est une suite géométrique de raison $q=e^k$. Le coefficient continu $k$ et le taux discret $q-1$ sont liés mais différents."
+      },
+      {
+        "title": "Interpréter un coefficient",
+        "body": "Avec $N(t)=100e^{0,1t}$, on a $N\\prime(t)=0,1N(t)$. Le taux instantané est $0,1$ par unité de temps.\\medskip\\par Sur une unité de temps, le multiplicateur vaut $e^{0,1}\\approx1,10517$, soit environ $10,52\\,\\%$ d’augmentation, et non exactement $10\\,\\%$."
+      },
+      {
+        "title": "Approximation près de zéro",
+        "body": "La tangente fournit $e^h\\approx1+h$ pour $h$ proche de zéro. Ainsi $e^{0,02}\\approx1,02$.\\medskip\\par Cette approximation explique pourquoi taux instantané et taux discret sont proches quand le pas est petit. Elle n’autorise pas à remplacer $e^2$ par $3$."
+      },
+      {
+        "title": "Une inégalité démontrée",
+        "body": "Poser $g(x)=e^x-x-1$. Alors $g\\prime(x)=e^x-1$, négative pour $x<0$ et positive pour $x>0$.\\medskip\\par Le minimum vaut $g(0)=0$. Donc $e^x\\ge1+x$ sur $\\R$, avec égalité seulement en zéro. La courbe reste au-dessus de sa tangente en zéro."
+      }
+    ],
+    "exercises": [
+      {
+        "title": "Simplifier",
+        "difficulty": "Application",
+        "statement": "Simplifier $e^{2x}e^{3-x}$ et $(e^{2x})^3/e^x$.",
+        "correction": "On additionne les exposants du produit : $e^{x+3}$. Dans la seconde expression, la puissance donne $e^{6x}$ puis le quotient donne $e^{5x}$."
+      },
+      {
+        "title": "Équation",
+        "difficulty": "Application",
+        "statement": "Résoudre $e^{4x-2}=e^{x+7}$.",
+        "correction": "La stricte croissance donne $4x-2=x+7$, soit $3x=9$, donc $x=3$. Vérification : les deux exposants valent $10$."
+      },
+      {
+        "title": "Inéquation",
+        "difficulty": "Application",
+        "statement": "Résoudre $e^{1-3x}>e^4$.",
+        "correction": "On compare les exposants : $1-3x>4$, donc $-3x>3$. Diviser par $-3$ inverse le sens : $x<-1$."
+      },
+      {
+        "title": "Dériver",
+        "difficulty": "Entraînement",
+        "statement": "Dériver $3e^{2x-1}$ et $(x+1)e^{-x}$.",
+        "correction": "La première dérivée vaut $6e^{2x-1}$. Pour la seconde, le produit donne $e^{-x}-(x+1)e^{-x}=-xe^{-x}$. On a utilisé la dérivée de $e^{-x}$, qui vaut $-e^{-x}$."
+      },
+      {
+        "title": "Maximum",
+        "difficulty": "Entraînement",
+        "statement": "Étudier $f(x)=x e^{-2x}$ sur $[0,3]$.",
+        "correction": "$f\\prime=(1-2x)e^{-2x}$. Le second facteur est positif, le premier change de signe en $1/2$. La fonction croît puis décroît. Maximum $f(1/2)=1/(2e)$, et valeurs aux bornes $f(0)=0$, $f(3)=3e^{-6}$."
+      },
+      {
+        "title": "Population",
+        "difficulty": "Entraînement",
+        "statement": "Pour $N(t)=500e^{0,04t}$, donner $N(0)$, $N\\prime(t)$ et la raison de $N(n)$.",
+        "correction": "$N(0)=500$. La dérivée est $20e^{0,04t}=0,04N(t)$. Aux temps entiers, $N(n+1)/N(n)=e^{0,04}\\approx1,04081$. L’augmentation par unité est donc d’environ $4,08\\,\\%$."
+      },
+      {
+        "title": "Seuil numérique",
+        "difficulty": "Approfondissement",
+        "statement": "Décrire un algorithme cherchant le premier entier $n$ tel que $100e^{0,1n}>200$.",
+        "correction": "Initialiser $n=0$. Tant que $100e^{0,1n}\\le200$, augmenter $n$ de un. On obtient $n=7$ : $100e^{0,6}\\approx182,21$ et $100e^{0,7}\\approx201,38$. La croissance garantit qu’il s’agit du premier entier."
+      },
+      {
+        "title": "Une fausse propriété",
+        "difficulty": "Approfondissement",
+        "statement": "Un élève affirme $e^{a+b}=e^a+e^b$. Donner un contre-exemple et la propriété correcte.",
+        "correction": "Prendre $a=b=0$. Le membre de gauche vaut $1$, celui de droite $2$ : l’affirmation est fausse. La relation correcte est $e^{a+b}=e^ae^b$. Un contre-exemple suffit à réfuter un énoncé universel."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "$e^0$ vaut :",
+        "choices": [
+          "$1$",
+          "$0$",
+          "$e$",
+          "$-1$"
+        ],
+        "answer": 0,
+        "explanation": "La valeur en zéro fait partie de la définition."
+      },
+      {
+        "question": "$e^{a+b}$ est égal à :",
+        "choices": [
+          "$e^a+e^b$",
+          "$e^ae^b$",
+          "$e^{ab}$",
+          "$e^a/e^b$"
+        ],
+        "answer": 1,
+        "explanation": "La somme des exposants correspond au produit des valeurs."
+      },
+      {
+        "question": "$e^{-2}$ est :",
+        "choices": [
+          "Négatif",
+          "Nul",
+          "Strictement positif",
+          "Non défini"
+        ],
+        "answer": 2,
+        "explanation": "$e^{-2}=1/e^2>0$."
+      },
+      {
+        "question": "La dérivée de $e^{3x}$ est :",
+        "choices": [
+          "$e^{3x}$",
+          "$e^3$",
+          "$3e^x$",
+          "$3e^{3x}$"
+        ],
+        "answer": 3,
+        "explanation": "Il faut multiplier par la dérivée de l’expression intérieure."
+      },
+      {
+        "question": "$e^{2x}=1$ équivaut à :",
+        "choices": [
+          "$x=0$",
+          "$x=1$",
+          "$x=2$",
+          "$x=-1$"
+        ],
+        "answer": 0,
+        "explanation": "$1=e^0$ et la stricte croissance donne $2x=0$."
+      },
+      {
+        "question": "$e^{-x}<1$ équivaut à :",
+        "choices": [
+          "$x<0$",
+          "$x>0$",
+          "$x=0$",
+          "$x<1$"
+        ],
+        "answer": 1,
+        "explanation": "$-x<0$ équivaut à $x>0$."
+      },
+      {
+        "question": "La raison de $u_n=e^{0,2n}$ vaut :",
+        "choices": [
+          "$0,2$",
+          "$1,2$",
+          "$e^{0,2}$",
+          "$e^n$"
+        ],
+        "answer": 2,
+        "explanation": "Le quotient $u_{n+1}/u_n$ vaut $e^{0,2}$."
+      },
+      {
+        "question": "Près de zéro, $e^h$ est approché par :",
+        "choices": [
+          "$h$",
+          "$1-h$",
+          "$h^2$",
+          "$1+h$"
+        ],
+        "answer": 3,
+        "explanation": "C’est l’expression de la tangente en zéro."
+      }
+    ]
+  }
+]

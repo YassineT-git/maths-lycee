@@ -1,0 +1,104 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\input{theme-slides.tex}
+\title{Calculer une dérivée}
+\subtitle{Première spécialité}
+\renewcommand{\chapternumber}{05}\author{Maths Lycée}
+\date{Année scolaire 2026--2027}
+\begin{document}\begin{frame}\titlepage\end{frame}
+\begin{frame}{Objectifs du chapitre}\begin{itemize}
+\item Dériver les fonctions de référence
+\item Dériver une somme, un produit et un quotient
+\item Justifier le domaine de dérivabilité
+\item Dériver une composée avec une fonction affine
+\end{itemize}\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Du nombre à la fonction}
+Pour $f(x)=x^2$, le nombre dérivé en $a$ vaut $2a$. On associe à chaque réel $x$ le nombre $2x$ : on obtient la fonction dérivée $f\prime:x\mapsto2x$.\medskip\par $f\prime(3)=6$ est un nombre. $f\prime$ est une fonction. La variable $x$ reste libre tant que l’on ne choisit pas un point.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Le domaine avant le calcul}
+$f(x)=1/(x-2)$ est définie sur $\R\setminus\{2\}$. On travaille séparément sur $]-\infty,2[$ et $]2,+\infty[$.\medskip\par Une formule de dérivée ne donne aucun sens à $f\prime(2)$ : $f(2)$ n’existe pas. Pour une racine, un point peut appartenir au domaine sans être un point de dérivabilité.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Constantes et fonctions affines}
+Une constante $c$ a une dérivée nulle. Une fonction affine $ax+b$ a pour dérivée $a$.\[\frac{a(x+h)+b-(ax+b)}h=a\quad(h\ne0).\] La pente est la même en chaque point : c’est pourquoi la dérivée ne dépend pas de $x$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Puissances positives}
+Pour un entier $n\ge1$, la fonction $x^n$ est dérivable sur $\R$ et\[(x^n)\prime=nx^{n-1}.\] Exemples : $(x^3)\prime=3x^2$ et $(x^5)\prime=5x^4$. Le coefficient $n$ descend devant la puissance et l’exposant diminue de un.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Inverse et puissances négatives}
+Sur $\R\setminus\{0\}$,\[\left(\frac1x\right)\prime=-\frac1{x^2},\qquad (x^{-n})\prime=-n x^{-n-1}.\] Ainsi $(1/x^3)\prime=-3/x^4$. La dérivée de l’inverse est négative sur chacun des deux intervalles de son domaine.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Racine carrée}
+La fonction $\sqrt{x}$ est dérivable pour $x>0$, avec\[(\sqrt{x})\prime=\frac1{2\sqrt{x}}.\] En zéro, le taux $\sqrt{h}/h=1/\sqrt{h}$ grandit sans borne : il n’existe pas de nombre dérivé réel. Le domaine de définition est $[0,+\infty[$, le domaine de dérivabilité est $]0,+\infty[$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Somme et coefficient constant}
+Si $u$ et $v$ sont dérivables sur un intervalle $I$, alors\[(u+v)\prime=u\prime+v\prime,\qquad(ku)\prime=ku\prime.\] Pour $f(x)=3x^4-2x+7$, on dérive terme à terme : $f\prime(x)=12x^3-2$. La constante $7$ disparaît.
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Pourquoi la somme se dérive terme à terme}
+Le taux de variation de $u+v$ s’écrit\[\frac{u(x+h)-u(x)}h+\frac{v(x+h)-v(x)}h.\] Les deux quotients tendent respectivement vers $u\prime(x)$ et $v\prime(x)$. Leur somme tend vers $u\prime(x)+v\prime(x)$. Ce raisonnement exige la dérivabilité des deux fonctions au point étudié.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Produit de deux fonctions}
+Pour $u,v$ dérivables sur $I$,\[(uv)\prime=u\prime v+uv\prime.\] On dérive le premier facteur en gardant le second, puis le second en gardant le premier.\medskip\par La formule $u\prime v\prime$ est fausse : avec $u=v=x$, elle donnerait $1$ au lieu de $2x$.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Un produit, étape par étape}
+Pour $f(x)=(x^2+1)(3x-2)$, poser $u=x^2+1$ et $v=3x-2$. Alors $u\prime=2x$ et $v\prime=3$.\[f\prime(x)=2x(3x-2)+3(x^2+1)=9x^2-4x+3.\] Vérification : développer $f=3x^3-2x^2+3x-2$ donne la même dérivée.
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Justifier la règle du produit}
+On ajoute et retranche $u(x)v(x+h)$ au numérateur du taux de $uv$. On obtient\[\frac{u(x+h)-u(x)}h v(x+h)+u(x)\frac{v(x+h)-v(x)}h.\] La dérivabilité entraîne la continuité : $v(x+h)$ tend vers $v(x)$. Les deux termes donnent $u\prime v$ et $uv\prime$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Inverse d’une fonction}
+Si $v$ est dérivable et ne s’annule pas sur $I$,\[\left(\frac1v\right)\prime=-\frac{v\prime}{v^2}.\] Pour $f(x)=1/(x^2+1)$, le dénominateur est toujours positif. Ainsi $f$ est dérivable sur $\R$ et $f\prime(x)=-2x/(x^2+1)^2$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Quotient de deux fonctions}
+Pour $u,v$ dérivables, avec $v(x)\ne0$,\[\left(\frac uv\right)\prime=\frac{u\prime v-uv\prime}{v^2}.\] L’ordre du numérateur est essentiel. Le dénominateur est le carré de $v$, et non sa dérivée. Cette règle vient du produit $u\times(1/v)$.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Un quotient, étape par étape}
+$f(x)=(2x+1)/(x-3)$, pour $x\ne3$. Avec $u\prime=2$ et $v\prime=1$,\[f\prime(x)=\frac{2(x-3)-(2x+1)}{(x-3)^2}=\frac{-7}{(x-3)^2}.\] Les parenthèses protègent le signe moins. On conclut que la dérivée est négative sur chaque intervalle du domaine.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Composition avec une fonction affine}
+Si $g$ est dérivable aux valeurs considérées, alors $f(x)=g(ax+b)$ vérifie\[f\prime(x)=a\,g\prime(ax+b).\] Le facteur $a$ mesure la variation de l’expression intérieure. Par exemple $((3x-1)^4)\prime=12(3x-1)^3$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Composition et domaine}
+$f(x)=\sqrt{2x+3}$ est définie pour $x\ge-3/2$ et dérivable pour $x>-3/2$.\[f\prime(x)=2\times\frac1{2\sqrt{2x+3}}=\frac1{\sqrt{2x+3}}.\] Ne pas annoncer une dérivabilité au bord à partir d’une formule qui n’y est pas définie.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Choisir une écriture efficace}
+Pour $f(x)=(x^2+2x)/x$ sur $\R\setminus\{0\}$, simplifier donne $f(x)=x+2$. Donc $f\prime(x)=1$ pour $x\ne0$.\medskip\par La simplification accélère le calcul, mais ne change pas le domaine de la fonction initiale. La règle du quotient donne le même résultat.
+\end{frame}
+\renewcommand{\slidekind}{À RETENIR}
+\begin{frame}[t,fragile]{Contrôler et expliquer}
+Avant de conclure : vérifier le domaine, nommer la règle, écrire les dérivées intermédiaires, simplifier sans perdre de valeurs interdites.\medskip\par Une calculatrice peut comparer un taux numérique à $f\prime(a)$ : c’est un contrôle, pas une démonstration. Pour étudier un signe, une forme factorisée est souvent plus utile qu’une forme développée.
+\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 1}
+Pour $x\ne0$, la dérivée de $1/x$ est :\begin{enumerate}
+\item $1/x^2$
+\item $-1/x^2$
+\item $-1/x$
+\item $0$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 1 : résolution}
+\begin{block}{Réponse 2}$-1/x^2$\end{block}\medskip La dérivée de la fonction inverse est $-1/x^2$.\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 2}
+Pour $f(x)=(x+1)/x$, $f\prime(1)$ vaut :\begin{enumerate}
+\item $2$
+\item $1$
+\item $0$
+\item $-1$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 2 : résolution}
+\begin{block}{Réponse 4}$-1$\end{block}\medskip $f(x)=1+1/x$, donc $f\prime(1)=-1$.\end{frame}
+\end{document}

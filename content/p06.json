@@ -1,0 +1,246 @@
+[
+  {
+    "id": "p06",
+    "level": "premiere",
+    "title": "Variations, extrema et optimisation",
+    "domain": "Analyse",
+    "description": "Passer du signe de la dérivée aux variations, puis résoudre un problème avec un domaine et des unités.",
+    "prerequisites": [
+      "Dérivées usuelles",
+      "Signes du second degré",
+      "Intervalles"
+    ],
+    "objectives": [
+      "Relier dérivée et variations sur un intervalle",
+      "Construire un tableau de variations",
+      "Déterminer un extremum",
+      "Modéliser un problème d’optimisation",
+      "Étudier une parité et démontrer une inégalité"
+    ],
+    "coverage": [
+      "Relier dérivée et variations sur un intervalle",
+      "Construire un tableau de variations",
+      "Déterminer un extremum",
+      "Modéliser un problème d’optimisation",
+      "Étudier une parité et démontrer une inégalité"
+    ],
+    "slides": [
+      {
+        "title": "Une boîte à optimiser",
+        "body": "On découpe des carrés de côté $x$ dans les coins d’un carton carré de côté $12$ cm, puis on replie les bords. Le volume est $V(x)=x(12-2x)^2$.\\medskip\\par Les longueurs imposent $0<x<6$. Augmenter la hauteur diminue la base : le meilleur choix ne se lit pas directement dans la formule."
+      },
+      {
+        "title": "Croissance sur un intervalle",
+        "body": "$f$ est croissante sur $I$ si, pour tous $a<b$ dans $I$, on a $f(a)\\le f(b)$. Elle est strictement croissante si $f(a)<f(b)$.\\medskip\\par Le mot « sur » est essentiel : une fonction peut croître sur un intervalle et décroître sur un autre."
+      },
+      {
+        "title": "Le théorème des variations",
+        "body": "Soit $f$ dérivable sur un intervalle $I$.\\begin{itemize}\\item Si $f\\prime\\ge0$ sur $I$, alors $f$ est croissante sur $I$.\\item Si $f\\prime\\le0$, elle est décroissante.\\item Si $f\\prime=0$ partout, elle est constante.\\end{itemize} Ce théorème est admis en première. Une dérivée strictement positive assure une croissance stricte."
+      },
+      {
+        "title": "Une condition portant sur un intervalle",
+        "body": "$f\\prime(2)>0$ décrit une pente en un point. Cela ne suffit pas à conclure que $f$ croît sur tout son domaine.\\medskip\\par Pour $f(x)=x^2$, $f\\prime(2)=4$, mais $f$ décroît sur $]-\\infty,0]$. On doit étudier le signe de $f\\prime(x)$ pour toutes les valeurs de l’intervalle."
+      },
+      {
+        "title": "Étudier le signe avant de dessiner les flèches",
+        "body": "Pour $f(x)=x^3-3x$,\\[f\\prime(x)=3x^2-3=3(x-1)(x+1).\\] Les zéros sont $-1$ et $1$. La dérivée est positive à l’extérieur de $[-1,1]$ et négative à l’intérieur. Les flèches sont donc : montée, descente, montée."
+      },
+      {
+        "title": "Un tableau complet sur un segment",
+        "body": "Pour $f(x)=x^3-3x$ sur $[-2,2]$,\\[\\begin{array}{c|cccc}x&-2&-1&1&2\\\\\\hline f(x)&-2&2&-2&2\\end{array}\\]\\medskip Les variations successives sont $-2\\nearrow2$, puis $2\\searrow-2$, puis $-2\\nearrow2$. Le tableau doit présenter les valeurs aux bornes et aux points critiques, pas seulement le signe de la dérivée."
+      },
+      {
+        "title": "Extremum local et global",
+        "body": "Un maximum local est une valeur supérieure aux valeurs voisines. Un maximum global domine toutes les valeurs du domaine étudié.\\medskip\\par Pour $x^3-3x$ sur $\\R$, $f(-1)=2$ est un maximum local, mais il n’est pas global : $f(3)=18>2$. Le domaine change la conclusion."
+      },
+      {
+        "title": "Un changement de signe décisif",
+        "body": "Quand $f\\prime$ passe de $+$ à $-$ en $a$, la fonction monte puis descend : $f(a)$ est un maximum local. Le passage de $-$ à $+$ donne un minimum local.\\medskip\\par Si $f\\prime(a)=0$ sans changement de signe, aucun extremum n’est garanti."
+      },
+      {
+        "title": "Une dérivée nulle sans extremum",
+        "body": "$f(x)=x^3$ vérifie $f\\prime(x)=3x^2\\ge0$. La dérivée s’annule en $0$, mais reste positive de chaque côté. La fonction continue à croître.\\medskip\\par Ainsi « $f\\prime(a)=0$ » est une piste pour chercher un extremum intérieur, pas une conclusion."
+      },
+      {
+        "title": "Les bornes comptent aussi",
+        "body": "Pour $f(x)=x^2$ sur $[-1,3]$, le point critique est $0$. On compare\\[f(-1)=1,\\qquad f(0)=0,\\qquad f(3)=9.\\] Le minimum vaut $0$ et le maximum $9$. Le maximum est atteint au bord, où la dérivée n’est pas nulle."
+      },
+      {
+        "title": "La méthode d’optimisation",
+        "body": "\\begin{enumerate}\\item Choisir une variable et préciser les contraintes.\\item Exprimer la quantité à optimiser en fonction de cette variable.\\item Dériver, factoriser et étudier le signe.\\item Comparer les valeurs candidates, y compris les bornes.\\item Répondre dans le contexte, avec les unités.\\end{enumerate}"
+      },
+      {
+        "title": "La boîte : calcul de la dérivée",
+        "body": "$V(x)=x(12-2x)^2$ sur $]0,6[$. Par produit et composition affine,\\[V\\prime(x)=(12-2x)^2-4x(12-2x)=(12-2x)(12-6x).\\] Garder la factorisation rend le signe immédiat : le premier facteur est positif dans le domaine."
+      },
+      {
+        "title": "La boîte : décision et unités",
+        "body": "$12-6x$ est positif pour $x<2$ et négatif pour $x>2$. Le volume augmente jusqu’à $2$ puis diminue.\\[V(2)=2\\times8^2=128\\ \\text{cm}^3.\\] La boîte optimale mesure $8$ cm sur $8$ cm, avec une hauteur de $2$ cm. La valeur $128$ est un volume, pas une longueur."
+      },
+      {
+        "title": "Fonctions paires",
+        "body": "Le domaine doit être symétrique par rapport à zéro. Une fonction est paire si $f(-x)=f(x)$ pour tout $x$ du domaine.\\medskip\\par La courbe possède une symétrie par rapport à l’axe des ordonnées. Par exemple $x^4-2x^2$ est paire. On peut étudier les variations sur $[0,+\\infty[$ puis utiliser cette symétrie."
+      },
+      {
+        "title": "Fonctions impaires",
+        "body": "Sur un domaine symétrique, $f$ est impaire si $f(-x)=-f(x)$. Sa courbe possède une symétrie centrale de centre l’origine.\\medskip\\par $x^3-3x$ est impaire. Une fonction n’est pas nécessairement paire ou impaire : $x^2+x$ n’est ni l’une ni l’autre."
+      },
+      {
+        "title": "Comparer deux fonctions",
+        "body": "Pour montrer $f(x)\\ge g(x)$ sur $I$, étudier $h=f-g$ et chercher son minimum.\\medskip\\par Exemple : $x^2\\ge2x-1$ sur $\\R$. Ici $h=x^2-2x+1$ et $h\\prime=2x-2$. Le minimum est atteint en $1$ et vaut $0$. Donc $h\\ge0$, ce qui prouve l’inégalité."
+      },
+      {
+        "title": "Un résultat exact avant l’arrondi",
+        "body": "Un problème peut donner une valeur optimale irrationnelle. Conserver cette valeur pendant les calculs, puis arrondir seulement la réponse finale.\\medskip\\par Si la variable représente un nombre entier d’objets, comparer les entiers admissibles proches de l’optimum continu. On ne peut pas produire $3,7$ objets."
+      },
+      {
+        "title": "Auto-vérification",
+        "body": "Un tableau cohérent donne des valeurs plus grandes au sommet d’une flèche montante. Un extremum doit respecter les contraintes du problème.\\medskip\\par Avant de rendre : ai-je précisé le domaine ? justifié le signe ? examiné les bornes ? distingué abscisse optimale et valeur optimale ? répondu avec une phrase et une unité ?"
+      },
+      {
+        "title": "Lire un maximum sur la courbe",
+        "body": "\\begin{center}\\begin{tikzpicture}\\begin{axis}[width=9cm,height=4.4cm,axis lines=left,xmin=0,xmax=6,ymin=0,ymax=140,xlabel={$x$ (cm)},ylabel={$V$ (cm$^3$)}]\\addplot[Blue,thick,domain=0:6,samples=70]{x*(12-2*x)^2};\\addplot[Muted,dashed]coordinates{(2,0)(2,128)(0,128)};\\addplot[only marks]coordinates{(2,128)};\\end{axis}\\end{tikzpicture}\\end{center} Le sommet confirme le calcul : hauteur $2$ cm, volume $128$ cm$^3$. Le graphique aide à interpréter ; le signe de la dérivée justifie le maximum."
+      }
+    ],
+    "exercises": [
+      {
+        "title": "Une parabole",
+        "difficulty": "Application",
+        "statement": "Étudier $f(x)=x^2-6x+5$ sur $[0,5]$ et donner ses extrema.",
+        "correction": "$f\\prime=2x-6$ est négative avant $3$, positive après. Ainsi $f$ décroît de $f(0)=5$ à $f(3)=-4$, puis croît jusqu’à $f(5)=0$. Minimum $-4$ en $3$, maximum $5$ en $0$."
+      },
+      {
+        "title": "Un cube",
+        "difficulty": "Application",
+        "statement": "Étudier les variations de $x^3+2x$ sur $\\R$.",
+        "correction": "La dérivée $3x^2+2$ est strictement positive pour tout réel. La fonction est strictement croissante sur $\\R$. Il n’y a pas d’extremum local."
+      },
+      {
+        "title": "Deux intervalles",
+        "difficulty": "Entraînement",
+        "statement": "Étudier $1/x$ sur son domaine. Peut-on dire qu’elle est décroissante sur tout son domaine ?",
+        "correction": "La dérivée est $-1/x^2<0$. La fonction décroît sur chacun des intervalles $]-\\infty,0[$ et $]0,+\\infty[$. Elle ne décroît pas sur leur réunion : $-1<1$ mais $f(-1)=-1<f(1)=1$. Le théorème exige un intervalle."
+      },
+      {
+        "title": "Rectangle",
+        "difficulty": "Entraînement",
+        "statement": "Un rectangle a un périmètre de $20$ m. Quelle aire maximale peut-il avoir ?",
+        "correction": "Pour une largeur $x\\in]0,10[$, la longueur est $10-x$. L’aire vaut $A=10x-x^2$, donc $A\\prime=10-2x$. Elle est maximale en $x=5$, avec $A(5)=25$ m$^2$. Le rectangle optimal est un carré."
+      },
+      {
+        "title": "Parité",
+        "difficulty": "Application",
+        "statement": "Étudier la parité de $x^4-3x^2$, $x^3+x$ et $x^2+x+1$.",
+        "correction": "Les domaines sont symétriques. Remplacer $x$ par $-x$ laisse la première expression inchangée : elle est paire. La deuxième devient son opposée : elle est impaire. Pour la troisième, $f(1)=3$, $f(-1)=1$ : elle n’est ni paire ni impaire."
+      },
+      {
+        "title": "Une inégalité",
+        "difficulty": "Entraînement",
+        "statement": "Montrer que $x+1/x\\ge2$ pour $x>0$ par une étude de variations.",
+        "correction": "Poser $f=x+1/x$. Sa dérivée est $(x^2-1)/x^2$. Le dénominateur est positif et le numérateur change de signe en $1$. Le minimum vaut $f(1)=2$. L’égalité a lieu seulement en $1$."
+      },
+      {
+        "title": "Production entière",
+        "difficulty": "Approfondissement",
+        "statement": "Un bénéfice fictif est $B(n)=-2n^2+14n-5$ pour un entier $0\\le n\\le8$. Chercher le maximum.",
+        "correction": "La fonction continue associée a une dérivée $-4x+14$, nulle en $3,5$. Elle croît puis décroît. On compare $B(3)=19$ et $B(4)=19$, qui sont les deux maxima entiers. Arrondir sans comparer aurait fait perdre une solution."
+      },
+      {
+        "title": "Contre-exemple",
+        "difficulty": "Approfondissement",
+        "statement": "Expliquer pourquoi $f\\prime(a)=0$ n’implique pas un extremum. Donner un exemple où un maximum existe au bord avec une dérivée non nulle.",
+        "correction": "Pour $x^3$ en zéro, la dérivée est nulle mais la fonction croît avant et après. Pour $f(x)=x$ sur $[0,1]$, le maximum vaut $1$ au bord $x=1$, alors que la dérivée vaut $1$. La condition de dérivée nulle concerne les extrema intérieurs d’une fonction dérivable."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Si $f\\prime>0$ sur un intervalle, $f$ est :",
+        "choices": [
+          "Strictement croissante",
+          "Décroissante",
+          "Constante",
+          "Positive"
+        ],
+        "answer": 0,
+        "explanation": "Le signe de la dérivée indique le sens de variation, pas le signe de la fonction."
+      },
+      {
+        "question": "$f\\prime$ passe de $-$ à $+$ en $2$. On obtient :",
+        "choices": [
+          "Un maximum",
+          "Un minimum",
+          "Aucun extremum",
+          "Une racine de $f$"
+        ],
+        "answer": 1,
+        "explanation": "La fonction descend puis monte : elle atteint un minimum local."
+      },
+      {
+        "question": "La dérivée de $x^3$ en zéro est nulle. En zéro, la fonction :",
+        "choices": [
+          "A un maximum",
+          "A un minimum",
+          "N’a pas d’extremum",
+          "N’est pas dérivable"
+        ],
+        "answer": 2,
+        "explanation": "$x^3$ continue à croître de part et d’autre de zéro."
+      },
+      {
+        "question": "Le maximum de $x^2$ sur $[-1,3]$ est :",
+        "choices": [
+          "$0$",
+          "$1$",
+          "$3$",
+          "$9$"
+        ],
+        "answer": 3,
+        "explanation": "La valeur maximale est $f(3)=9$, distincte de l’abscisse $3$."
+      },
+      {
+        "question": "La fonction $x^4+x^2$ est :",
+        "choices": [
+          "Paire",
+          "Impaire",
+          "Ni paire ni impaire",
+          "Constante"
+        ],
+        "answer": 0,
+        "explanation": "Remplacer $x$ par $-x$ ne change pas les puissances paires."
+      },
+      {
+        "question": "Pour optimiser $x(10-x)$, l’abscisse optimale vaut :",
+        "choices": [
+          "$10$",
+          "$5$",
+          "$25$",
+          "$0$"
+        ],
+        "answer": 1,
+        "explanation": "La dérivée $10-2x$ change de $+$ à $-$ en $5$."
+      },
+      {
+        "question": "Pour démontrer $f\\ge g$, on peut chercher :",
+        "choices": [
+          "Le maximum de $f+g$",
+          "Une racine de $f$",
+          "Un minimum positif ou nul de $f-g$",
+          "Le signe de $g$ seul"
+        ],
+        "answer": 2,
+        "explanation": "Cela prouve $f-g\\ge0$ sur le domaine."
+      },
+      {
+        "question": "Pour chercher un maximum sur $[a,b]$, il faut aussi examiner :",
+        "choices": [
+          "Seulement $0$",
+          "Seulement $f\\prime(a)$",
+          "Aucun autre point",
+          "Les bornes $a$ et $b$"
+        ],
+        "answer": 3,
+        "explanation": "Un extremum global peut être atteint à une borne."
+      }
+    ]
+  }
+]

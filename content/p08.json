@@ -1,0 +1,242 @@
+[
+  {
+    "id": "p08",
+    "level": "premiere",
+    "title": "Angles et trigonométrie",
+    "domain": "Géométrie",
+    "description": "Lire le cercle trigonométrique, convertir les angles et retrouver les valeurs exactes sans confondre les signes.",
+    "prerequisites": [
+      "Triangle rectangle",
+      "Repère orthonormé",
+      "Fractions"
+    ],
+    "objectives": [
+      "Mesurer un angle en radians",
+      "Placer un point sur le cercle trigonométrique",
+      "Utiliser sinus et cosinus",
+      "Retrouver les valeurs remarquables",
+      "Exploiter les angles associés et la périodicité"
+    ],
+    "coverage": [
+      "Mesurer un angle en radians",
+      "Placer un point sur le cercle trigonométrique",
+      "Utiliser sinus et cosinus",
+      "Retrouver les valeurs remarquables",
+      "Exploiter les angles associés et la périodicité"
+    ],
+    "slides": [
+      {
+        "title": "Mesurer un arc",
+        "body": "Sur un cercle de rayon $r$, un angle au centre peut être mesuré par le rapport entre la longueur de l’arc et le rayon. Ce rapport ne dépend pas de la taille du cercle.\\medskip\\par Un arc de longueur égale au rayon correspond à un angle d’un radian."
+      },
+      {
+        "title": "Un tour complet",
+        "body": "La circonférence vaut $2\\pi r$. Un tour mesure donc $2\\pi$ radians, un demi-tour $\\pi$ radians et un quart de tour $\\pi/2$ radians.\\medskip\\par Le radian est une mesure d’angle, pas une longueur. Sur le cercle de rayon $1$, la valeur numérique de l’arc coïncide avec celle de l’angle en radians."
+      },
+      {
+        "title": "Convertir degrés et radians",
+        "body": "La correspondance est $180^\\circ=\\pi$ radians.\\[\\theta_{\\rm rad}=\\theta_{\\rm deg}\\frac\\pi{180}.\\] Ainsi $60^\\circ=\\pi/3$ et $135^\\circ=3\\pi/4$. Dans l’autre sens, $5\\pi/6$ radians représentent $150^\\circ$."
+      },
+      {
+        "title": "Le cercle orienté",
+        "body": "Le cercle trigonométrique a pour centre l’origine et pour rayon $1$. On part du point $I(1,0)$. Les angles positifs tournent dans le sens contraire des aiguilles d’une montre, les négatifs dans l’autre sens.\\medskip\\par À chaque réel $x$, l’enroulement associe un point du cercle."
+      },
+      {
+        "title": "Des angles différents, un même point",
+        "body": "Ajouter $2\\pi$ revient à effectuer un tour complet. Les réels $x$ et $x+2k\\pi$, avec $k\\in\\mathbb Z$, correspondent au même point.\\medskip\\par Exemple : $13\\pi/6=\\pi/6+2\\pi$ et $-11\\pi/6=\\pi/6-2\\pi$. Ils correspondent tous au même point."
+      },
+      {
+        "title": "Coordonnées : cosinus et sinus",
+        "body": "Le point associé à $x$ a pour coordonnées\\[M(\\cos x,\\sin x).\\] Le cosinus est l’abscisse, le sinus l’ordonnée. Ces nombres sont compris entre $-1$ et $1$. Ils ne sont pas les coordonnées de l’angle lui-même, mais celles du point obtenu par enroulement."
+      },
+      {
+        "title": "Lire les signes sur le cercle",
+        "body": "\\begin{center}\\begin{tikzpicture}[scale=1.4]\\draw[->](-1.3,0)--(1.4,0);\\draw[->](0,-1.3)--(0,1.35);\\draw[Blue,thick](0,0)circle(1);\\draw[Blue](0,0)--(.707,.707);\\fill(.707,.707)circle(1.5pt);\\draw[dashed](.707,0)--(.707,.707)--(0,.707);\\node[right]at(.8,.8){$M$};\\node[below]at(.6,0){$\\cos x$};\\node[left]at(0,.7){$\\sin x$};\\end{tikzpicture}\\end{center} À droite, le cosinus est positif. En haut, le sinus est positif."
+      },
+      {
+        "title": "Une identité fondamentale",
+        "body": "Le point $M$ appartient au cercle de rayon $1$. Par Pythagore,\\[\\cos^2x+\\sin^2x=1.\\] Attention : $\\cos^2x$ signifie $(\\cos x)^2$. Si l’on connaît un sinus et que l’on cherche un cosinus, il faut encore choisir le signe grâce au quadrant."
+      },
+      {
+        "title": "Valeurs sur les axes",
+        "body": "\\[\\begin{array}{c|rrrr}x&0&\\pi/2&\\pi&3\\pi/2\\\\\\hline\\cos x&1&0&-1&0\\\\\\sin x&0&1&0&-1\\end{array}\\]\\medskip Ces valeurs se lisent directement dans les coordonnées des quatre points du cercle situés sur les axes."
+      },
+      {
+        "title": "Le triangle rectangle isocèle",
+        "body": "Pour $x=\\pi/4$, les deux coordonnées positives sont égales. Si chacune vaut $a$, Pythagore donne $2a^2=1$, donc $a=\\sqrt2/2$.\\[\\cos(\\pi/4)=\\sin(\\pi/4)=\\frac{\\sqrt2}{2}.\\] Le signe positif vient du premier quadrant."
+      },
+      {
+        "title": "Le triangle équilatéral",
+        "body": "Couper un triangle équilatéral de côté $2$ en deux donne un triangle rectangle d’hypoténuse $2$, avec des côtés $1$ et $\\sqrt3$.\\[\\cos(\\pi/3)=\\frac12,\\qquad\\sin(\\pi/3)=\\frac{\\sqrt3}{2}.\\] Pour $\\pi/6$, les rôles des deux côtés s’échangent."
+      },
+      {
+        "title": "Table des valeurs remarquables",
+        "body": "\\[\\begin{array}{c|ccccc}x&0&\\pi/6&\\pi/4&\\pi/3&\\pi/2\\\\\\hline\\cos x&1&\\sqrt3/2&\\sqrt2/2&1/2&0\\\\\\sin x&0&1/2&\\sqrt2/2&\\sqrt3/2&1\\end{array}\\]\\medskip Apprendre les valeurs avec leur position sur le cercle permet de retrouver les signes pour les autres angles."
+      },
+      {
+        "title": "Angles opposés",
+        "body": "Les points associés à $x$ et $-x$ sont symétriques par rapport à l’axe horizontal. Leur abscisse est identique, leurs ordonnées sont opposées.\\[\\cos(-x)=\\cos x,\\qquad\\sin(-x)=-\\sin x.\\] Le cosinus est pair, le sinus impair."
+      },
+      {
+        "title": "Angles supplémentaires",
+        "body": "La symétrie par rapport à l’axe vertical associe les angles $x$ et $\\pi-x$.\\[\\cos(\\pi-x)=-\\cos x,\\qquad\\sin(\\pi-x)=\\sin x.\\] Ainsi $\\cos(5\\pi/6)=-\\sqrt3/2$ et $\\sin(5\\pi/6)=1/2$."
+      },
+      {
+        "title": "Un demi-tour supplémentaire",
+        "body": "Les points associés à $x$ et $\\pi+x$ sont diamétralement opposés. Les deux coordonnées changent de signe.\\[\\cos(\\pi+x)=-\\cos x,\\qquad\\sin(\\pi+x)=-\\sin x.\\] Pour $4\\pi/3=\\pi+\\pi/3$, on obtient $(-1/2,-\\sqrt3/2)$."
+      },
+      {
+        "title": "Périodicité et lecture d’une fonction",
+        "body": "Pour tout réel $x$,\\[\\cos(x+2\\pi)=\\cos x,\\qquad\\sin(x+2\\pi)=\\sin x.\\] Les courbes reproduisent le même motif tous les $2\\pi$. Une calculatrice réglée en degrés ne donnera pas les bonnes valeurs si l’angle saisi est en radians."
+      },
+      {
+        "title": "Une équation lue sur le cercle",
+        "body": "Chercher les angles de $[0,2\\pi[$ tels que $\\sin x=1/2$ revient à intersecter le cercle avec la droite horizontale $y=1/2$.\\medskip\\par Il y a deux points : $x=\\pi/6$ et $x=5\\pi/6$. Un seul angle remarquable ne donne pas nécessairement toutes les solutions."
+      },
+      {
+        "title": "Méthode pour un angle quelconque",
+        "body": "\\begin{enumerate}\\item Retirer des tours complets si nécessaire.\\item Repérer le quadrant et les signes attendus.\\item Relier l’angle à $\\pi/6$, $\\pi/4$ ou $\\pi/3$.\\item Appliquer la symétrie appropriée.\\item Vérifier $\\cos^2x+\\sin^2x=1$.\\end{enumerate} Exemple : $17\\pi/6$ se ramène à $5\\pi/6$."
+      }
+    ],
+    "exercises": [
+      {
+        "title": "Conversions",
+        "difficulty": "Application",
+        "statement": "Convertir $30^\\circ$, $225^\\circ$ en radians et $7\\pi/6$ en degrés.",
+        "correction": "Multiplier les degrés par $\\pi/180$ donne $\\pi/6$ et $5\\pi/4$. Multiplier $7\\pi/6$ par $180/\\pi$ donne $210^\\circ$."
+      },
+      {
+        "title": "Même point",
+        "difficulty": "Application",
+        "statement": "Ramener $19\\pi/6$ et $-7\\pi/4$ dans $[0,2\\pi[$.",
+        "correction": "$19\\pi/6-2\\pi=7\\pi/6$. Puis $-7\\pi/4+2\\pi=\\pi/4$. Les deux opérations ajoutent ou retirent un tour sans changer le point."
+      },
+      {
+        "title": "Valeurs exactes",
+        "difficulty": "Entraînement",
+        "statement": "Calculer sinus et cosinus de $2\\pi/3$ et $7\\pi/4$.",
+        "correction": "$2\\pi/3=\\pi-\\pi/3$ donne $\\cos=-1/2$ et $\\sin=\\sqrt3/2$. Pour $7\\pi/4=2\\pi-\\pi/4$, le point est celui de $-\\pi/4$ : $\\cos=\\sqrt2/2$ et $\\sin=-\\sqrt2/2$."
+      },
+      {
+        "title": "Un signe à choisir",
+        "difficulty": "Entraînement",
+        "statement": "On sait $\\sin x=3/5$ et $x\\in[\\pi/2,\\pi]$. Déterminer $\\cos x$.",
+        "correction": "L’identité donne $\\cos^2x=1-9/25=16/25$. Les candidats sont $4/5$ et $-4/5$. Dans le deuxième quadrant, l’abscisse est négative : $\\cos x=-4/5$."
+      },
+      {
+        "title": "Deux solutions",
+        "difficulty": "Entraînement",
+        "statement": "Résoudre $\\cos x=1/2$ dans $[0,2\\pi[$.",
+        "correction": "La droite verticale d’abscisse $1/2$ coupe le cercle en deux points symétriques par rapport à l’axe horizontal. Les angles sont $\\pi/3$ et $5\\pi/3$. Les deux appartiennent à l’intervalle demandé."
+      },
+      {
+        "title": "Longueur d’arc",
+        "difficulty": "Application",
+        "statement": "Calculer la longueur d’un arc de rayon $6$ cm correspondant à $\\pi/3$ radians.",
+        "correction": "La définition du radian donne $\\theta=\\ell/r$, donc $\\ell=r\\theta=6\\times\\pi/3=2\\pi$ cm. L’angle doit être en radians pour appliquer cette formule."
+      },
+      {
+        "title": "Une affirmation fausse",
+        "difficulty": "Approfondissement",
+        "statement": "La relation $\\sin(a+b)=\\sin a+\\sin b$ est-elle toujours vraie ?",
+        "correction": "Non. Prendre $a=b=\\pi/2$. Le membre de gauche vaut $\\sin\\pi=0$, celui de droite vaut $1+1=2$. Ce contre-exemple suffit. L’addition des angles ne se traduit pas par une addition des sinus."
+      },
+      {
+        "title": "Déplacement circulaire",
+        "difficulty": "Approfondissement",
+        "statement": "Un point part de $(1,0)$ et avance de $\\pi/3$ radians à chaque étape. Donner ses coordonnées aux étapes $1$, $2$, $3$ et $6$.",
+        "correction": "Les angles sont $\\pi/3$, $2\\pi/3$, $\\pi$ et $2\\pi$. Les coordonnées sont $(1/2,\\sqrt3/2)$, $(-1/2,\\sqrt3/2)$, $(-1,0)$ et $(1,0)$. Au bout de six étapes, le point revient à sa position initiale."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "$180^\\circ$ correspond à :",
+        "choices": [
+          "$\\pi$",
+          "$2\\pi$",
+          "$\\pi/2$",
+          "$180\\pi$"
+        ],
+        "answer": 0,
+        "explanation": "Un demi-tour mesure $\\pi$ radians."
+      },
+      {
+        "question": "Le cosinus d’un angle est :",
+        "choices": [
+          "L’ordonnée",
+          "L’abscisse",
+          "Le rayon",
+          "La longueur de l’arc"
+        ],
+        "answer": 1,
+        "explanation": "Le point associé a pour coordonnées $(\\cos x,\\sin x)$."
+      },
+      {
+        "question": "$\\sin(\\pi/6)$ vaut :",
+        "choices": [
+          "$\\sqrt3/2$",
+          "$\\sqrt2/2$",
+          "$1/2$",
+          "$0$"
+        ],
+        "answer": 2,
+        "explanation": "C’est une valeur remarquable obtenue avec le triangle équilatéral."
+      },
+      {
+        "question": "$\\cos\\pi$ vaut :",
+        "choices": [
+          "$1$",
+          "$0$",
+          "$\\pi$",
+          "$-1$"
+        ],
+        "answer": 3,
+        "explanation": "Le point associé est $(-1,0)$."
+      },
+      {
+        "question": "$\\cos(-x)$ vaut :",
+        "choices": [
+          "$\\cos x$",
+          "$-\\cos x$",
+          "$\\sin x$",
+          "$-\\sin x$"
+        ],
+        "answer": 0,
+        "explanation": "La symétrie horizontale conserve l’abscisse."
+      },
+      {
+        "question": "$\\sin(\\pi-x)$ vaut :",
+        "choices": [
+          "$-\\sin x$",
+          "$\\sin x$",
+          "$\\cos x$",
+          "$-\\cos x$"
+        ],
+        "answer": 1,
+        "explanation": "La symétrie verticale conserve l’ordonnée."
+      },
+      {
+        "question": "$\\cos^2x+\\sin^2x$ vaut :",
+        "choices": [
+          "$0$",
+          "$2$",
+          "$1$",
+          "$x$"
+        ],
+        "answer": 2,
+        "explanation": "C’est le carré du rayon du cercle unité."
+      },
+      {
+        "question": "$13\\pi/6$ correspond au même point que :",
+        "choices": [
+          "$\\pi/3$",
+          "$5\\pi/6$",
+          "$\\pi$",
+          "$\\pi/6$"
+        ],
+        "answer": 3,
+        "explanation": "On retire $2\\pi=12\\pi/6$."
+      }
+    ]
+  }
+]

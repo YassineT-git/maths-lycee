@@ -1,0 +1,133 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\input{theme-slides.tex}
+\title{Conditionnement et indépendance}
+\subtitle{Première spécialité}
+\renewcommand{\chapternumber}{11}\author{Maths Lycée}
+\date{Année scolaire 2026--2027}
+\begin{document}\begin{frame}\titlepage\end{frame}
+\begin{frame}{Objectifs du chapitre}\begin{itemize}
+\item Calculer une probabilité conditionnelle
+\item Construire et exploiter un arbre pondéré
+\item Appliquer les probabilités totales
+\item Reconnaître l’indépendance
+\item Étudier jusqu’à quatre épreuves de Bernoulli indépendantes
+\end{itemize}\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une information change le groupe étudié}
+Dans un groupe fictif de $100$ élèves, $40$ pratiquent un sport et $24$ de ces sportifs jouent aussi d’un instrument.\medskip\par La proportion de musiciens parmi les sportifs est $24/40=0,60$. Le dénominateur n’est plus $100$ : on se restreint au groupe des sportifs. C’est le principe du conditionnement.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Définition et condition}
+Pour deux événements $A$ et $B$, si $P(A)>0$,\[\boxed{P_A(B)=\frac{P(A\cap B)}{P(A)}}.\]On lit : probabilité de $B$ sachant $A$. On note aussi $P(B\mid A)$.\medskip\par L’événement après « sachant » fournit le dénominateur. Si $P(A)=0$, cette formule ne définit pas la probabilité conditionnelle.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Ordre des événements}
+Dans l’exemple, notons $S$ « sportif » et $M$ « musicien ». Si les musiciens sont $30$ au total,\[P_S(M)=\frac{24}{40}=0,6,\qquad P_M(S)=\frac{24}{30}=0,8.\]Ces probabilités répondent à deux questions différentes. Le numérateur est commun, mais le groupe de référence change.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Lire un tableau à double entrée}
+\begin{center}\begin{tabular}{c|rr|r}&$M$&$\overline M$&Total\\\hline$S$&24&16&40\\$\overline S$&6&54&60\\\hline Total&30&70&100\end{tabular}\end{center}\medskip $P(S\cap M)=24/100$, tandis que $P_S(M)=24/40$. Pour une intersection, on divise par le total général. Pour un conditionnement, on divise par le total du groupe donné.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Règle du produit}
+La définition se réécrit\[\boxed{P(A\cap B)=P(A)P_A(B)}.\]Exemple : $P(A)=0,3$ et $P_A(B)=0,8$ donnent $P(A\cap B)=0,24$.\medskip\par Sur un arbre, on multiplie les probabilités le long d’un chemin. La deuxième probabilité est conditionnelle.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Complémentaire sous condition}
+Dans le groupe où $A$ est réalisé, $B$ et $\overline B$ restent complémentaires :\[P_A(B)+P_A(\overline B)=1.\]Si $P_A(B)=0,72$, alors $P_A(\overline B)=0,28$.\medskip\par À chaque nœud d’un arbre pondéré, la somme des probabilités des branches sortantes est égale à $1$.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Construire un arbre : première étape}
+Une usine fictive utilise deux machines. $A$ produit $60\%$ des pièces, $B$ produit $40\%$. Les taux de défaut sont respectivement $2\%$ et $5\%$.\medskip\par Premier niveau : branches $A$ de poids $0,6$ et $B$ de poids $0,4$. Second niveau : défaut $D$ et absence de défaut $\overline D$, avec des poids dépendant de la machine.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Construire un arbre : les chemins}
+Les quatre chemins ont les probabilités\[P(A\cap D)=0,6\times0,02=0,012,\]\[P(A\cap\overline D)=0,6\times0,98=0,588,\]\[P(B\cap D)=0,4\times0,05=0,020,\]\[P(B\cap\overline D)=0,4\times0,95=0,380.\]Leur somme vaut $1$. Cela permet de contrôler l’arbre.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une partition de l’univers}
+Les événements $A_1,\ldots,A_k$ forment une partition s’ils sont deux à deux incompatibles et si leur réunion est l’univers.\medskip\par Chaque issue appartient à exactement un des groupes.\medskip\par Une pièce vient soit de la machine $A$, soit de $B$ : ces deux événements forment une partition.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Formule des probabilités totales}
+Pour une partition dont les événements ont des probabilités non nulles,\[\boxed{P(D)=\sum_{i=1}^kP(A_i)P_{A_i}(D)}.\]Dans l’exemple des machines :\[P(D)=0,012+0,020=0,032.\]On additionne les probabilités des chemins distincts conduisant au même événement. Le taux global est donc $3,2\%$.
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Pourquoi on additionne les chemins}
+On décompose $D$ en événements disjoints :\[D=(A_1\cap D)\cup\cdots\cup(A_k\cap D).\]L’additivité donne $P(D)=\sum P(A_i\cap D)$. La règle du produit donne ensuite $P(A_i\cap D)=P(A_i)P_{A_i}(D)$.\medskip\par L’incompatibilité des chemins évite de compter une issue plusieurs fois.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Inverser un conditionnement}
+Une pièce est défectueuse. Quelle probabilité qu’elle vienne de $B$ ?\[P_D(B)=\frac{P(B\cap D)}{P(D)}=\frac{0,020}{0,032}=0,625.\]Le taux de défaut de $B$, $5\%$, n’est pas la réponse. Ici, on se restreint à toutes les pièces défectueuses. Parmi elles, $62,5\%$ viennent de $B$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Définir l’indépendance}
+Deux événements $A$ et $B$ sont indépendants si\[\boxed{P(A\cap B)=P(A)P(B)}.\]Si $P(A)>0$, cela équivaut à $P_A(B)=P(B)$. Savoir que $A$ s’est produit ne change alors pas la probabilité de $B$.\medskip\par L’indépendance est une propriété à justifier, pas une hypothèse implicite.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Un exemple d’indépendance}
+On lance un dé équilibré. $A$ : « résultat pair », $B$ : « résultat supérieur ou égal à 5 ».\[P(A)=\frac12,\quad P(B)=\frac13,\quad P(A\cap B)=P(\{6\})=\frac16.\]Comme $\frac16=\frac12\times\frac13$, les événements sont indépendants. Ils peuvent pourtant se réaliser simultanément.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Indépendance et incompatibilité}
+Si $A$ et $B$ sont incompatibles, alors $P(A\cap B)=0$. Si leurs probabilités sont strictement positives, $P(A)P(B)>0$ : ils ne sont donc pas indépendants.\medskip\par « Ne peuvent pas arriver ensemble » et « ne modifient pas leurs probabilités » sont deux idées différentes. Les événements de probabilité nulle constituent un cas particulier.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Indépendance et complémentaires}
+Si $A$ et $B$ sont indépendants,\[P(A\cap\overline B)=P(A)-P(A\cap B)\]\[=P(A)-P(A)P(B)=P(A)(1-P(B)).\]Donc $A$ et $\overline B$ sont indépendants. On en déduit aussi l’indépendance de $\overline A$ et $B$, puis de $\overline A$ et $\overline B$.
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Épreuve de Bernoulli}
+Une épreuve de Bernoulli comporte deux issues : succès $S$ de probabilité $p$, échec $E$ de probabilité $1-p$.\medskip\par « Succès » est une étiquette mathématique : ce peut être une panne ou un défaut.\medskip\par Lors de répétitions indépendantes dans les mêmes conditions, les probabilités $p$ et $1-p$ sont identiques à chaque niveau de l’arbre.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Trois répétitions indépendantes}
+On répète trois fois une épreuve avec $p=0,4$. Le chemin $SSE$ a pour probabilité\[0,4\times0,4\times0,6=0,096.\]Obtenir exactement deux succès correspond aux trois chemins $SSE$, $SES$ et $ESS$. Ils sont incompatibles et de même probabilité. Le total vaut $3\times0,096=0,288$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Quatre répétitions : le complémentaire}
+Pour quatre essais indépendants de probabilité de succès $p=0,3$, l’événement « au moins un succès » est le contraire de « aucun succès ».\[P(\text{au moins un})=1-(0,7)^4=0,7599.\]Cette méthode évite d’additionner quinze chemins. Elle exige bien l’indépendance des essais pour multiplier les probabilités.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Choisir sa méthode et conclure}
+\begin{itemize}\item « Parmi » ou « sachant » : conditionnement.\item Plusieurs origines possibles : probabilités totales.\item « Au moins un » : envisager le complémentaire.\item Indépendance annoncée : utiliser les mêmes poids à chaque répétition.\end{itemize}Une réponse finale précise toujours l’événement calculé et, si besoin, le groupe de référence.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Les effectifs avant les formules}
+Sur $200$ élèves, $80$ pratiquent un sport et $30$ de ces sportifs jouent d’un instrument.\medskip\par Avec $S$ : « sportif » et $M$ : « musicien », $P(S\cap M)=30/200=0,15$. Mais $P_S(M)=30/80=0,375$. Le dénominateur change parce que l’on sait maintenant que l’élève est sportif.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Un arbre entièrement calculé}
+$P(A)=0,3$, $P_A(B)=0,8$ et $P_{\overline A}(B)=0,2$.\[P(A\cap B)=0,3\times0,8=0,24,\]\[P(\overline A\cap B)=0,7\times0,2=0,14.\] Les deux chemins sont incompatibles et couvrent $B$ : $P(B)=0,24+0,14=0,38$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Retourner la condition}
+En reprenant les données précédentes,\[P_B(A)=\frac{P(A\cap B)}{P(B)}=\frac{0,24}{0,38}=\frac{12}{19}\approx0,632.\] Ce résultat diffère de $P_A(B)=0,8$. Savoir que $A$ est réalisé et savoir que $B$ est réalisé ne revient pas à sélectionner la même population.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Trois essais : exactement deux succès}
+À chaque essai indépendant, $P(S)=0,4$. Exactement deux succès peuvent apparaître selon $SSE$, $SES$ ou $ESS$.\medskip\par Chaque chemin a pour probabilité $0,4^2\times0,6=0,096$. Les trois chemins étant incompatibles, leur probabilité totale vaut $3\times0,096=0,288$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Visualiser les chemins d’un arbre}
+\begin{columns}[c,onlytextwidth]\begin{column}{.60\textwidth}\centering\begin{adjustbox}{max width=\linewidth,max height=3.7cm}\begin{tikzpicture}[grow=right,level 1/.style={level distance=2.1cm,sibling distance=2.6cm},level 2/.style={level distance=2.4cm,sibling distance=1.2cm},every node/.style={font=\small}]\node{} child{node{$\overline A$} child{node{$\overline B$}edge from parent node[below]{$0,8$}} child{node{$B$}edge from parent node[above]{$0,2$}} edge from parent node[below]{$0,7$}} child{node{$A$} child{node{$\overline B$}edge from parent node[below]{$0,2$}} child{node{$B$}edge from parent node[above]{$0,8$}} edge from parent node[above]{$0,3$}};\end{tikzpicture}\end{adjustbox}\end{column}\begin{column}{.36\textwidth} Les branches qui partent d’un même nœud ont des poids de somme $1$. Le chemin $A$ puis $B$ porte le produit $0,3\times0,8=0,24$.\end{column}\end{columns}
+\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 1}
+$P_A(B)=0,3$. Alors $P_A(\overline B)=$\begin{enumerate}
+\item $0,3$
+\item $0,7$
+\item $1,3$
+\item impossible à calculer
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 1 : résolution}
+\begin{block}{Réponse 2}$0,7$\end{block}\medskip Sous la même condition $A$, les probabilités complémentaires ont pour somme 1.\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 2}
+Sur un arbre pondéré, on calcule un chemin en…\begin{enumerate}
+\item additionnant ses poids
+\item divisant ses poids
+\item prenant le plus petit poids
+\item multipliant ses poids
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 2 : résolution}
+\begin{block}{Réponse 4}multipliant ses poids\end{block}\medskip La règle $P(A\cap B)=P(A)P_A(B)$ justifie le produit des poids successifs.\end{frame}
+\end{document}

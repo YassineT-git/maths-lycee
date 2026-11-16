@@ -1,0 +1,267 @@
+[
+  {
+    "id": "p01",
+    "level": "premiere",
+    "title": "Second degré : formes, équations et signes",
+    "domain": "Algèbre",
+    "description": "Choisir la bonne écriture pour résoudre une équation, étudier un signe et optimiser une quantité.",
+    "prerequisites": [
+      "Identités remarquables",
+      "Équations du premier degré",
+      "Fonction carré"
+    ],
+    "objectives": [
+      "Reconnaître les trois formes d’un trinôme",
+      "Résoudre équations et inéquations du second degré",
+      "Choisir une méthode de factorisation",
+      "Justifier un extremum"
+    ],
+    "slides": [
+      {
+        "title": "Un rectangle à optimiser",
+        "body": "Un rectangle a un périmètre de $20$ cm. Si sa largeur vaut $x$, sa longueur vaut $10-x$. Son aire est $A(x)=x(10-x)$, avec $0<x<10$. Pour $x=3$, elle vaut $21$ cm$^2$ ; pour $x=5$, elle vaut $25$ cm$^2$. Comment prouver que $25$ est le maximum ?"
+      },
+      {
+        "title": "Reconnaître un trinôme",
+        "body": "Une fonction polynôme du second degré s’écrit $f(x)=ax^2+bx+c$, avec $a\\ne0$. Les coefficients sont constants. Exemple : $f(x)=2x^2-3x+1$ donne $a=2$, $b=-3$, $c=1$. Si $a=0$, on étudie une fonction affine, pas un trinôme."
+      },
+      {
+        "title": "Trois écritures, trois usages",
+        "body": "\\begin{itemize}\\item Développée : $ax^2+bx+c$, utile pour identifier les coefficients.\\item Canonique : $a(x-\\alpha)^2+\\beta$, utile pour les variations et l’extremum.\\item Factorisée : $a(x-r_1)(x-r_2)$, lorsqu’elle existe sur $\\mathbb R$, utile pour les racines et le signe.\\end{itemize} Développer permet de vérifier que deux écritures représentent la même fonction."
+      },
+      {
+        "title": "Compléter un carré",
+        "body": "Pour $f(x)=x^2-6x+5$, on reconnaît $x^2-6x=(x-3)^2-9$. Ainsi \\[f(x)=(x-3)^2-4.\\] Le carré est toujours positif ou nul : $f(x)\\ge-4$, avec égalité seulement pour $x=3$. On obtient le minimum sans résoudre d’équation."
+      },
+      {
+        "title": "Sommet et variations",
+        "body": "Dans $f(x)=a(x-\\alpha)^2+\\beta$, le sommet a pour coordonnées $(\\alpha,\\beta)$. Si $a>0$, $f$ décroît jusqu’à $\\alpha$, puis croît : son minimum vaut $\\beta$. Si $a<0$, les variations s’inversent : $\\beta$ est un maximum. L’axe de symétrie est $x=\\alpha$."
+      },
+      {
+        "title": "Une parabole visible",
+        "body": "\\begin{center}\\begin{tikzpicture}[scale=.55]\\draw[->] (-.6,0)--(6.5,0) node[right]{$x$};\\draw[->] (0,-4.8)--(0,5.8) node[above]{$y$};\\draw[blue,thick,domain=0:6,samples=60] plot (\\x,{(\\x-3)^2-4});\\draw[dashed] (3,-4)--(3,5);\\fill (3,-4) circle(3pt) node[right]{$S(3,-4)$};\\node at (1,.5){$1$};\\node at (5,.5){$5$};\\end{tikzpicture}\\end{center} Ici $f(x)=(x-3)^2-4$ : les zéros sont symétriques par rapport à $3$."
+      },
+      {
+        "title": "Racines et produit nul",
+        "body": "Une racine de $f$ est un réel $r$ tel que $f(r)=0$. Si $f(x)=2(x-1)(x+3)$, alors $f(x)=0$ équivaut à $x=1$ ou $x=-3$. La constante $2$ n’apporte aucune solution : elle n’est jamais nulle. Le produit nul s’utilise pour une équation dont un membre vaut zéro."
+      },
+      {
+        "title": "Factoriser avant les formules",
+        "body": "Pour $x^2-9$, reconnaître $(x-3)(x+3)$ est plus rapide qu’un discriminant. Pour $x^2-5x+6$, chercher deux nombres de somme $5$ et de produit $6$ donne $2$ et $3$. Donc $x^2-5x+6=(x-2)(x-3)$. Toujours vérifier par développement."
+      },
+      {
+        "title": "Somme et produit des racines",
+        "body": "En développant $a(x-r_1)(x-r_2)$, on obtient $ax^2-a(r_1+r_2)x+ar_1r_2$. Par identification, \\[r_1+r_2=-\\frac ba,\\qquad r_1r_2=\\frac ca.\\] Exemple : les racines de $2x^2-6x+4$ ont pour somme $3$ et pour produit $2$ : ce sont $1$ et $2$."
+      },
+      {
+        "title": "Le discriminant",
+        "body": "Pour $ax^2+bx+c=0$, avec $a\\ne0$, on définit $\\Delta=b^2-4ac$. \\begin{itemize}\\item $\\Delta>0$ : deux racines distinctes $\\frac{-b-\\sqrt\\Delta}{2a}$ et $\\frac{-b+\\sqrt\\Delta}{2a}$.\\item $\\Delta=0$ : une racine double $-\\frac b{2a}$.\\item $\\Delta<0$ : aucune racine réelle.\\end{itemize}"
+      },
+      {
+        "title": "Pourquoi ces formules ?",
+        "body": "La complétion du carré donne \\[ax^2+bx+c=a\\left[\\left(x+\\frac b{2a}\\right)^2-\\frac{\\Delta}{4a^2}\\right].\\] L’équation équivaut à $(2ax+b)^2=\\Delta$. Un carré ne peut pas être négatif. Si $\\Delta\\ge0$, on obtient $2ax+b=\\pm\\sqrt\\Delta$, puis les formules. Ce calcul démontre les trois cas."
+      },
+      {
+        "title": "Un calcul entièrement conduit",
+        "body": "Résolvons $2x^2+x-3=0$. Ici $a=2$, $b=1$, $c=-3$, donc $\\Delta=1-4\\times2\\times(-3)=25$. Les racines sont $(-1-5)/4=-3/2$ et $(-1+5)/4=1$. Ainsi \\[2x^2+x-3=2(x+3/2)(x-1).\\] Vérification : $2+1-3=0$ pour $x=1$."
+      },
+      {
+        "title": "Deux autres cas",
+        "body": "Pour $x^2+4x+4$, $\\Delta=16-16=0$ et $f(x)=(x+2)^2$ : racine double $-2$. Pour $x^2+x+1$, $\\Delta=1-4=-3$ : pas de racine réelle. Sa forme canonique $(x+1/2)^2+3/4$ confirme même que $f(x)>0$ pour tout réel $x$."
+      },
+      {
+        "title": "Signe avec deux racines",
+        "body": "Si $r_1<r_2$, les facteurs $x-r_1$ et $x-r_2$ ont le même signe à l’extérieur de $[r_1,r_2]$ et des signes contraires à l’intérieur. Donc $f$ a le signe de $a$ à l’extérieur, le signe opposé entre les racines, et vaut zéro aux racines. Exemple : $2(x+3/2)(x-1)<0$ pour $-3/2<x<1$."
+      },
+      {
+        "title": "Signe sans deux racines",
+        "body": "Si $\\Delta<0$, le trinôme garde strictement le signe de $a$ sur $\\mathbb R$. Si $\\Delta=0$, il s’écrit $a(x-\\alpha)^2$ : il garde le signe de $a$, sauf qu’il s’annule en $\\alpha$. Exemple : $-(x-2)^2\\le0$ partout ; l’égalité n’a lieu qu’en $2$."
+      },
+      {
+        "title": "Résoudre une inéquation",
+        "body": "Résolvons $-x^2+4x-3\\ge0$. On factorise : $-(x-1)(x-3)$. Le coefficient dominant est négatif, donc l’expression est positive entre $1$ et $3$. Les bornes sont autorisées par le symbole $\\ge$. L’ensemble solution est $[1,3]$. Avec $>0$, on aurait $]1,3[$."
+      },
+      {
+        "title": "Fabriquer un trinôme",
+        "body": "Tout trinôme ayant pour racines distinctes $-1$ et $4$ s’écrit $f(x)=a(x+1)(x-4)$ avec $a\\ne0$. Si l’on impose $f(0)=8$, alors $-4a=8$, donc $a=-2$. On obtient $f(x)=-2(x+1)(x-4)$. Les racines seules ne déterminent pas le coefficient $a$."
+      },
+      {
+        "title": "Retour au rectangle",
+        "body": "On transforme $A(x)=-x^2+10x=25-(x-5)^2$. Pour tout $x\\in]0,10[$, le carré est positif ou nul : $A(x)\\le25$. L’égalité est atteinte pour $x=5$, valeur autorisée. Le rectangle optimal est donc un carré de côté $5$ cm, d’aire $25$ cm$^2$."
+      },
+      {
+        "title": "Erreurs à détecter",
+        "body": "\\begin{itemize}\\item Dans $2x^2+x-3$, le coefficient $c$ est $-3$.\\item $\\sqrt{b^2}=|b|$, pas toujours $b$.\\item Une racine doit annuler le trinôme initial.\\item Le signe entre les racines dépend de $a$.\\item Une forme factorisée réelle n’existe pas si $\\Delta<0$.\\end{itemize}"
+      },
+      {
+        "title": "Activité et méthode de choix",
+        "body": "Pour $f(x)=x^2-4x-5$, trouver successivement une forme factorisée et une forme canonique. \\medskip Réponse : $(x-5)(x+1)$ et $(x-2)^2-9$. Pour résoudre $f(x)=0$, la première est directe. Pour déterminer le minimum, la seconde est directe. \\textbf{Bilan :} choisir l’écriture en fonction de la question, puis contrôler le résultat."
+      },
+      {
+        "title": "Quelle écriture choisir ?",
+        "body": "On donne $f(x)=2x^2-8x+6=2(x-1)(x-3)=2(x-2)^2-2$.\\begin{enumerate}\\item Quelle forme permet de calculer $f(0)$ rapidement ?\\item Quelle forme révèle les racines ?\\item Quelle forme donne le minimum ?\\end{enumerate}\\medskip Chercher d’abord sans développer. Les trois expressions définissent la même fonction."
+      },
+      {
+        "title": "Trois questions, trois lectures",
+        "body": "\\begin{itemize}\\item Forme développée : $f(0)=6$, par lecture du terme constant.\\item Forme factorisée : $f(x)=0$ exactement pour $x=1$ ou $x=3$.\\item Forme avec un carré : $2(x-2)^2\\ge0$, donc $f(x)\\ge-2$, avec égalité pour $x=2$.\\end{itemize} Le calcul le plus court vient souvent du choix de la bonne forme."
+      },
+      {
+        "title": "Un signe présenté sans raccourci",
+        "body": "Pour $f(x)=2(x-1)(x-3)$,\\[\\begin{array}{c|ccccc}x&]-\\infty,1[&1&]1,3[&3&]3,+\\infty[\\\\\\hline x-1&-&0&+&+&+\\\\x-3&-&-&-&0&+\\\\f(x)&+&0&-&0&+\\end{array}\\]\\medskip Ainsi $f(x)\\le0$ donne $[1,3]$, alors que $f(x)<0$ donne $]1,3[$. Les bornes dépendent du caractère strict de l’inégalité."
+      },
+      {
+        "title": "Vérifier une racine proposée",
+        "body": "Un élève propose $x=-1$ comme racine de $x^2-5x+6$. En remplaçant, on obtient $1+5+6=12$, donc ce n’est pas une racine.\\medskip\\par Un remplacement fournit un contrôle rapide. Pour démontrer que toutes les solutions ont été trouvées, il faut une résolution complète : $(x-2)(x-3)=0$."
+      }
+    ],
+    "exercises": [
+      {
+        "title": "Reconnaître et convertir",
+        "difficulty": "Application",
+        "statement": "Pour $f(x)=x^2-8x+7$, déterminer les coefficients, compléter le carré et donner le sommet. En déduire le minimum.",
+        "correction": "Les coefficients sont $a=1$, $b=-8$, $c=7$. Comme $(x-4)^2=x^2-8x+16$, on a $f(x)=(x-4)^2-9$. Le sommet est $(4,-9)$. Le carré étant positif ou nul, $f(x)\\ge-9$, avec égalité pour $x=4$ : le minimum est $-9$."
+      },
+      {
+        "title": "Trois discriminants",
+        "difficulty": "Application",
+        "statement": "Résoudre dans $\\mathbb R$ : $x^2-7x+10=0$ ; $4x^2+4x+1=0$ ; $x^2+2x+5=0$.",
+        "correction": "Pour la première, $\\Delta=49-40=9$, d’où $x=(7\\pm3)/2$ : $2$ et $5$. Pour la deuxième, $\\Delta=16-16=0$, donc $x=-4/8=-1/2$ ; on retrouve $(2x+1)^2=0$. Pour la troisième, $\\Delta=4-20=-16<0$ : aucune solution réelle."
+      },
+      {
+        "title": "Choisir la factorisation",
+        "difficulty": "Entraînement",
+        "statement": "Factoriser $9x^2-16$, $x^2+x-12$ et $3x^2-12x$. Donner leurs racines.",
+        "correction": "Une différence de carrés donne $9x^2-16=(3x-4)(3x+4)$, racines $\\pm4/3$. Les nombres $3$ et $-4$ ont pour somme $-1$ et produit $-12$, donc $x^2+x-12=(x-3)(x+4)$, racines $3$ et $-4$. Enfin $3x^2-12x=3x(x-4)$, racines $0$ et $4$."
+      },
+      {
+        "title": "Signe et inéquations",
+        "difficulty": "Entraînement",
+        "statement": "Résoudre $2x^2-5x-3\\le0$, puis $-x^2+2x+3<0$.",
+        "correction": "Le premier discriminant vaut $25+24=49$. Les racines sont $(5-7)/4=-1/2$ et $(5+7)/4=3$. Comme $a>0$, le trinôme est négatif entre elles : solution $[-1/2,3]$. Pour le second, $-x^2+2x+3=-(x-3)(x+1)$. Son signe est négatif à l’extérieur des racines. L’inégalité est stricte : $]-\\infty,-1[\\cup]3,+\\infty[$."
+      },
+      {
+        "title": "Une parabole imposée",
+        "difficulty": "Entraînement",
+        "statement": "Un trinôme s’annule en $2$ et $5$ et vaut $-20$ en $0$. Déterminer son expression. Calculer son extremum.",
+        "correction": "Il s’écrit $f(x)=a(x-2)(x-5)$. En $0$, $10a=-20$, donc $a=-2$. Ainsi $f(x)=-2x^2+14x-20=-2(x-7/2)^2+9/2$. Le carré étant positif, $f(x)\\le9/2$. Le maximum vaut $9/2$, atteint en $7/2$."
+      },
+      {
+        "title": "Clôturer un jardin",
+        "difficulty": "Entraînement",
+        "statement": "On dispose de $24$ m de grillage pour trois côtés d’un rectangle, le quatrième bordant un mur. Noter $x$ la longueur d’un côté perpendiculaire au mur. Exprimer l’aire et trouver les dimensions optimales.",
+        "correction": "Les deux côtés perpendiculaires consomment $2x$ mètres ; le côté parallèle mesure $24-2x$. Les contraintes donnent $0<x<12$. L’aire vaut $A(x)=x(24-2x)=-2(x-6)^2+72$. Elle est au plus égale à $72$ m$^2$, valeur atteinte pour $x=6$. Le côté parallèle mesure alors $12$ m."
+      },
+      {
+        "title": "Un algorithme de résolution",
+        "difficulty": "Entraînement",
+        "statement": "Décrire un algorithme qui reçoit $a,b,c$ avec $a\\ne0$ et renvoie le nombre de racines réelles et leurs valeurs. L’appliquer à $a=1,b=0,c=-2$. Pourquoi traiter $\\Delta=0$ séparément ?",
+        "correction": "Calculer $d=b^2-4ac$. Si $d<0$, annoncer aucune racine réelle. Si $d=0$, renvoyer la seule valeur $-b/(2a)$. Sinon, renvoyer $(-b-\\sqrt d)/(2a)$ et $(-b+\\sqrt d)/(2a)$. Pour $(1,0,-2)$, $d=8$ et les racines valent $\\pm\\sqrt2$. Le cas nul évite de présenter deux fois la même racine. Avec des données décimales, le test exact de nullité exige de prendre en compte les erreurs d’arrondi."
+      },
+      {
+        "title": "Un paramètre",
+        "difficulty": "Approfondissement",
+        "statement": "Pour quels réels $m$ le trinôme $x^2-2mx+4$ est-il strictement positif pour tout réel $x$ ? Étudier les cas limites.",
+        "correction": "Le coefficient dominant est positif. La stricte positivité partout équivaut à l’absence de racine réelle, donc à $\\Delta=4m^2-16<0$. On obtient $m^2<4$, soit $-2<m<2$. Pour $m=2$, le trinôme vaut $(x-2)^2$ et s’annule en $2$ ; pour $m=-2$, il vaut $(x+2)^2$ et s’annule en $-2$. Ces cas limites ne conviennent donc pas."
+      }
+    ],
+    "quiz": [
+      {
+        "question": "Quel est le discriminant de $2x^2-3x+1$ ?",
+        "choices": [
+          "$1$",
+          "$5$",
+          "$17$",
+          "$-1$"
+        ],
+        "answer": 0,
+        "explanation": "$\\Delta=(-3)^2-4\\times2\\times1=9-8=1$."
+      },
+      {
+        "question": "Les racines de $x^2-5x+6$ sont :",
+        "choices": [
+          "$-2$ et $-3$",
+          "$2$ et $3$",
+          "$1$ et $6$",
+          "$-1$ et $-6$"
+        ],
+        "answer": 1,
+        "explanation": "$(x-2)(x-3)=x^2-5x+6$."
+      },
+      {
+        "question": "Quel est le minimum de $(x-4)^2+2$ sur $\\mathbb R$ ?",
+        "choices": [
+          "$4$",
+          "$0$",
+          "$2$",
+          "$-2$"
+        ],
+        "answer": 2,
+        "explanation": "Le carré est positif ou nul et s’annule en $4$ : le minimum vaut $2$."
+      },
+      {
+        "question": "Quand $-(x-1)(x-5)$ est-il strictement positif ?",
+        "choices": [
+          "$x<1$",
+          "$x>5$",
+          "Pour tout réel $x$",
+          "$1<x<5$"
+        ],
+        "answer": 3,
+        "explanation": "Entre les racines les deux facteurs ont des signes contraires, et le signe moins rend le produit positif."
+      },
+      {
+        "question": "Si $\\Delta=0$, combien y a-t-il de racines réelles distinctes ?",
+        "choices": [
+          "Une",
+          "Deux",
+          "Aucune",
+          "Cela dépend du signe de $a$"
+        ],
+        "answer": 0,
+        "explanation": "Les deux formules coïncident en $-b/(2a)$ : une racine double."
+      },
+      {
+        "question": "La somme des racines de $3x^2-12x+9$ vaut :",
+        "choices": [
+          "$3$",
+          "$4$",
+          "$9$",
+          "$-4$"
+        ],
+        "answer": 1,
+        "explanation": "La somme vaut $-b/a=12/3=4$."
+      },
+      {
+        "question": "Quelle est une forme canonique de $x^2+6x+5$ ?",
+        "choices": [
+          "$(x+3)^2+5$",
+          "$(x+6)^2-31$",
+          "$(x+3)^2-4$",
+          "$(x-3)^2-4$"
+        ],
+        "answer": 2,
+        "explanation": "$(x+3)^2-4=x^2+6x+9-4$."
+      },
+      {
+        "question": "Un trinôme de coefficient dominant positif et de discriminant négatif est :",
+        "choices": [
+          "Toujours négatif",
+          "Parfois nul",
+          "Positif seulement pour $x>0$",
+          "Strictement positif sur $\\mathbb R$"
+        ],
+        "answer": 3,
+        "explanation": "Il n’a aucune racine et conserve le signe de son coefficient dominant."
+      }
+    ],
+    "coverage": [
+      "Trois formes",
+      "Complétion du carré",
+      "Discriminant et preuve",
+      "Racines somme produit",
+      "Factorisation",
+      "Signes et inéquations",
+      "Parabole et optimisation"
+    ]
+  }
+]

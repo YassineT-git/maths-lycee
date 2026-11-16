@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper]{article}
+\newcommand{\fichetype}{Corrigé détaillé}
+\input{theme-fiches.tex}
+\begin{document}
+{\small\color{Blue}PREMIÈRE SPÉCIALITÉ}\par{\LARGE\bfseries Conditionnement et indépendance}\par{\large Corrigé détaillé}\par\vspace{0.2cm}\hrule\vspace{0.4cm}
+\par\noindent\begin{minipage}{\linewidth}\exercice{1}{Application}{Un tableau à compléter}
+{\small\color{Muted}\textbf{Énoncé.} Parmi $200$ élèves, $80$ suivent le club sciences $S$, $50$ le club théâtre $T$ et $20$ les deux. Compléter un tableau à double entrée. Calculer $P(S\cap T)$, $P_S(T)$ et $P_T(S)$.}
+\par\medskip
+\textbf{Résolution.}\par
+On compte $20$ élèves dans $S\cap T$, $80-20=60$ dans $S\cap\overline T$, $50-20=30$ dans $\overline S\cap T$, puis $200-20-60-30=90$ dans aucun club. Ainsi $P(S\cap T)=20/200=0,1$. Parmi les $80$ membres de $S$, $20$ sont dans $T$ : $P_S(T)=20/80=0,25$. Inversement $P_T(S)=20/50=0,4$. Les deux conditionnements sont distincts.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{2}{Application}{Lecture d’un arbre}
+{\small\color{Muted}\textbf{Énoncé.} $P(A)=0,7$, $P_A(B)=0,2$ et $P_{\overline A}(B)=0,6$. Donner les six poids de l’arbre, puis les quatre probabilités des chemins.}
+\par\medskip
+\textbf{Résolution.}\par
+Au premier niveau : $0,7$ et $0,3$. Après $A$ : $0,2$ et $0,8$. Après $\overline A$ : $0,6$ et $0,4$. Les chemins valent $P(A\cap B)=0,14$, $P(A\cap\overline B)=0,56$, $P(\overline A\cap B)=0,18$ et $P(\overline A\cap\overline B)=0,12$. On contrôle $0,14+0,56+0,18+0,12=1$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{3}{Entraînement}{Deux fournisseurs}
+{\small\color{Muted}\textbf{Énoncé.} Un magasin reçoit $75\%$ de ses produits de $F_1$ et $25\%$ de $F_2$. Les taux de défaut sont $1\%$ et $4\%$. Calculer la probabilité $P(D)$ d’un défaut, puis $P_D(F_2)$.}
+\par\medskip
+\textbf{Résolution.}\par
+Les fournisseurs forment une partition. Donc $P(D)=0,75\times0,01+0,25\times0,04=0,0075+0,01=0,0175$. Le taux global est $1,75\%$. On a $P(F_2\cap D)=0,01$, donc $P_D(F_2)=0,01/0,0175=4/7\approx0,5714$. Ainsi environ $57,1\%$ des produits défectueux viennent de $F_2$, bien que ce fournisseur ne livre qu’un quart des produits.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{4}{Entraînement}{Vérifier l’indépendance}
+{\small\color{Muted}\textbf{Énoncé.} On lance un dé équilibré. $A=\{2,4,6\}$ et $B=\{1,2,3,4\}$. Sont-ils indépendants ? Même question avec $C=\{1,3,5\}$ à la place de $B$.}
+\par\medskip
+\textbf{Résolution.}\par
+$P(A)=1/2$, $P(B)=4/6=2/3$ et $A\cap B=\{2,4\}$, donc $P(A\cap B)=1/3=(1/2)(2/3)$. Les événements $A$ et $B$ sont indépendants. En revanche $A\cap C=\varnothing$, donc $P(A\cap C)=0$, tandis que $P(A)P(C)=1/4$. Ils sont incompatibles et non indépendants.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{5}{Entraînement}{Trois tirs}
+{\small\color{Muted}\textbf{Énoncé.} Un joueur réussit chaque tir avec probabilité $0,7$. On suppose ses trois tirs indépendants. Calculer la probabilité de trois réussites, d’exactement deux réussites et d’au moins une réussite.}
+\par\medskip
+\textbf{Résolution.}\par
+Trois réussites donnent $0,7^3=0,343$. Exactement deux réussites peuvent apparaître sous les formes $SSE$, $SES$ et $ESS$. Chaque chemin vaut $0,7^2\times0,3=0,147$, d’où $3\times0,147=0,441$. Pour au moins une réussite, on prend le complément de trois échecs : $1-0,3^3=0,973$. L’hypothèse d’indépendance autorise les produits.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{6}{Entraînement}{Quatre composants}
+{\small\color{Muted}\textbf{Énoncé.} Quatre composants fonctionnent indépendamment avec une probabilité $0,9$ chacun. Un dispositif fonctionne s’ils fonctionnent tous. Un autre fonctionne dès qu’au moins un fonctionne. Comparer leurs probabilités de fonctionnement.}
+\par\medskip
+\textbf{Résolution.}\par
+Pour le premier dispositif, il faut le seul chemin de quatre succès : $0,9^4=0,6561$. Pour le second, l’unique situation d’échec est celle de quatre composants en panne : probabilité $0,1^4=0,0001$. Il fonctionne donc avec probabilité $1-0,0001=0,9999$. Ces résultats supposent que les pannes des composants sont indépendantes ; une cause commune invaliderait ce modèle.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{7}{Approfondissement}{Trois catégories}
+{\small\color{Muted}\textbf{Énoncé.} Une enquête fictive distingue trois catégories $A,B,C$ de proportions $0,2$, $0,5$, $0,3$. La probabilité d’une réponse positive $R$ vaut respectivement $0,8$, $0,4$, $0,1$. Calculer $P(R)$, puis la proportion de $A$ parmi les réponses positives. $A$ et $R$ sont-ils indépendants ?}
+\par\medskip
+\textbf{Résolution.}\par
+Par les probabilités totales, $P(R)=0,2\times0,8+0,5\times0,4+0,3\times0,1=0,16+0,20+0,03=0,39$. Ainsi $P_R(A)=0,16/0,39=16/39\approx0,4103$. Pour l’indépendance, $P_A(R)=0,8\ne0,39=P(R)$ : $A$ et $R$ ne sont pas indépendants. On peut aussi comparer $P(A\cap R)=0,16$ à $P(A)P(R)=0,078$.
+\end{minipage}\par
+\par\noindent\begin{minipage}{\linewidth}\exercice{8}{Approfondissement}{Un tirage sans remise}
+{\small\color{Muted}\textbf{Énoncé.} Une urne contient $3$ boules rouges et $2$ bleues. On tire deux boules sans remise. Construire les probabilités des branches, calculer la probabilité de deux rouges et montrer que les couleurs des deux tirages ne sont pas indépendantes.}
+\par\medskip
+\textbf{Résolution.}\par
+Au premier tirage, rouge a probabilité $3/5$, bleu $2/5$. Après rouge, il reste $2$ rouges et $2$ bleues : probabilités $1/2$ et $1/2$. Après bleu, il reste $3$ rouges et $1$ bleue : $3/4$ et $1/4$. Ainsi $P(R_1\cap R_2)=(3/5)(2/4)=3/10$. Les probabilités totales donnent $P(R_2)=3/10+(2/5)(3/4)=3/5$. Or $P_{R_1}(R_2)=1/2\ne3/5$ : les couleurs ne sont pas indépendantes.
+\end{minipage}\par
+\end{document}

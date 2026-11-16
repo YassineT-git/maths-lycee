@@ -1,0 +1,29 @@
+% Thème A4 commun, librement modifiable.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{lmodern,amsmath,amssymb,mathtools,tikz,pgfplots}
+\usepackage[margin=2.2cm,headheight=15pt]{geometry}
+\usepackage{xcolor,fancyhdr,enumitem,hyperref,needspace}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\pgfplotsset{compat=1.18,width=11cm,height=6cm}
+\definecolor{Ink}{HTML}{202124}
+\definecolor{Blue}{HTML}{356B9E}
+\definecolor{Muted}{HTML}{737579}
+\color{Ink}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlist{itemsep=3pt,topsep=4pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small\color{Muted}MATHS LYCÉE}
+\fancyhead[R]{\small\color{Muted}2026--2027}
+\fancyfoot[L]{\small\color{Muted}\fichetype}
+\fancyfoot[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\hypersetup{colorlinks=true,urlcolor=Blue,linkcolor=Blue}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathrm{V}}
+\newcommand{\exercice}[3]{\Needspace{6\baselineskip}\vspace{0.5cm}{\color{Blue}\small\textbf{EXERCICE #1}\hfill #2}\par{\large\bfseries #3}\par}

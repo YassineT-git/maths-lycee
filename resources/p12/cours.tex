@@ -1,0 +1,133 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\input{theme-slides.tex}
+\title{Variables aléatoires et espérance}
+\subtitle{Première spécialité}
+\renewcommand{\chapternumber}{12}\author{Maths Lycée}
+\date{Année scolaire 2026--2027}
+\begin{document}\begin{frame}\titlepage\end{frame}
+\begin{frame}{Objectifs du chapitre}\begin{itemize}
+\item Construire la loi d’une variable aléatoire finie
+\item Calculer et interpréter son espérance
+\item Utiliser la linéarité de l’espérance
+\item Calculer variance et écart-type
+\item Étudier l’équité et le risque d’un jeu
+\end{itemize}\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Transformer un résultat en nombre}
+On lance un dé équilibré. Un jeu rapporte $4$ euros si l’on obtient $6$ et fait perdre $1$ euro sinon.\medskip\par Le résultat du dé est une issue. Le gain associé est un nombre. On note $X$ ce gain : $X=4$ sur l’issue $6$, et $X=-1$ sur les cinq autres issues. $X$ est une variable aléatoire.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Définition d’une variable aléatoire}
+Une variable aléatoire réelle sur un univers fini associe un réel à chaque issue.\medskip\par Les événements $\{X=x\}$ rassemblent les issues produisant la valeur $x$.\medskip\par Pour construire une loi, on liste les \textbf{valeurs distinctes} de $X$, puis on calcule la probabilité de chacune. Plusieurs issues peuvent donner la même valeur.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une loi de probabilité}
+Pour le jeu du dé :\begin{center}\begin{tabular}{c|cc}$x_i$&$-1$&$4$\\\hline$P(X=x_i)$&$5/6$&$1/6$\end{tabular}\end{center}Toute loi vérifie $p_i\ge0$ et $\sum_i p_i=1$.\medskip\par Ces conditions permettent de contrôler un tableau. Les valeurs $x_i$ peuvent être négatives, mais les probabilités ne le peuvent pas.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Calculer une probabilité à partir de la loi}
+Supposons que $X$ prenne $0$, $2$, $5$ avec probabilités $0,2$, $0,5$, $0,3$.\[P(X\ge2)=P(X=2)+P(X=5)=0,8.\]\[P(0<X<5)=P(X=2)=0,5.\]On traduit d’abord l’inégalité en une liste de valeurs possibles, puis on additionne leurs probabilités.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Espérance : moyenne théorique}
+Pour une loi finie $(x_i,p_i)$,\[\boxed{E(X)=\sum_i x_i p_i}.\]L’espérance est une moyenne pondérée des valeurs possibles. Elle possède la même unité que $X$.\medskip\par Elle décrit le gain moyen attendu sur un grand nombre de répétitions dans les mêmes conditions, sans prédire le résultat d’une expérience isolée.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Espérance d’un jeu}
+Pour le jeu du dé,\[E(X)=(-1)\frac56+4\frac16=-\frac16.\]Le joueur perd en moyenne environ $0,17$ euro par partie sur une longue série.\medskip\par L’espérance $-1/6$ n’est pas une valeur possible du gain. Il ne faut donc pas l’interpréter comme un résultat certain ou comme le résultat le plus probable.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Jeu équitable et prix d’entrée}
+Un jeu est dit équitable pour le joueur si son \textbf{gain net} a une espérance nulle.\medskip\par Si un lot brut $L$ est gagné et si la participation coûte $c$, le gain net est $G=L-c$. Alors\[E(G)=E(L)-c.\]Le prix équitable est donc $c=E(L)$. Il faut déduire la mise avant de juger l’équité.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Linéarité de l’espérance}
+Pour des variables finies $X,Y$ et des réels $a,b$,\[\boxed{E(aX+bY)=aE(X)+bE(Y)}.\]En particulier, $E(X+c)=E(X)+c$.\medskip\par Cette propriété ne demande \textbf{pas} l’indépendance. Elle permet de calculer une moyenne totale sans construire toute la loi du total.
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Pourquoi l’espérance est linéaire}
+En sommant sur toutes les issues $\omega$,\[E(X+Y)=\sum_{\omega}(X(\omega)+Y(\omega))P(\{\omega\}).\]La distributivité sépare cette somme en\[\sum_{\omega}X(\omega)P(\{\omega\})+\sum_{\omega}Y(\omega)P(\{\omega\}).\]On obtient $E(X+Y)=E(X)+E(Y)$. Le même calcul traite les coefficients réels.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Compter des succès par indicatrices}
+Une variable indicatrice $I$ vaut $1$ si un événement $A$ se produit et $0$ sinon.\[E(I)=1P(A)+0P(\overline A)=P(A).\]Si $N=I_1+I_2+I_3$ compte trois succès de probabilité $p$, alors $E(N)=3p$. Cette conclusion utilise seulement la linéarité, même si les indicatrices ne sont pas indépendantes.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{La moyenne ne décrit pas le risque}
+Le jeu $U$ donne toujours $2$ euros. Le jeu $V$ donne $0$ ou $4$ euros avec probabilités $1/2$.\[E(U)=E(V)=2.\]Pourtant $U$ est certain et $V$ fluctue. Pour quantifier cette dispersion autour de l’espérance, on introduit la variance.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Définition de la variance}
+\[\boxed{V(X)=E\bigl((X-E(X))^2\bigr)=\sum_i(x_i-E(X))^2p_i}.\]Chaque carré est positif ou nul, donc $V(X)\ge0$.\medskip\par La variance mesure un écart quadratique moyen. Si $X$ est en euros, $V(X)$ est en euros carrés.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Écart-type}
+\[\boxed{\sigma(X)=\sqrt{V(X)}}.\]L’écart-type a la même unité que $X$, ce qui facilite l’interprétation.\medskip\par Pour $V$ qui vaut $0$ ou $4$ équiprobablement,\[V(V)=\tfrac12(0-2)^2+\tfrac12(4-2)^2=4,\quad\sigma(V)=2.\]Il s’agit d’un indicateur de dispersion, pas d’un écart maximal.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Formule de König-Huygens}
+La variance se calcule aussi par\[\boxed{V(X)=E(X^2)-E(X)^2}.\]Attention :\[E(X^2)=\sum_i x_i^2p_i\]et $E(X)^2=\left(\sum_i x_ip_i\right)^2$ sont deux quantités différentes. La formule est souvent plus rapide que la définition.
+\end{frame}
+\renewcommand{\slidekind}{JUSTIFIER}
+\begin{frame}[t,fragile]{Démonstration de König-Huygens}
+Posons $m=E(X)$. On développe\[(X-m)^2=X^2-2mX+m^2.\]Par linéarité,\[V(X)=E(X^2)-2mE(X)+m^2.\]Comme $E(X)=m$, on obtient $V(X)=E(X^2)-m^2$. Cette preuve explique pourquoi il faut soustraire le carré de la moyenne.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Un calcul complet}
+$X$ vaut $0$, $2$, $5$ avec probabilités $0,2$, $0,5$, $0,3$.\[E(X)=0+1+1,5=2,5.\]\[E(X^2)=0+4\times0,5+25\times0,3=9,5.\]\[V(X)=9,5-2,5^2=3,25.\]\[\sigma(X)=\sqrt{3,25}\approx1,803.\]On conserve les valeurs exactes jusqu’au calcul final.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Transformation affine}
+Pour $Y=aX+b$,\[E(Y)=aE(X)+b,\quad V(Y)=a^2V(X),\quad\sigma(Y)=|a|\sigma(X).\]Ajouter une constante déplace les valeurs sans changer leur dispersion. Multiplier par $a$ multiplie les distances à la moyenne par $|a|$. Le carré dans la variance garantit un résultat non négatif.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Variance nulle et certitude}
+Si toutes les valeurs de probabilité non nulle sont égales à une constante $c$, alors $V(X)=0$.\medskip\par Réciproquement, si $V(X)=\sum_i(x_i-E(X))^2p_i=0$, chaque terme non négatif est nul. Pour tout $p_i>0$, on a $x_i=E(X)$.\medskip\par La variable est donc constante avec probabilité $1$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une activité de comparaison}
+Deux jeux ont même espérance $1$. Le premier donne $0$ ou $2$ équiprobablement ; le second donne $-9$ ou $11$ équiprobablement.\medskip\par Leurs écarts-types valent respectivement $1$ et $10$. Une même moyenne peut donc masquer des risques très différents. Le choix d’un jeu ne se résume pas à son espérance.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Bilan des calculs}
+\begin{enumerate}\item Construire la loi et vérifier que les probabilités somment à $1$.\item Calculer $m=\sum x_ip_i$.\item Calculer $E(X^2)=\sum x_i^2p_i$.\item En déduire $V(X)=E(X^2)-m^2$ puis $\sigma(X)$.\end{enumerate}Interpréter avec les unités. Ne pas confondre gain brut, gain net et espérance.
+\end{frame}
+\renewcommand{\slidekind}{MÉTHODE \& EXEMPLE}
+\begin{frame}[t,fragile]{Un tableau de calcul complet}
+$X$ prend $-2$, $1$ et $4$ avec probabilités $0,25$, $0,5$, $0,25$.\[E(X)=-2(0,25)+1(0,5)+4(0,25)=1.\]\[E(X^2)=4(0,25)+1(0,5)+16(0,25)=5,5.\]\[V(X)=5,5-1^2=4,5,\qquad\sigma(X)=\sqrt{4,5}.\] On met au carré les valeurs de $X$, pas les probabilités.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Espérance ne signifie pas résultat possible}
+Un dé équilibré a pour espérance $3,5$. Pourtant aucun lancer ne peut donner $3,5$.\medskip\par L’espérance décrit une moyenne théorique pondérée, pas l’issue la plus probable ni un résultat certain. Dans un jeu, elle ne garantit pas le gain d’une partie.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Ajouter un prix fixe}
+Un gain brut $X$ a $E(X)=5$ euros et $\sigma(X)=3$ euros. Si la participation coûte $4$ euros, le gain net est $Y=X-4$.\[E(Y)=1,\qquad V(Y)=V(X)=9,\qquad\sigma(Y)=3.\] Soustraire une constante décale toutes les valeurs sans modifier leur dispersion.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Linéarité sans indépendance}
+Pour tout couple de variables finies $X,Y$,\[E(X+Y)=E(X)+E(Y).\] L’indépendance n’est pas nécessaire. En revanche, on ne peut pas additionner automatiquement leurs variances. Par exemple $Y=X$ donne $V(X+Y)=V(2X)=4V(X)$, et non $2V(X)$.
+\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE}
+\begin{frame}[t,fragile]{Une loi représentée par des bâtons}
+\begin{columns}[c,onlytextwidth]\begin{column}{.60\textwidth}\centering\begin{adjustbox}{max width=\linewidth,max height=3.7cm}\begin{tikzpicture}\begin{axis}[width=9cm,height=4.4cm,axis lines=left,xmin=-3,xmax=5,ymin=0,ymax=.6,xtick={-2,1,4},xlabel={$x_i$},ylabel={$P(X=x_i)$}]\addplot[Blue,ycomb,very thick,mark=*]coordinates{(-2,.25)(1,.5)(4,.25)};\end{axis}\end{tikzpicture}\end{adjustbox}\end{column}\begin{column}{.36\textwidth} Les hauteurs représentent des probabilités et leur somme vaut $1$. L’espérance vaut $1$ : c’est le centre d’équilibre de cette distribution symétrique.\end{column}\end{columns}
+\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 1}
+$X$ vaut $0$ ou $10$ avec probabilités $0,8$ et $0,2$. $E(X)=$\begin{enumerate}
+\item $5$
+\item $2$
+\item $8$
+\item $10$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 1 : résolution}
+\begin{block}{Réponse 2}$2$\end{block}\medskip $E(X)=0\times0,8+10\times0,2=2$.\end{frame}
+\renewcommand{\slidekind}{À VOUS DE JOUER}\begin{frame}[t]{Vérification des acquis 2}
+Si $V(X)=2$, alors $V(-3X+7)=$\begin{enumerate}
+\item $1$
+\item $-6$
+\item $6$
+\item $18$
+\end{enumerate}\medskip Une seule réponse est correcte. Justifier votre choix.\end{frame}
+\renewcommand{\slidekind}{COMPRENDRE LA RÉPONSE}\begin{frame}[t]{Vérification 2 : résolution}
+\begin{block}{Réponse 4}$18$\end{block}\medskip Une translation ne change pas la variance et le coefficient est mis au carré : $(-3)^2\times2=18$.\end{frame}
+\end{document}
